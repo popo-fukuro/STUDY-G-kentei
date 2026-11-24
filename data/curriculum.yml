@@ -1,0 +1,252 @@
+# 講義カリキュラム（全28回）
+# - items にシラバス項目ID（data/syllabus.yml）を書く。その項目のキーワードは全部この回の担当になる。
+# - status: planned（未作成）／ published（公開済み）。公開したら page に docs/ からの相対パスを書く。
+# - minutes は「講義を読む＋確認テスト」の目安（1日30分なら minutes/30 日）。
+# - 編集したら python scripts/build_tables.py を実行して、カリキュラム表と網羅チェック表を作り直す。
+
+parts:
+  - id: P1
+    name: AIの全体像と歴史
+  - id: P2
+    name: 機械学習
+  - id: P3
+    name: ディープラーニングの基礎
+  - id: P4
+    name: ディープラーニングの要素技術
+  - id: P5
+    name: ディープラーニングの応用例
+  - id: P6
+    name: 社会実装と数理・統計
+  - id: P7
+    name: AIに関する法律と契約
+  - id: P8
+    name: AI倫理・AIガバナンス
+  - id: P9
+    name: 総仕上げ
+
+lectures:
+  - number: 1
+    part: P1
+    title: 人工知能とは？ 定義と「AIの難問」
+    items: [T01, T02]
+    minutes: 60
+    focus: AI効果・強いAI/弱いAI・フレーム問題・シンボルグラウンディング問題の区別
+    status: planned
+    page: null
+  - number: 2
+    part: P1
+    title: 探索・推論と知識表現（第1次・第2次AIブーム）
+    items: [T03, T04]
+    minutes: 90
+    focus: ブームごとの代表技術と限界、エキスパートシステムの名前と分野
+    status: planned
+    page: null
+  - number: 3
+    part: P1
+    title: 機械学習とディープラーニングの登場（第3次AIブーム〜生成AI）
+    items: [T05, T06]
+    minutes: 60
+    focus: ILSVRC 2012・AlphaGo・ネオコグニトロンなど人名・年号・モデル名
+    status: planned
+    page: null
+  - number: 4
+    part: P2
+    title: 教師あり学習（回帰・分類・アンサンブル）
+    items: [T07]
+    minutes: 90
+    focus: 線形回帰〜ロジスティック回帰、SVM、決定木とバギング/ブースティング
+    status: planned
+    page: null
+  - number: 5
+    part: P2
+    title: 教師なし学習（クラスタリング・次元削減・推薦）
+    items: [T08]
+    minutes: 60
+    focus: k-means/ウォード法、PCA/t-SNE、協調フィルタリングとコールドスタート
+    status: planned
+    page: null
+  - number: 6
+    part: P2
+    title: 強化学習
+    items: [T09]
+    minutes: 90
+    focus: マルコフ決定過程、価値関数、Q学習とSARSA、バンディット
+    status: planned
+    page: null
+  - number: 7
+    part: P2
+    title: モデルの選択・評価
+    items: [T10]
+    minutes: 90
+    focus: 混同行列から適合率・再現率・F値を計算、交差検証、AIC/BIC
+    status: planned
+    page: null
+  - number: 8
+    part: P3
+    title: ニューラルネットワークと活性化関数
+    items: [T11, T12]
+    minutes: 60
+    focus: パーセプトロンの限界、シグモイド/ReLU/ソフトマックスの使い分け
+    status: planned
+    page: null
+  - number: 9
+    part: P3
+    title: 誤差関数・正則化・誤差逆伝播法
+    items: [T13, T14, T15]
+    minutes: 90
+    focus: タスクと誤差関数の対応、L1とL2の違い、連鎖律と勾配消失
+    status: planned
+    page: null
+  - number: 10
+    part: P3
+    title: 最適化手法（勾配降下法とその仲間）
+    items: [T16]
+    minutes: 90
+    focus: SGD〜Adamの系譜、学習率、バッチ/ミニバッチ/オンライン、ハイパーパラメータ探索
+    status: planned
+    page: null
+  - number: 11
+    part: P4
+    title: CNNの部品（全結合・畳み込み・正規化・プーリング・スキップ結合）
+    items: [T17, T18, T19, T20, T21]
+    minutes: 90
+    focus: 出力サイズの計算、4種類の正規化の違い、ResNetのスキップ結合
+    status: planned
+    page: null
+  - number: 12
+    part: P4
+    title: RNNとAttention・Transformer
+    items: [T22, T23]
+    minutes: 120
+    focus: LSTM/GRUのゲート、Self-AttentionのQ・K・V、位置エンコーディング
+    status: planned
+    page: null
+  - number: 13
+    part: P4
+    title: オートエンコーダとデータ拡張
+    items: [T24, T25]
+    minutes: 60
+    focus: VAEと派生モデル、画像とテキストのデータ拡張手法
+    status: planned
+    page: null
+  - number: 14
+    part: P5
+    title: 画像認識（分類・物体検出・セグメンテーション）
+    items: [T26]
+    minutes: 120
+    focus: モデルの系譜と年代、2段階/1段階の物体検出、3種類のセグメンテーション
+    status: planned
+    page: null
+  - number: 15
+    part: P5
+    title: 自然言語処理と大規模言語モデル
+    items: [T27]
+    minutes: 120
+    focus: BoW〜word2vec〜BERT/GPTの流れ、LLMの仕組みと評価
+    status: planned
+    page: null
+  - number: 16
+    part: P5
+    title: 音声処理
+    items: [T28]
+    minutes: 60
+    focus: A-D変換〜MFCC、音声認識（HMM・CTC）と音声合成（WaveNet）
+    status: planned
+    page: null
+  - number: 17
+    part: P5
+    title: 深層強化学習
+    items: [T29]
+    minutes: 90
+    focus: DQNとその改良（Rainbow）、AlphaStar/OpenAI Five、RLHF、sim2real
+    status: planned
+    page: null
+  - number: 18
+    part: P5
+    title: データ生成（生成モデル）と転移学習
+    items: [T30, T31]
+    minutes: 90
+    focus: GAN・VAE・拡散モデルの違い、事前学習とファインチューニング、Few-shot
+    status: planned
+    page: null
+  - number: 19
+    part: P5
+    title: マルチモーダル・モデルの解釈性・軽量化
+    items: [T32, T33, T34]
+    minutes: 90
+    focus: CLIP/DALL-E と基盤モデル、Grad-CAM/LIME/SHAP、蒸留・量子化・プルーニング
+    status: planned
+    page: null
+  - number: 20
+    part: P6
+    title: AIプロジェクトの進め方とデータ
+    items: [T35, T36]
+    minutes: 90
+    focus: CRISP-DM/CRISP-ML の工程、PoC と MLOps、データリーケージ
+    status: planned
+    page: null
+  - number: 21
+    part: P6
+    title: AIに必要な数理・統計知識
+    items: [T37]
+    minutes: 120
+    focus: 代表値とばらつき、確率分布、相関と疑似相関、検定、距離と類似度
+    status: planned
+    page: null
+  - number: 22
+    part: P7
+    title: 個人情報保護法
+    items: [E01]
+    minutes: 60
+    focus: 個人情報/個人データ/保有個人データの違い、仮名加工と匿名加工、GDPR
+    status: planned
+    page: null
+  - number: 23
+    part: P7
+    title: 知的財産と競争のルール（著作権・特許・不正競争防止・独占禁止）
+    items: [E02, E03, E04, E05]
+    minutes: 90
+    focus: 著作権法30条の4とAI生成物、特許の要件、営業秘密と限定提供データ
+    status: planned
+    page: null
+  - number: 24
+    part: P7
+    title: AI開発委託契約とAIサービス提供契約
+    items: [E06, E07]
+    minutes: 60
+    focus: 請負と準委任、探索的段階型の開発、精度保証、利用規約とデータ利用権
+    status: planned
+    page: null
+  - number: 25
+    part: P8
+    title: AI倫理の原則・国内外のガイドライン・プライバシー・公平性
+    items: [E08, E09, E10]
+    minutes: 90
+    focus: ハードローとソフトロー、AI推進法・AI事業者ガイドライン・EU AI法、バイアス
+    status: planned
+    page: null
+  - number: 26
+    part: P8
+    title: 安全性・悪用・透明性・民主主義
+    items: [E11, E12, E13, E14]
+    minutes: 60
+    focus: 敵対的攻撃とデータ汚染、ディープフェイク、説明可能性、エコーチェンバー
+    status: planned
+    page: null
+  - number: 27
+    part: P8
+    title: 環境・労働・その他の価値とAIガバナンス
+    items: [E15, E16, E17, E18]
+    minutes: 60
+    focus: 電力消費、AIとの協働、人間の関与と監査、トレーサビリティ
+    status: planned
+    page: null
+  - number: 28
+    part: P9
+    title: 総仕上げ：模擬試験と弱点つぶし
+    items: []
+    review: true
+    minutes: 120
+    focus: 全範囲の模擬問題、取りこぼしキーワードの総点検、時間配分の練習
+    status: planned
+    page: null

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="t d" font-family="'M PLUS Rounded 1c','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif">
+  <title id="t">講義1回分の流れ</title>
+  <desc id="d">今日のゴール、全体像の図、本題（キーワードごとの図解）、身近な具体例、試験ポイントとひっかけ、まとめ、確認テスト、参考資料の8ステップを、2段に並べたカードと矢印で示した図。1段目は左から右、2段目は右から左に進む。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F8FC"/><stop offset="1" stop-color="#EEF0FF"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#9AA2CC"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1F2A5C" flood-opacity="0.10"/></filter>
+  </defs>
+  <rect x="0" y="0" width="800" height="380" rx="24" fill="url(#bg)"/>
+  <text x="40" y="48" font-size="22" font-weight="800" fill="#1F2A5C">講義1回分の流れ</text>
+  <text x="40" y="74" font-size="15" fill="#6B7280">毎回この順番：ゴール → 図 → 本題 → 例 → ポイント → まとめ → テスト</text>
+  <g filter="url(#shadow)"><rect x="40" y="100" width="165" height="112" rx="16" fill="#FFFFFF"/></g>
+  <rect x="40" y="100" width="165" height="8" rx="4" fill="#12A594"/>
+  <circle cx="68" cy="140" r="16" fill="#12A594"/><text x="68" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+  <text x="92" y="146" font-size="17" font-weight="800" fill="#1F2A5C">今日のゴール</text>
+  <text x="56" y="180" font-size="14" fill="#6B7280">何ができれば合格か</text>
+  <text x="56" y="198" font-size="14" fill="#6B7280">を3〜5行で</text>
+  <g filter="url(#shadow)"><rect x="225" y="100" width="165" height="112" rx="16" fill="#FFFFFF"/></g>
+  <rect x="225" y="100" width="165" height="8" rx="4" fill="#2E9BEA"/>
+  <circle cx="253" cy="140" r="16" fill="#2E9BEA"/><text x="253" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="277" y="146" font-size="17" font-weight="800" fill="#1F2A5C">全体像の図</text>
+  <text x="241" y="180" font-size="14" fill="#6B7280">今日の語の地図を</text>
+  <text x="241" y="198" font-size="14" fill="#6B7280">1枚で見る</text>
+  <g filter="url(#shadow)"><rect x="410" y="100" width="165" height="112" rx="16" fill="#FFFFFF"/></g>
+  <rect x="410" y="100" width="165" height="8" rx="4" fill="#4F5BD5"/>
+  <circle cx="438" cy="140" r="16" fill="#4F5BD5"/><text x="438" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">3</text>
+  <text x="462" y="146" font-size="17" font-weight="800" fill="#1F2A5C">本題</text>
+  <text x="426" y="180" font-size="14" fill="#6B7280">キーワードごとに</text>
+  <text x="426" y="198" font-size="14" fill="#6B7280">定義・図・違い</text>
+  <g filter="url(#shadow)"><rect x="595" y="100" width="165" height="112" rx="16" fill="#FFFFFF"/></g>
+  <rect x="595" y="100" width="165" height="8" rx="4" fill="#2E9BEA"/>
+  <circle cx="623" cy="140" r="16" fill="#2E9BEA"/><text x="623" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">4</text>
+  <text x="647" y="146" font-size="17" font-weight="800" fill="#1F2A5C">具体例</text>
+  <text x="611" y="180" font-size="14" fill="#6B7280">身近なたとえで</text>
+  <text x="611" y="198" font-size="14" fill="#6B7280">イメージを固める</text>
+  <g filter="url(#shadow)"><rect x="595" y="256" width="165" height="100" rx="16" fill="#FFFFFF"/></g>
+  <rect x="595" y="256" width="165" height="8" rx="4" fill="#F5A524"/>
+  <circle cx="623" cy="296" r="16" fill="#F5A524"/><text x="623" y="302" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">5</text>
+  <text x="647" y="302" font-size="17" font-weight="800" fill="#1F2A5C">試験ポイント</text>
+  <text x="611" y="336" font-size="14" fill="#6B7280">出方とひっかけ</text>
+  <g filter="url(#shadow)"><rect x="410" y="256" width="165" height="100" rx="16" fill="#FFFFFF"/></g>
+  <rect x="410" y="256" width="165" height="8" rx="4" fill="#12A594"/>
+  <circle cx="438" cy="296" r="16" fill="#12A594"/><text x="438" y="302" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">6</text>
+  <text x="462" y="302" font-size="17" font-weight="800" fill="#1F2A5C">まとめ</text>
+  <text x="426" y="336" font-size="14" fill="#6B7280">覚える用語の一覧表</text>
+  <g filter="url(#shadow)"><rect x="225" y="256" width="165" height="100" rx="16" fill="#FFFFFF"/></g>
+  <rect x="225" y="256" width="165" height="8" rx="4" fill="#F2645A"/>
+  <circle cx="253" cy="296" r="16" fill="#F2645A"/><text x="253" y="302" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">7</text>
+  <text x="277" y="302" font-size="17" font-weight="800" fill="#1F2A5C">確認テスト</text>
+  <text x="241" y="336" font-size="14" fill="#6B7280">答えは折りたたみ</text>
+  <g filter="url(#shadow)"><rect x="40" y="256" width="165" height="100" rx="16" fill="#FFFFFF"/></g>
+  <rect x="40" y="256" width="165" height="8" rx="4" fill="#6B7280"/>
+  <circle cx="68" cy="296" r="16" fill="#6B7280"/><text x="68" y="302" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">8</text>
+  <text x="92" y="302" font-size="17" font-weight="800" fill="#1F2A5C">参考資料</text>
+  <text x="56" y="336" font-size="14" fill="#6B7280">一次情報の出典</text>
+  <g stroke="#9AA2CC" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <line x1="208" y1="156" x2="220" y2="156"/>
+    <line x1="393" y1="156" x2="405" y2="156"/>
+    <line x1="578" y1="156" x2="590" y2="156"/>
+    <line x1="677" y1="216" x2="677" y2="250"/>
+    <line x1="592" y1="312" x2="580" y2="312"/>
+    <line x1="407" y1="312" x2="395" y2="312"/>
+    <line x1="222" y1="312" x2="210" y2="312"/>
+  </g>
+</svg>
