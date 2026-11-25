@@ -108,6 +108,8 @@ nav:
       - 学習計画: guide/study-plan.md
   - 講義:
       - lectures/index.md
+      - AIの全体像と歴史:
+          - 第1回 人工知能とは？: lectures/01-what-is-ai.md
       - デザイン見本: lectures/style-guide.md
   - Q&Aノート:
       - notes/index.md

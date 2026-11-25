@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="t d" font-family="'M PLUS Rounded 1c','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif">
+  <title id="t">第1回の全体像：AIとは何か、何が難しいか</title>
+  <desc id="d">第1回の18語を4つのグループに分けた図。1 AIの定義（人工知能・機械学習・ディープラーニング・エージェント・AI効果）、2 知能をどうはかるか（ダートマス会議・チューリングテスト・ローブナーコンテスト・強いAIと弱いAI・中国語の部屋）、3 AIの難問（トイ・プロブレム・知識獲得のボトルネック・フレーム問題・シンボルグラウンディング問題・身体性）、4 機械翻訳の移り変わりと未来（ルールベース機械翻訳・統計的機械翻訳・シンギュラリティ）。1から4へ矢印で順に進む。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F8FC"/><stop offset="1" stop-color="#EEF0FF"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#9AA2CC"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1F2A5C" flood-opacity="0.10"/></filter>
+  </defs>
+  <rect x="0" y="0" width="800" height="560" rx="24" fill="url(#bg)"/>
+  <text x="40" y="48" font-size="22" font-weight="800" fill="#1F2A5C">第1回の地図：AIとは何か、何が難しいか</text>
+  <text x="40" y="74" font-size="15" fill="#6B7280">18語を4つのまとまりで覚える</text>
+  <g filter="url(#shadow)"><rect x="40" y="100" width="340" height="206" rx="16" fill="#FFFFFF"/></g>
+  <rect x="40" y="100" width="340" height="8" rx="4" fill="#2E9BEA"/>
+  <circle cx="70" cy="140" r="16" fill="#2E9BEA"/>
+  <text x="70" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+  <text x="96" y="147" font-size="19" font-weight="800" fill="#1F2A5C">AIの定義</text>
+  <circle cx="66" cy="179" r="4" fill="#2E9BEA"/>
+  <text x="78" y="184" font-size="15" font-weight="700" fill="#1F2A5C">人工知能 ⊃ 機械学習</text>
+  
+  <text x="78" y="210" font-size="15" font-weight="700" fill="#1F2A5C">　⊃ ディープラーニング</text>
+  <circle cx="66" cy="231" r="4" fill="#2E9BEA"/>
+  <text x="78" y="236" font-size="15" font-weight="700" fill="#1F2A5C">エージェント</text>
+  <text x="364" y="236" font-size="14" fill="#6B7280" text-anchor="end">観測して行動する主体</text>
+  <circle cx="66" cy="257" r="4" fill="#2E9BEA"/>
+  <text x="78" y="262" font-size="15" font-weight="700" fill="#1F2A5C">AI効果</text>
+  <text x="364" y="262" font-size="14" fill="#6B7280" text-anchor="end">実現すると「AIでない」扱い</text>
+  <g filter="url(#shadow)"><rect x="420" y="100" width="340" height="206" rx="16" fill="#FFFFFF"/></g>
+  <rect x="420" y="100" width="340" height="8" rx="4" fill="#4F5BD5"/>
+  <circle cx="450" cy="140" r="16" fill="#4F5BD5"/>
+  <text x="450" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="476" y="147" font-size="19" font-weight="800" fill="#1F2A5C">知能をどうはかる？</text>
+  <circle cx="446" cy="179" r="4" fill="#4F5BD5"/>
+  <text x="458" y="184" font-size="15" font-weight="700" fill="#1F2A5C">ダートマス会議</text>
+  <text x="744" y="184" font-size="14" fill="#6B7280" text-anchor="end">1956年・AIの名づけ</text>
+  <circle cx="446" cy="205" r="4" fill="#4F5BD5"/>
+  <text x="458" y="210" font-size="15" font-weight="700" fill="#1F2A5C">チューリングテスト</text>
+  <text x="744" y="210" font-size="14" fill="#6B7280" text-anchor="end">1950年・会話で判定</text>
+  <circle cx="446" cy="231" r="4" fill="#4F5BD5"/>
+  <text x="458" y="236" font-size="15" font-weight="700" fill="#1F2A5C">ローブナーコンテスト</text>
+  <text x="744" y="236" font-size="14" fill="#6B7280" text-anchor="end">1991年〜</text>
+  <circle cx="446" cy="257" r="4" fill="#4F5BD5"/>
+  <text x="458" y="262" font-size="15" font-weight="700" fill="#1F2A5C">強いAIと弱いAI</text>
+  <text x="744" y="262" font-size="14" fill="#6B7280" text-anchor="end">サール</text>
+  <circle cx="446" cy="283" r="4" fill="#4F5BD5"/>
+  <text x="458" y="288" font-size="15" font-weight="700" fill="#1F2A5C">中国語の部屋</text>
+  <text x="744" y="288" font-size="14" fill="#6B7280" text-anchor="end">1980年・サール</text>
+  <g filter="url(#shadow)"><rect x="40" y="330" width="340" height="206" rx="16" fill="#FFFFFF"/></g>
+  <rect x="40" y="330" width="340" height="8" rx="4" fill="#F2645A"/>
+  <circle cx="70" cy="370" r="16" fill="#F2645A"/>
+  <text x="70" y="376" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">3</text>
+  <text x="96" y="377" font-size="19" font-weight="800" fill="#1F2A5C">AIの難問（壁）</text>
+  <circle cx="66" cy="409" r="4" fill="#F2645A"/>
+  <text x="78" y="414" font-size="15" font-weight="700" fill="#1F2A5C">トイ・プロブレム</text>
+  <text x="364" y="414" font-size="14" fill="#6B7280" text-anchor="end">第1次ブームの壁</text>
+  <circle cx="66" cy="435" r="4" fill="#F2645A"/>
+  <text x="78" y="440" font-size="15" font-weight="700" fill="#1F2A5C">知識獲得のボトルネック</text>
+  <text x="364" y="440" font-size="14" fill="#6B7280" text-anchor="end">第2次ブームの壁</text>
+  <circle cx="66" cy="461" r="4" fill="#F2645A"/>
+  <text x="78" y="466" font-size="15" font-weight="700" fill="#1F2A5C">フレーム問題</text>
+  <text x="364" y="466" font-size="14" fill="#6B7280" text-anchor="end">1969年・マッカーシーら</text>
+  <circle cx="66" cy="487" r="4" fill="#F2645A"/>
+  <text x="78" y="492" font-size="15" font-weight="700" fill="#1F2A5C">シンボルグラウンディング問題</text>
+  <circle cx="66" cy="513" r="4" fill="#F2645A"/>
+  <text x="78" y="518" font-size="15" font-weight="700" fill="#1F2A5C">身体性</text>
+  <text x="364" y="518" font-size="14" fill="#6B7280" text-anchor="end">体を通じた経験が大事</text>
+  <g filter="url(#shadow)"><rect x="420" y="330" width="340" height="206" rx="16" fill="#FFFFFF"/></g>
+  <rect x="420" y="330" width="340" height="8" rx="4" fill="#2E9BEA"/>
+  <circle cx="450" cy="370" r="16" fill="#2E9BEA"/>
+  <text x="450" y="376" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">4</text>
+  <text x="476" y="377" font-size="19" font-weight="800" fill="#1F2A5C">機械翻訳と未来</text>
+  <circle cx="446" cy="409" r="4" fill="#2E9BEA"/>
+  <text x="458" y="414" font-size="15" font-weight="700" fill="#1F2A5C">ルールベース機械翻訳</text>
+  <text x="744" y="414" font-size="14" fill="#6B7280" text-anchor="end">人が規則を書く</text>
+  <circle cx="446" cy="435" r="4" fill="#2E9BEA"/>
+  <text x="458" y="440" font-size="15" font-weight="700" fill="#1F2A5C">統計的機械翻訳</text>
+  <text x="744" y="440" font-size="14" fill="#6B7280" text-anchor="end">対訳データの確率</text>
+  <circle cx="446" cy="461" r="4" fill="#2E9BEA"/>
+  <text x="458" y="466" font-size="15" font-weight="700" fill="#1F2A5C">シンギュラリティ</text>
+  <text x="744" y="466" font-size="14" fill="#6B7280" text-anchor="end">2045年・カーツワイル</text>
+  <line x1="383" y1="203" x2="414" y2="203" stroke="#9AA2CC" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M590 310 L590 318 L210 318 L210 324" stroke="#9AA2CC" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <line x1="383" y1="433" x2="414" y2="433" stroke="#9AA2CC" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>

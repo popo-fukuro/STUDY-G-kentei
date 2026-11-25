@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="t d" font-family="'M PLUS Rounded 1c','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif">
+  <title id="t">人工知能・機械学習・ディープラーニングの関係とAIのレベル分け</title>
+  <desc id="d">左は入れ子の円。いちばん外が人工知能、その中に機械学習、さらにその中にディープラーニングがある。右はAIのレベル分けの4段。レベル1 単純な制御プログラム、レベル2 古典的な人工知能（探索・推論・知識）、レベル3 機械学習を取り入れた人工知能、レベル4 ディープラーニングを取り入れた人工知能。下ほど高度になる。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F8FC"/><stop offset="1" stop-color="#EEF0FF"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#9AA2CC"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1F2A5C" flood-opacity="0.10"/></filter>
+  </defs>
+  <rect x="0" y="0" width="800" height="440" rx="24" fill="url(#bg)"/>
+  <text x="40" y="48" font-size="22" font-weight="800" fill="#1F2A5C">AI ⊃ 機械学習 ⊃ ディープラーニング</text>
+  <text x="40" y="74" font-size="15" fill="#6B7280">大きい箱の中に、小さい箱が入っている（入れ子）</text>
+  <circle cx="210" cy="265" r="160" fill="#E6F3FD" stroke="#2E9BEA" stroke-width="3"/>
+  <circle cx="210" cy="297" r="112" fill="#EEF0FF" stroke="#4F5BD5" stroke-width="3"/>
+  <circle cx="210" cy="327" r="66" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3"/>
+  <text x="210" y="143" font-size="18" font-weight="800" fill="#1F2A5C" text-anchor="middle">人工知能（AI）</text>
+  <text x="210" y="167" font-size="14" fill="#6B7280" text-anchor="middle">知的なふるまいを機械で</text>
+  <text x="210" y="225" font-size="18" font-weight="800" fill="#1F2A5C" text-anchor="middle">機械学習</text>
+  <text x="210" y="247" font-size="14" fill="#6B7280" text-anchor="middle">データから学ぶ</text>
+  <text x="210" y="319" font-size="17" font-weight="800" fill="#1F2A5C" text-anchor="middle">ディープ</text>
+  <text x="210" y="340" font-size="17" font-weight="800" fill="#1F2A5C" text-anchor="middle">ラーニング</text>
+  <text x="210" y="363" font-size="14" fill="#6B7280" text-anchor="middle">多層NN</text>
+  <g filter="url(#shadow)"><rect x="420" y="100" width="340" height="70" rx="16" fill="#FFFFFF"/></g>
+  <rect x="420" y="100" width="8" height="70" rx="4" fill="#2E9BEA"/>
+  <text x="444" y="130" font-size="15" font-weight="800" fill="#2E9BEA">レベル1</text>
+  <text x="518" y="130" font-size="16" font-weight="800" fill="#1F2A5C">単純な制御プログラム</text>
+  <text x="444" y="155" font-size="14" fill="#6B7280">例：温度で止まるエアコン</text>
+  <g filter="url(#shadow)"><rect x="420" y="182" width="340" height="70" rx="16" fill="#FFFFFF"/></g>
+  <rect x="420" y="182" width="8" height="70" rx="4" fill="#2E9BEA"/>
+  <text x="444" y="212" font-size="15" font-weight="800" fill="#2E9BEA">レベル2</text>
+  <text x="518" y="212" font-size="16" font-weight="800" fill="#1F2A5C">古典的な人工知能</text>
+  <text x="444" y="237" font-size="14" fill="#6B7280">探索・推論、知識をルールで</text>
+  <g filter="url(#shadow)"><rect x="420" y="264" width="340" height="70" rx="16" fill="#FFFFFF"/></g>
+  <rect x="420" y="264" width="8" height="70" rx="4" fill="#4F5BD5"/>
+  <text x="444" y="294" font-size="15" font-weight="800" fill="#4F5BD5">レベル3</text>
+  <text x="518" y="294" font-size="16" font-weight="800" fill="#1F2A5C">機械学習を取り入れたAI</text>
+  <text x="444" y="319" font-size="14" fill="#6B7280">規則をデータから学ぶ</text>
+  <g filter="url(#shadow)"><rect x="420" y="346" width="340" height="70" rx="16" fill="#FFFFFF"/></g>
+  <rect x="420" y="346" width="8" height="70" rx="4" fill="#8B5CF6"/>
+  <text x="444" y="376" font-size="15" font-weight="800" fill="#8B5CF6">レベル4</text>
+  <text x="518" y="376" font-size="16" font-weight="800" fill="#1F2A5C">ディープラーニングのAI</text>
+  <text x="444" y="401" font-size="14" fill="#6B7280">特徴量まで自分で学ぶ</text>
+  <text x="760" y="432" font-size="13" fill="#6B7280" text-anchor="end">※ 松尾豊（2015）の分け方を参考に作図</text>
+</svg>

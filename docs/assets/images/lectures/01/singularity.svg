@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="t d" font-family="'M PLUS Rounded 1c','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif">
+  <title id="t">シンギュラリティ（技術的特異点）のイメージ</title>
+  <desc id="d">横軸が年、縦軸がAIの能力のグラフ。AIの能力の曲線は指数関数的に急に伸び、横に引いた「人間の知能」の点線を超える。カーツワイルは2029年に人間並みのAI、2045年にシンギュラリティが来ると予測した。あくまで予測であり、確定した未来ではない。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F8FC"/><stop offset="1" stop-color="#EEF0FF"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#9AA2CC"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1F2A5C" flood-opacity="0.10"/></filter>
+  </defs>
+  <rect x="0" y="0" width="800" height="430" rx="24" fill="url(#bg)"/>
+  <text x="40" y="48" font-size="22" font-weight="800" fill="#1F2A5C">シンギュラリティ（技術的特異点）</text>
+  <text x="40" y="74" font-size="15" fill="#6B7280">AIが人間の知能を超え、その先が予測できなくなる転換点</text>
+  <rect x="40" y="94" width="720" height="316" rx="16" fill="#FFFFFF"/>
+  <line x1="90" y1="370" x2="750" y2="370" stroke="#6B7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="90" y1="370" x2="90" y2="104" stroke="#6B7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="98" y="116" font-size="14" font-weight="700" fill="#6B7280">AIの能力</text>
+  <text x="740" y="398" font-size="14" font-weight="700" fill="#6B7280" text-anchor="end">年</text>
+  <polyline points="90.0,360.0 95.9,360.0 101.8,360.0 107.7,360.0 113.6,360.0 119.5,360.0 125.5,360.0 131.4,360.0 137.3,360.0 143.2,360.0 149.1,360.0 155.0,360.0 160.9,360.0 166.8,360.0 172.7,360.0 178.6,360.0 184.5,360.0 190.5,360.0 196.4,360.0 202.3,360.0 208.2,360.0 214.1,360.0 220.0,360.0 225.9,359.9 231.8,359.9 237.7,359.9 243.6,359.9 249.5,359.9 255.5,359.9 261.4,359.9 267.3,359.9 273.2,359.9 279.1,359.9 285.0,359.8 290.9,359.8 296.8,359.8 302.7,359.8 308.6,359.8 314.5,359.7 320.5,359.7 326.4,359.7 332.3,359.6 338.2,359.6 344.1,359.5 350.0,359.5 355.9,359.4 361.8,359.4 367.7,359.3 373.6,359.2 379.5,359.1 385.5,359.0 391.4,358.9 397.3,358.7 403.2,358.6 409.1,358.4 415.0,358.2 420.9,358.0 426.8,357.8 432.7,357.5 438.6,357.3 444.5,356.9 450.5,356.6 456.4,356.2 462.3,355.7 468.2,355.2 474.1,354.6 480.0,354.0 485.9,353.3 491.8,352.5 497.7,351.7 503.6,350.7 509.5,349.6 515.5,348.4 521.4,347.0 527.3,345.5 533.2,343.7 539.1,341.8 545.0,339.7 550.9,337.3 556.8,334.6 562.7,331.7 568.6,328.3 574.5,324.6 580.5,320.5 586.4,315.8 592.3,310.6 598.2,304.8 604.1,298.3 610.0,291.1 615.9,283.0 621.8,273.9 627.7,263.8 633.6,252.5 639.5,239.9 645.5,225.8 651.4,210.0 657.3,192.4 663.2,172.7 669.1,150.7 675.0,126.1" fill="none" stroke="#4F5BD5" stroke-width="4" stroke-linecap="round"/>
+  <line x1="90" y1="334.6" x2="740" y2="334.6" stroke="#F2645A" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text x="100" y="324.6480026890901" font-size="14" font-weight="800" fill="#F2645A">人間の知能</text>
+  <text x="90.0" y="394" font-size="14" fill="#6B7280" text-anchor="middle">1950</text>
+  <text x="385.45454545454544" y="394" font-size="14" fill="#6B7280" text-anchor="middle">2000</text>
+  <line x1="556.8" y1="370" x2="556.8" y2="140" stroke="#F2645A" stroke-width="2" stroke-dasharray="4 5"/>
+  <text x="556.8181818181818" y="394" font-size="14" font-weight="800" fill="#F2645A" text-anchor="middle">2029</text>
+  <line x1="651.4" y1="370" x2="651.4" y2="140" stroke="#4F5BD5" stroke-width="2" stroke-dasharray="4 5"/>
+  <text x="651.3636363636364" y="394" font-size="14" font-weight="800" fill="#4F5BD5" text-anchor="middle">2045</text>
+  <rect x="346.8" y="128" width="200" height="56" rx="10" fill="#FFEDEB"/>
+  <text x="446.81818181818176" y="152" font-size="14" font-weight="800" fill="#F2645A" text-anchor="middle">2029年</text>
+  <text x="446.81818181818176" y="174" font-size="14" font-weight="700" fill="#1F2A5C" text-anchor="middle">人間並みのAI</text>
+  <rect x="451.4" y="200" width="190" height="56" rx="10" fill="#EEF0FF"/>
+  <text x="546.3636363636364" y="224" font-size="14" font-weight="800" fill="#4F5BD5" text-anchor="middle">2045年</text>
+  <text x="546.3636363636364" y="246" font-size="14" font-weight="700" fill="#1F2A5C" text-anchor="middle">シンギュラリティ</text>
+  <text x="114" y="150" font-size="14" fill="#6B7280">※カーツワイルの予測</text>
+  <text x="114" y="172" font-size="14" fill="#6B7280">（確定した未来ではない）</text>
+</svg>

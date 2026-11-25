@@ -13,13 +13,13 @@ JDLA「G検定 試験出題範囲（シラバス2024）」**第1.4版（2026-05-
 <div class="g-stats" markdown>
 
 <div class="g-stat"><span class="g-stat__num">495</span><span class="g-stat__label">キーワード</span></div>
-<div class="g-stat"><span class="g-stat__num">0</span><span class="g-stat__label">講義で学習済み</span></div>
-<div class="g-stat"><span class="g-stat__num">0%</span><span class="g-stat__label">網羅率</span></div>
+<div class="g-stat"><span class="g-stat__num">18</span><span class="g-stat__label">講義で学習済み</span></div>
+<div class="g-stat"><span class="g-stat__num">4%</span><span class="g-stat__label">網羅率</span></div>
 <div class="g-stat"><span class="g-stat__num">0</span><span class="g-stat__label">ノートあり</span></div>
 
 </div>
 
-<div class="g-progress" style="--p:0%"><span></span></div>
+<div class="g-progress" style="--p:4%"><span></span></div>
 
 !!! info "見かた"
     - **担当**：その語を扱う予定の講義回。講義が公開されるとリンクになる。
@@ -32,7 +32,7 @@ JDLA「G検定 試験出題範囲（シラバス2024）」**第1.4版（2026-05-
 
 | 大項目 | 項目 | 語数 | 学習済み | 網羅率 |
 |---|:-:|:-:|:-:|:-:|
-| 人工知能とは（技術分野） | 2 | 18 | 0 | 0% |
+| 人工知能とは（技術分野） | 2 | 18 | 18 | 100% |
 | 人工知能をめぐる動向（技術分野） | 4 | 36 | 0 | 0% |
 | 機械学習の概要（技術分野） | 4 | 62 | 0 | 0% |
 | ディープラーニングの概要（技術分野） | 6 | 52 | 0 | 0% |
@@ -51,24 +51,24 @@ JDLA「G検定 試験出題範囲（シラバス2024）」**第1.4版（2026-05-
 
 | 項目 | キーワード | 担当 | 講義 | Q&Aノート |
 |---|---|:-:|:-:|---|
-| `T01` 人工知能の定義 | AI効果 | 第1回 | ⬜ |  |
-|  | エージェント | 第1回 | ⬜ |  |
-|  | 人工知能 | 第1回 | ⬜ |  |
-|  | 機械学習 | 第1回 | ⬜ |  |
-|  | ディープラーニング | 第1回 | ⬜ |  |
-| `T02` 人工知能分野で議論される問題 | シンギュラリティ | 第1回 | ⬜ |  |
-|  | シンボルグラウンディング問題 | 第1回 | ⬜ |  |
-|  | 身体性 | 第1回 | ⬜ |  |
-|  | ダートマス会議 | 第1回 | ⬜ |  |
-|  | トイ・プロブレム | 第1回 | ⬜ |  |
-|  | 知識獲得のボトルネック | 第1回 | ⬜ |  |
-|  | チューリングテスト | 第1回 | ⬜ |  |
-|  | 中国語の部屋 | 第1回 | ⬜ |  |
-|  | 強いAIと弱いAI | 第1回 | ⬜ |  |
-|  | 統計的機械翻訳 | 第1回 | ⬜ |  |
-|  | フレーム問題 | 第1回 | ⬜ |  |
-|  | ルールベース機械翻訳 | 第1回 | ⬜ |  |
-|  | ローブナーコンテスト | 第1回 | ⬜ |  |
+| `T01` 人工知能の定義 | AI効果 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | エージェント | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | 人工知能 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | 機械学習 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | ディープラーニング | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+| `T02` 人工知能分野で議論される問題 | シンギュラリティ | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | シンボルグラウンディング問題 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | 身体性 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | ダートマス会議 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | トイ・プロブレム | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | 知識獲得のボトルネック | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | チューリングテスト | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | 中国語の部屋 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | 強いAIと弱いAI | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | 統計的機械翻訳 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | フレーム問題 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | ルールベース機械翻訳 | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
+|  | ローブナーコンテスト | [第1回](../lectures/01-what-is-ai.md) | ✅ |  |
 
 ### 人工知能をめぐる動向
 

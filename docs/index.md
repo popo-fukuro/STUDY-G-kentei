@@ -25,10 +25,10 @@ hide:
 <!-- progress:start -->
 <!-- この部分は scripts/build_tables.py が自動生成する。手で編集しない。 -->
 <div class="g-progress-card" markdown>
-<div class="g-progress-card__row"><span>講義</span><strong>0 / 28 回</strong></div>
-<div class="g-progress" style="--p:0%"><span></span></div>
-<div class="g-progress-card__row"><span>キーワード網羅</span><strong>0 / 495 語（0%）</strong></div>
-<div class="g-progress" style="--p:0%"><span></span></div>
+<div class="g-progress-card__row"><span>講義</span><strong>1 / 28 回</strong></div>
+<div class="g-progress" style="--p:4%"><span></span></div>
+<div class="g-progress-card__row"><span>キーワード網羅</span><strong>18 / 495 語（4%）</strong></div>
+<div class="g-progress" style="--p:4%"><span></span></div>
 <div class="g-progress-card__row"><span>Q&Aノート</span><strong>0 ページ</strong></div>
 </div>
 <!-- progress:end -->
@@ -82,6 +82,7 @@ hide:
 ## 最近の更新
 
 <!-- 新しいものを一番上に追加する -->
+- 2026-11-25　講義 [第1回 人工知能とは？ 定義と「AIの難問」](lectures/01-what-is-ai.md)を公開（T01・T02の18語）
 - 2026-11-25　[試験範囲マップ](map/index.html)を公開。試験ガイドに2027年の年間スケジュールと2026年第6回の結果を追加
 - 2026-11-24　サイトを開設。[試験ガイド](guide/index.md)・[学習計画](guide/study-plan.md)・[カリキュラム](lectures/index.md)・[網羅チェック表](coverage/index.md)を公開
 
