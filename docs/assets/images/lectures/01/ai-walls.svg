@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="t d" font-family="'M PLUS Rounded 1c','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif">
+  <title id="t">AIブームとぶつかった壁</title>
+  <desc id="d">左から右へ時代が進む。第1次AIブーム（1950年代後半〜1960年代、探索・推論）はトイ・プロブレムしか解けないという壁にぶつかった。第2次AIブーム（1980年代、知識・エキスパートシステム）は知識獲得のボトルネックという壁にぶつかった。下の帯は、どの時代にも根っこにある難問として、フレーム問題とシンボルグラウンディング問題を示す。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F8FC"/><stop offset="1" stop-color="#EEF0FF"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#9AA2CC"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1F2A5C" flood-opacity="0.10"/></filter>
+  </defs>
+  <rect x="0" y="0" width="800" height="430" rx="24" fill="url(#bg)"/>
+  <text x="40" y="48" font-size="22" font-weight="800" fill="#1F2A5C">AIブームと、ぶつかった壁</text>
+  <text x="40" y="74" font-size="15" fill="#6B7280">ブームの終わりには、いつも「壁」があった</text>
+  <g filter="url(#shadow)"><rect x="40" y="100" width="340" height="196" rx="16" fill="#FFFFFF"/></g>
+  <rect x="40" y="100" width="340" height="8" rx="4" fill="#2E9BEA"/>
+  <circle cx="70" cy="140" r="16" fill="#2E9BEA"/>
+  <text x="70" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+  <text x="96" y="147" font-size="18" font-weight="800" fill="#1F2A5C">第1次AIブーム</text>
+  <text x="62" y="180" font-size="14" fill="#6B7280">1950年代後半〜60年代：探索・推論</text>
+  <rect x="60" y="198" width="300" height="80" rx="12" fill="#FFEDEB"/>
+  <rect x="60" y="198" width="8" height="80" rx="4" fill="#F2645A"/>
+  <text x="82" y="228" font-size="16" font-weight="800" fill="#F2645A">壁：トイ・プロブレム</text>
+  <text x="82" y="252" font-size="14" fill="#2B2F3A">迷路やパズルは解けても</text>
+  <text x="82" y="271" font-size="14" fill="#2B2F3A">現実の問題は解けない</text>
+  <g filter="url(#shadow)"><rect x="420" y="100" width="340" height="196" rx="16" fill="#FFFFFF"/></g>
+  <rect x="420" y="100" width="340" height="8" rx="4" fill="#4F5BD5"/>
+  <circle cx="450" cy="140" r="16" fill="#4F5BD5"/>
+  <text x="450" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="476" y="147" font-size="18" font-weight="800" fill="#1F2A5C">第2次AIブーム</text>
+  <text x="442" y="180" font-size="14" fill="#6B7280">1980年代：知識・エキスパートシステム</text>
+  <rect x="440" y="198" width="300" height="80" rx="12" fill="#FFEDEB"/>
+  <rect x="440" y="198" width="8" height="80" rx="4" fill="#F2645A"/>
+  <text x="462" y="228" font-size="16" font-weight="800" fill="#F2645A">壁：知識獲得のボトルネック</text>
+  <text x="462" y="252" font-size="14" fill="#2B2F3A">専門家の知識をルールに</text>
+  <text x="462" y="271" font-size="14" fill="#2B2F3A">書き出しきれない</text>
+  <line x1="383" y1="198" x2="414" y2="198" stroke="#9AA2CC" stroke-width="3" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)"><rect x="40" y="316" width="720" height="94" rx="16" fill="#FFFFFF"/></g>
+  <rect x="40" y="316" width="720" height="8" rx="4" fill="#F2645A"/>
+  <text x="60" y="352" font-size="16" font-weight="800" fill="#1F2A5C">どの時代にも根っこにある難問</text>
+  <rect x="60" y="366" width="200" height="32" rx="16.0" fill="#FFEDEB"/>
+  <text x="160.0" y="387.4" font-size="15" font-weight="700" fill="#1F2A5C" text-anchor="middle">フレーム問題</text>
+  <rect x="272" y="366" width="290" height="32" rx="16.0" fill="#FFEDEB"/>
+  <text x="417.0" y="387.4" font-size="15" font-weight="700" fill="#1F2A5C" text-anchor="middle">シンボルグラウンディング問題</text>
+  <text x="578" y="388" font-size="14" font-weight="700" fill="#6B7280">→ 第3次ブームでも未解決</text>
+</svg>

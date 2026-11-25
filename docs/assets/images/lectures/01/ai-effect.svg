@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="t d" font-family="'M PLUS Rounded 1c','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif">
+  <title id="t">AI効果のしくみ</title>
+  <desc id="d">AI効果を3段階のカードと矢印で示す図。1 新しい技術が登場して「すごい、AIだ」と言われる。2 仕組みがわかって普及する。3「ただの自動化（プログラム）で、知能ではない」と言われ、AIと呼ばれなくなる。そして次の新技術がAIと呼ばれる。下の帯に、かつてAIと呼ばれたものの例（かな漢字変換、乗換案内、チェスの対局、迷惑メール判定）を並べている。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F8FC"/><stop offset="1" stop-color="#EEF0FF"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#9AA2CC"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1F2A5C" flood-opacity="0.10"/></filter>
+  </defs>
+  <rect x="0" y="0" width="800" height="400" rx="24" fill="url(#bg)"/>
+  <text x="40" y="48" font-size="22" font-weight="800" fill="#1F2A5C">AI効果：できた瞬間に「AIじゃない」と言われる</text>
+  <text x="40" y="74" font-size="15" fill="#6B7280">AIの「ゴール」がいつも先へ逃げていく</text>
+  <g filter="url(#shadow)"><rect x="40" y="100" width="220" height="140" rx="16" fill="#FFFFFF"/></g>
+  <rect x="40" y="100" width="220" height="8" rx="4" fill="#4F5BD5"/>
+  <circle cx="70" cy="140" r="16" fill="#4F5BD5"/>
+  <text x="70" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+  <text x="94" y="146" font-size="17" font-weight="800" fill="#1F2A5C">新しい技術が登場</text>
+  <text x="64" y="186" font-size="15" fill="#2B2F3A">「すごい、</text>
+  <text x="64" y="210" font-size="15" fill="#2B2F3A">これがAIか！」</text>
+  <g filter="url(#shadow)"><rect x="290" y="100" width="220" height="140" rx="16" fill="#FFFFFF"/></g>
+  <rect x="290" y="100" width="220" height="8" rx="4" fill="#2E9BEA"/>
+  <circle cx="320" cy="140" r="16" fill="#2E9BEA"/>
+  <text x="320" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="344" y="146" font-size="17" font-weight="800" fill="#1F2A5C">仕組みがわかる</text>
+  <text x="314" y="186" font-size="15" fill="#2B2F3A">中身が説明され</text>
+  <text x="314" y="210" font-size="15" fill="#2B2F3A">身の回りに普及</text>
+  <g filter="url(#shadow)"><rect x="540" y="100" width="220" height="140" rx="16" fill="#FFFFFF"/></g>
+  <rect x="540" y="100" width="220" height="8" rx="4" fill="#F2645A"/>
+  <circle cx="570" cy="140" r="16" fill="#F2645A"/>
+  <text x="570" y="146" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">3</text>
+  <text x="594" y="146" font-size="17" font-weight="800" fill="#1F2A5C">「AIじゃない」</text>
+  <text x="564" y="186" font-size="15" fill="#2B2F3A">ただの自動化だ、</text>
+  <text x="564" y="210" font-size="15" fill="#2B2F3A">知能ではない</text>
+  <line x1="264" y1="170" x2="284" y2="170" stroke="#9AA2CC" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="514" y1="170" x2="534" y2="170" stroke="#9AA2CC" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M650 244 L650 268 L150 268 L150 250" stroke="#9AA2CC" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <text x="400" y="290" font-size="14" font-weight="700" fill="#6B7280" text-anchor="middle">次の新しい技術が、また「AI」と呼ばれる</text>
+  <g filter="url(#shadow)"><rect x="40" y="310" width="720" height="70" rx="16" fill="#FFFFFF"/></g>
+  <text x="60" y="351" font-size="15" font-weight="800" fill="#1F2A5C">かつてAIと呼ばれた例</text>
+  <rect x="240" y="330" width="118" height="32" rx="16.0" fill="#EEF0FF"/>
+  <text x="299.0" y="351.04" font-size="14" font-weight="700" fill="#1F2A5C" text-anchor="middle">かな漢字変換</text>
+  <rect x="368" y="330" width="118" height="32" rx="16.0" fill="#EEF0FF"/>
+  <text x="427.0" y="351.04" font-size="14" font-weight="700" fill="#1F2A5C" text-anchor="middle">乗換案内</text>
+  <rect x="496" y="330" width="118" height="32" rx="16.0" fill="#EEF0FF"/>
+  <text x="555.0" y="351.04" font-size="14" font-weight="700" fill="#1F2A5C" text-anchor="middle">チェスの対局</text>
+  <rect x="624" y="330" width="118" height="32" rx="16.0" fill="#EEF0FF"/>
+  <text x="683.0" y="351.04" font-size="14" font-weight="700" fill="#1F2A5C" text-anchor="middle">迷惑メール判定</text>
+</svg>

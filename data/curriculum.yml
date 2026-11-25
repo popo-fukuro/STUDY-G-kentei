@@ -31,8 +31,8 @@ lectures:
     items: [T01, T02]
     minutes: 60
     focus: AI効果・強いAI/弱いAI・フレーム問題・シンボルグラウンディング問題の区別
-    status: planned
-    page: null
+    status: published
+    page: lectures/01-what-is-ai.md
   - number: 2
     part: P1
     title: 探索・推論と知識表現（第1次・第2次AIブーム）

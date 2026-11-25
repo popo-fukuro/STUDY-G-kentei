@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="t d" font-family="'M PLUS Rounded 1c','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif">
+  <title id="t">中国語の部屋（1980年・サール）</title>
+  <desc id="d">部屋の中に、中国語がまったくわからない人が、記号と記号の対応だけが書かれた規則の本を持って座っている。左から中国語の質問の紙が入り、中の人は規則どおりに記号を並べた紙を右から出す。外の人には中国語を理解しているように見えるが、中の人は意味をまったく理解していない。規則どおりの記号操作は理解とは限らない、という主張を表す。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F8FC"/><stop offset="1" stop-color="#EEF0FF"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#9AA2CC"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1F2A5C" flood-opacity="0.10"/></filter>
+  </defs>
+  <rect x="0" y="0" width="800" height="420" rx="24" fill="url(#bg)"/>
+  <text x="40" y="48" font-size="22" font-weight="800" fill="#1F2A5C">中国語の部屋（1980年・サール）</text>
+  <text x="40" y="74" font-size="15" fill="#6B7280">正しく答えられても「意味がわかっている」とは限らない</text>
+  <rect x="250" y="100" width="300" height="230" rx="16" fill="#FFFFFF" stroke="#4F5BD5" stroke-width="3"/>
+  <text x="400" y="128" font-size="15" font-weight="800" fill="#4F5BD5" text-anchor="middle">閉じた部屋</text>
+  <g transform="translate(330 180) scale(1)"><circle cx="0" cy="0" r="20" fill="#4F5BD5"/><rect x="-28" y="26" width="56" height="46" rx="20" fill="#4F5BD5"/></g>
+  <text x="330" y="284" font-size="15" font-weight="800" fill="#1F2A5C" text-anchor="middle">中の人</text>
+  <text x="330" y="306" font-size="13" fill="#6B7280" text-anchor="middle">中国語は読めない</text>
+  <rect x="400" y="160" width="124" height="96" rx="10" fill="#FFF5E0" stroke="#F5A524" stroke-width="2"/>
+  <text x="462" y="192" font-size="15" font-weight="800" fill="#1F2A5C" text-anchor="middle">規則の本</text>
+  <text x="462" y="216" font-size="13" fill="#2B2F3A" text-anchor="middle">この形が来たら</text>
+  <text x="462" y="236" font-size="13" fill="#2B2F3A" text-anchor="middle">この形を返す</text>
+  <g filter="url(#shadow)"><rect x="40" y="150" width="180" height="110" rx="16" fill="#FFFFFF"/></g>
+  <rect x="40" y="150" width="180" height="8" rx="4" fill="#2E9BEA"/>
+  <text x="130" y="186" font-size="15" font-weight="800" fill="#1F2A5C" text-anchor="middle">外から入る紙</text>
+  <text x="130" y="214" font-size="14" fill="#2B2F3A" text-anchor="middle">中国語の質問</text>
+  <text x="130" y="242" font-size="18" font-weight="700" fill="#2E9BEA" text-anchor="middle">◇▽◎？</text>
+  <g filter="url(#shadow)"><rect x="580" y="150" width="180" height="110" rx="16" fill="#FFFFFF"/></g>
+  <rect x="580" y="150" width="180" height="8" rx="4" fill="#2E9BEA"/>
+  <text x="670" y="186" font-size="15" font-weight="800" fill="#1F2A5C" text-anchor="middle">外へ出る紙</text>
+  <text x="670" y="214" font-size="14" fill="#2B2F3A" text-anchor="middle">中国語の答え</text>
+  <text x="670" y="242" font-size="18" font-weight="700" fill="#2E9BEA" text-anchor="middle">◎△◇。</text>
+  <line x1="222" y1="205" x2="268" y2="205" stroke="#9AA2CC" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="532" y1="205" x2="574" y2="205" stroke="#9AA2CC" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="40" y="346" width="350" height="54" rx="14" fill="#E6F3FD"/>
+  <text x="215" y="379" font-size="15" font-weight="800" fill="#1F2A5C" text-anchor="middle">外から見ると：中国語がわかる！</text>
+  <rect x="410" y="346" width="350" height="54" rx="14" fill="#FFEDEB"/>
+  <text x="585" y="379" font-size="15" font-weight="800" fill="#F2645A" text-anchor="middle">本当は：意味はまったく不明</text>
+</svg>
