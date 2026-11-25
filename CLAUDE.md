@@ -24,9 +24,27 @@ docs/quiz/index.md       一問一答
 docs/assets/images/      図（lectures/NN/、notes/、common/）
 docs/stylesheets/extra.css  デザインシステム（色・部品）
 templates/               講義とノートのひな形
+docs/map/index.html      試験範囲マップ（自動生成。map/ のデータから作る。手で編集しない）
+map/                     試験範囲マップのデータ（data/）・画面の部品（src/）・生成と検査の道具（tools/）・調査メモ（research/）
 ```
 
 **自動生成ファイル（`docs/lectures/index.md`、`docs/coverage/index.md`、`docs/index.md` の進み具合ブロック）は手で編集しない。** `data/*.yml` を直して `python scripts/build_tables.py` を実行する。CI は `--check` で、生成ファイルが古い・担当キーワードが本文にない・項目の割り当て漏れがある場合に公開を止める。
+
+### 試験範囲マップ（`docs/map/index.html`）
+
+シラバスの全範囲を17分野の放射状の地図で示す単体のHTML。中分類（シラバスの55項目）と用語（全キーワード）は `data/syllabus.yml` から、講義の回は `data/curriculum.yml` から自動で読み込む。
+
+- 直すのは `map/data/*.yml`（分野のまとめ方・各キーワードの1文の説明・関係・試験の情報）と `map/src/` だけ。`docs/map/index.html` は生成物なので直接編集しない。
+- **シラバスを改訂したら**、`python map/tools/check.py` が「説明のないキーワード」「どの分野にも入っていない項目」を教えてくれるので、`map/data/fields/*.yml` の `items` と `desc` を直す。
+- **講義を公開したら**（`curriculum.yml` を `published` にしたら）、地図の項目からその講義にリンクが張られるので、作り直してコミットする。
+- 試験日程などを更新するときは、先に `map/research/` に調査メモ（出典URLと確認日つき）を書き、`map/data/meta.yml` の `created` と `researchMemo` を合わせる。確かめられないことは「未確認」と書く。
+- 優先度の根拠は「JDLA公式の例題」「シラバス2024の改訂ポイント」「キーワード数」だけで書き、出題頻度を断定しない。
+- 直したら次を実行し、生成物もいっしょにコミットする。
+  ```bash
+  python map/tools/check.py               # データの整合性・カードの重なり・調査メモとの照合
+  python map/tools/build.py               # docs/map/index.html を作り直す
+  node map/tools/screenshot.mjs <出力先>   # スクリーンショットと表示の自動チェック（Playwright）
+  ```
 
 ---
 

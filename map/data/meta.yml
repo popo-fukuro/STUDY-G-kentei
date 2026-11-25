@@ -1,0 +1,135 @@
+# ページ全体の情報・試験制度・根拠。調査メモ（researchMemo）と内容を一致させること。
+title: G検定 試験範囲マップ
+subtitle: G検定（JDLA Deep Learning for GENERAL）の全体俯瞰
+centerTitle: [G検定]
+centerSub: シラバス2024 v1.4
+created: "2026-11-25"          # 作成日（調査日）
+researchMemo: research/jdla-research-2026-11-25.md   # map/ からの相対パス。tools/check.py が内容を照合する
+siteUrl: https://popo-fukuro.github.io/STUDY-G-kentei/
+notice: 試験日程・シラバスは作成日（調査日）時点の情報。最新情報は必ずJDLAの公式サイトで確認すること。
+
+# 地図の座標（tools/check.py もこの値で重なりを計算する）
+layout:
+  size: 2960
+  radius: 1100
+  centerRadius: 175
+  cardWidth: 300
+  cardHeader: 60
+  cardRow: 32
+  cardPad: 20
+  cardFooter: 50
+  startAngle: -132
+  ringLabel: 1380
+  ringTick: 1428
+  lodThreshold: 0.5
+
+# 右下の注記（地図の「土台」）
+footNote:
+  title: 地図の土台：シラバス2024 第1.4版
+  text: この地図の中分類はシラバスの55項目、用語はその全キーワード（495語）。G2024#6（2024年11月）から適用されている。出題はすべてシラバスの範囲から。
+  newText: 法律・ガイドライン・生成AIの話題は変わりやすい。試験の前に最新の状況も確かめておくこと。
+
+badges:
+  revised:
+    label: シラバス2024で拡充
+    desc: シラバス2024の改訂ポイント（生成AIに必要な技術の追加、法律・倫理の明確化）や、その後の改訂で項目やキーワードが加わった分野。
+  sup:
+    label: 補
+    desc: シラバス第1.4版のキーワードにはないが、理解のために追加した関連知識（公式の例題に出てくる語や、削除された語など）。
+
+# タイムライン
+timeline:
+  - {when: 2026年11月6日・7日, name: 2026年 第6回, status: done, text: "オンライン試験のみ。受験者17,717名・合格者13,805名・合格率77.92%（2026-11-24発表）。"}
+  - {when: 2027年1月15日〜17日, name: 2027年 第1回, status: next, text: オンライン 2027/1/16(土)、会場 1/15〜1/17。オンライン個人の申込は 2026/11/13〜2027/1/8。合否は2月上旬。}
+  - {when: 2027年3月5日・6日, name: 2027年 第2回, status: plan, text: オンラインのみ。申込 2027/1/22〜2/25。}
+  - {when: 2027年5月7日〜9日, name: 2027年 第3回, status: plan, text: オンライン 5/8(土)、会場 5/7〜5/9。申込 2027/3/12〜4/27。}
+  - {when: 2027年7月2日・3日, name: 2027年 第4回, status: plan, text: オンラインのみ。申込 2027/5/14〜6/24。}
+  - {when: 2027年9月3日〜5日, name: 2027年 第5回, status: plan, text: オンライン 9/4(土)、会場 9/3〜9/5。申込 2027/7/9〜8/27。}
+  - {when: 2027年11月5日・6日, name: 2027年 第6回, status: plan, text: オンラインのみ。申込 2027/9/10〜10/28。}
+
+# 試験の形式（オンライン試験と会場試験）
+format:
+  - {aspect: 試験時間, online: 100分, onsite: 120分}
+  - {aspect: 出題数, online: 145問程度, onsite: 145問程度}
+  - {aspect: 形式, online: 知識問題（多肢選択式）, onsite: 知識問題（多肢選択式）}
+  - {aspect: 受験資格, online: 制限なし, onsite: 制限なし}
+  - {aspect: 受験料（税込）, online: "一般 13,200円／学生 5,500円（割引制度あり）", onsite: "一般 13,200円／学生 5,500円（割引制度なし）"}
+  - {aspect: 申込, online: 受験チケット（有効期限1年）を買って回を予約, onsite: 受験者専用サイトで会場と日時を選ぶ（受験日の3日前まで）}
+  - {aspect: 開催, online: 年6回（2027年）, onsite: 年3回（2027年は1月・5月・9月）}
+  - {aspect: 合格基準, online: 公式ページに記載なし（未確認）, onsite: 公式ページに記載なし（未確認）}
+
+# シラバスの版と改訂
+syllabus:
+  version: 第1.4版
+  date: "2026年5月11日"
+  appliesFrom: G2024#6（2024年11月の試験）から適用
+  points:
+    - 生成AIの登場を受けて、歴史的な知識とディープラーニングの知識の体系を見直した
+    - 基盤モデルや言語モデルなど、生成AIに必要な技術を追加した
+    - 法律・倫理は、ディープラーニングを使う人が理解しておくべき点を明確化した
+  history:
+    - {ver: "1.0", date: "2024-05-14", text: シラバス2024を新規作成。LLM・MSE/RMSE/MAE・Contrastive Loss・KL情報量・連鎖律・レイヤー正規化・教師強制・Multi-Head Attention・VQ-VAE・RLHF・Diffusion Model・NeRF・自己教師あり学習などを追加し、ENIAC・深層信念ネットワーク・OCR・IoTなどを削除}
+    - {ver: "1.1", date: "2024-09-06", text: 特徴抽出・訓練誤差・汎化誤差・表現学習・平均絶対誤差などを削除。「正則化層」を「正規化層」に変更}
+    - {ver: "1.2", date: "2024-09-20", text: Encoder-Decoder Attentionを削除。CTCを音声処理へ移動}
+    - {ver: "1.3", date: "2025-05-25", text: 統計的自然言語処理・単回帰分析・SARSA・真陽性/真陰性を追加。Adaboostを削除。LLMを「生成AI」に変更}
+    - {ver: "1.4", date: "2026-05-11", text: 自然言語処理からChatGPT・GPT-nを削除。「破壊的忘却」を「破滅的忘却」に変更}
+
+# シラバスの大項目と、この地図の分野との対応（項目IDから自動で作るが、並び順と名前はここで決める）
+categories:
+  - {name: 人工知能とは, area: 技術分野}
+  - {name: 人工知能をめぐる動向, area: 技術分野}
+  - {name: 機械学習の概要, area: 技術分野}
+  - {name: ディープラーニングの概要, area: 技術分野}
+  - {name: ディープラーニングの要素技術, area: 技術分野}
+  - {name: ディープラーニングの応用例, area: 技術分野}
+  - {name: AIの社会実装に向けて, area: 技術分野}
+  - {name: AIに必要な数理・統計知識, area: 技術分野}
+  - {name: AIに関する法律と契約, area: 法律・倫理分野}
+  - {name: AI倫理・AIガバナンス, area: 法律・倫理分野}
+
+# JDLA公式の例題（20問）。問題文は転載せず、題材だけを書く。
+examples:
+  - {id: Q1, cat: 人工知能とは, theme: フレーム問題, from: G2024#4, fields: [ai-def]}
+  - {id: Q2, cat: 人工知能をめぐる動向, theme: 第2次ブームのエキスパートシステム, from: G2022#1, fields: [history]}
+  - {id: Q3, cat: 人工知能をめぐる動向, theme: ILSVRCで話題になったスキップ結合のモデル（ResNet）, from: G2022#1, fields: [history, cnn, vision]}
+  - {id: Q4, cat: 機械学習の概要, theme: 重回帰分析の例, from: G2022#3, fields: [ml]}
+  - {id: Q5, cat: 機械学習の概要, theme: レコメンデーションの手法（コンテンツベースフィルタリング）, from: G2024#6, fields: [ml]}
+  - {id: Q6, cat: ディープラーニングの概要, theme: カルバック・ライブラー情報量, from: G2024#6, fields: [nn]}
+  - {id: Q7, cat: ディープラーニングの概要, theme: 勾配消失問題が起こりやすい条件, from: G2022#1, fields: [nn, train]}
+  - {id: Q8, cat: ディープラーニングの要素技術, theme: CNNのパディングの効果, from: G2024#4, fields: [cnn]}
+  - {id: Q9, cat: ディープラーニングの要素技術, theme: グローバルアベレージプーリング, from: G2024#4, fields: [cnn]}
+  - {id: Q10, cat: ディープラーニングの要素技術, theme: Paraphrasing（テキストのデータ拡張）, from: G2024#6, fields: [repr]}
+  - {id: Q11, cat: ディープラーニングの応用例, theme: 大規模言語モデルの前提となる法則（スケーリング則）, from: G2024#4, fields: [nlp]}
+  - {id: Q12, cat: ディープラーニングの応用例, theme: モデルの軽量化（量子化）, from: G2024#4, fields: [practical]}
+  - {id: Q13, cat: ディープラーニングの応用例, theme: Zero-shot, from: G2024#6, fields: [nlp]}
+  - {id: Q14, cat: AIの社会実装に向けて, theme: データリーケージの影響, from: G2022#1, fields: [project]}
+  - {id: Q15, cat: AIに必要な数理・統計知識, theme: 相関係数・偏相関係数・共分散・分散, from: G2022#1, fields: [eval]}
+  - {id: Q16, cat: AIに必要な数理・統計知識, theme: サイコロの期待値, from: G2022#3, fields: [eval]}
+  - {id: Q17, cat: AIに関する法律と契約, theme: 個人情報保護法の対象, from: G2022#2, fields: [law]}
+  - {id: Q18, cat: AIに関する法律と契約, theme: AI開発契約の留意点, from: G2023#4, fields: [law]}
+  - {id: Q19, cat: AI倫理・AIガバナンス, theme: 顔認識技術の倫理的な問題, from: G2022#1, fields: [ethics]}
+  - {id: Q20, cat: AI倫理・AIガバナンス, theme: AIと地球環境（サステナビリティ）, from: G2024#4, fields: [society]}
+
+priorityMethod:
+  - JDLAは大項目ごとの出題数や重点分野を示していない。そのため優先度は、次の3つの公式情報だけで判断した。出題頻度を断定するものではない。
+  - ①JDLA公式の例題（20問）で、その分野が題材になっているか
+  - ②シラバス2024の改訂ポイント・改訂履歴（生成AI・言語モデル、法律・倫理の明確化）にその分野が含まれるか
+  - ③シラバス上のキーワード数（その分野がシラバスに占める分量。出題数の比率ではない）
+  - 「高」は①〜③のうち複数がはっきり当てはまる分野。キーワード数が多い分野、改訂の中心にある分野を高くした。
+
+readingGuide:
+  - {level: 第1階層, name: 試験範囲全体, text: 中心の円。G検定の出題範囲（シラバス2024 第1.4版）の全体。}
+  - {level: 第2階層, name: 大分類（17分野）, text: 円周上のカード。シラバスの項目を内容の近さで束ねたもの。6つの領域で色分けした。}
+  - {level: 第3階層, name: 中分類（シラバスの55項目）, text: カードの中の一覧。拡大すると表示される。項目ID（T01など）と、学ぶ講義の回を付けた。}
+  - {level: 第4階層, name: 小分類（キーワード495語）, text: シラバスの全キーワード。カードを選ぶと右のパネルに、分野別詳細タブでは樹形図で表示。各語に1文の説明を付けた。}
+  - {level: バッジ, name: 補, text: シラバスのキーワードにはないが、理解のために追加した語。公式の例題に出てくる語や、改訂で削除された語。}
+  - {level: 矢印, name: 分野間の関係, text: 太い実線は特に重要な7つの関係、細い破線はその他の関係。矢じりの向きが影響の向き（両端なら双方向）。}
+
+sources:
+  - {name: G検定 公式ページ, url: "https://www.jdla.org/certificate/general/", note: 試験の概要・次回の日程・受験料}
+  - {name: G検定の受験方法（スタートガイド）, url: "https://www.jdla.org/certificate/general/start/", note: 申込の流れ}
+  - {name: 2027年の年間開催スケジュール, url: "https://www.jdla.org/news/20260911002/", note: 2026-09-11発表}
+  - {name: 2027年第1回の受験申込開始, url: "https://www.jdla.org/news/20261113001/", note: 2026-11-13発表}
+  - {name: 2026年第6回の開催結果, url: "https://www.jdla.org/news/20261124001/", note: 2026-11-24発表}
+  - {name: 試験出題範囲（シラバス）, url: "https://www.jdla.org/download-category/syllabus/", note: シラバス2024 第1.4版（PDF）}
+  - {name: G検定の例題・過去問, url: "https://www.jdla.org/certificate/general/issues/", note: 大項目ごとの例題20問}

@@ -1,0 +1,44 @@
+id: seq
+order: 8
+domain: dlcore
+color: "#2F4DB0"
+name: 系列データとAttention（回帰結合層・Attention・Transformer）
+short: 系列とAttention
+shortLines: [系列と, Attention]
+priority: high
+badges: [revised]
+summary: 文章や音声のように順番のあるデータを扱う仕組み。前の情報を引き継ぐRNNとその改良（LSTM・GRU）から、注目すべき所を計算するAttention、そして大規模言語モデルの土台になったTransformerへとつながる。
+themes:
+  - RNNの構造と学習（BPTT・教師強制）、勾配消失・勾配爆発
+  - LSTMとGRUのゲート機構、双方向RNN
+  - Seq2Seq（エンコーダ・デコーダ）
+  - Attention（クエリ・キー・バリュー）、Self-AttentionとSource-Target Attention
+  - TransformerとMulti-Head Attention、位置エンコーディング
+keywords: [リカレントニューラルネットワーク (RNN), LSTM, GRU, ゲート機構, 教師強制, Seq2Seq, Attention, Self-Attention, Transformer, 位置エンコーディング]
+examPoint: RNNの弱点と、それをLSTM・GRU・Attentionがどう解決したかの流れ、クエリ・キー・バリューの役割を問う。
+examTrap: Self-Attentionは同じ系列の中の関係、Source-Target Attentionは入力側と出力側の関係。Transformer自体は語順がわからないので位置エンコーディングが要る。
+priorityReason: シラバス2024の改訂ポイント「基盤モデルや言語モデルなど生成AIに必要な技術の追加」の土台にあたり、エルマンネットワーク・教師強制・Multi-Head Attentionが追加された。JDLA公式の例題で直接の題材になった問はない。キーワード数は22語。
+items: [T22, T23]
+desc:
+  "BPTT": 時間方向に展開したRNNに、誤差逆伝播法を当てはめて学習する方法。
+  "GRU": LSTMを簡単にし、リセットゲートと更新ゲートの2つで情報の流れを調整するRNN。
+  "LSTM": 入力・忘却・出力のゲートと記憶セルで長い期間の情報を保ち、勾配消失を起こしにくくしたRNN。
+  "エルマンネットワーク": 隠れ層の出力を、次の時刻の入力に戻す基本的なRNN。
+  "勾配消失問題": RNNで時間をさかのぼるほど勾配が小さくなり、遠い過去の情報を学べなくなる問題。
+  "勾配爆発問題": RNNで時間をさかのぼるほど勾配が大きくなりすぎ、学習が不安定になる問題。
+  "教師強制": 系列を作るモデルの学習で、前の時刻の予測ではなく正解を次の入力に使う方法。
+  "ゲート機構": 情報をどれだけ通すか・忘れるかを、0〜1の値で調整する仕組み。LSTMやGRUの中心。
+  "双方向RNN (Bidirectional RNN)": 過去から未来へと、未来から過去への2方向のRNNを組み合わせ、前後の文脈を使うモデル。
+  "時系列データ": 株価や音声のように、時間の順番に意味があるデータ。
+  "ジョルダンネットワーク": 出力層の値を、次の時刻の入力に戻す初期のRNN。
+  "リカレントニューラルネットワーク (RNN)": 前の時刻の情報を次の時刻に引き継ぐ構造をもち、系列データを扱うニューラルネットワーク。
+  "Attention": 入力のどの部分に注目すべきかを重みとして計算し、重要な情報を取り出す仕組み。
+  "Multi-Head Attention": 複数のAttentionを並列に計算して、いろいろな観点の関係を同時にとらえる仕組み。
+  "Self-Attention": 同じ系列の中の各要素どうしの関係を計算するAttention。Transformerの中心。
+  "Seq2Seq": 入力の系列をエンコーダで表現に変え、デコーダで別の系列を出力するモデル。機械翻訳で使われた。
+  "Source-Target Attention": 出力側（Target）が、入力側（Source）の情報のどこに注目するかを計算するAttention。
+  "Transformer": RNNを使わずAttentionだけで系列を処理するモデル。2017年に発表され、大規模言語モデルの土台になった。
+  "位置エンコーディング": 単語の順番の情報をベクトルにして入力に加える方法。Attentionだけでは順番がわからないため使う。
+  "キー": Attentionで、クエリと照らし合わせて関連の強さを測るための情報。
+  "クエリ": Attentionで、「何を探しているか」を表す情報。
+  "バリュー": Attentionで、関連の強さに応じて重み付けして取り出される中身の情報。

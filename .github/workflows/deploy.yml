@@ -26,6 +26,9 @@ jobs:
       - run: pip install -r requirements.txt
       # シラバスの抜け漏れ・講義本文のキーワード・生成ファイルが最新かを検査（問題があれば公開しない）
       - run: python scripts/build_tables.py --check
+      # 試験範囲マップ：データの整合性と、生成物（docs/map/index.html）が最新かを検査
+      - run: python map/tools/check.py
+      - run: python map/tools/build.py --check
       - run: mkdocs build --strict
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

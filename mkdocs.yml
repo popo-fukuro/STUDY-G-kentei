@@ -102,6 +102,7 @@ extra:
 
 nav:
   - ホーム: index.md
+  - 試験範囲マップ: map/index.html
   - 試験ガイド:
       - guide/index.md
       - 学習計画: guide/study-plan.md

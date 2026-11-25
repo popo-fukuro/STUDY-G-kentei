@@ -1,0 +1,20 @@
+# 6つの領域。色は白文字を載せても読める濃さにする（tools/check.py がコントラスト比 4.5 以上を確認する）。
+# サイトのパート色（sky／teal／indigo／violet／amber／pink）を、白文字が読める濃さにしたもの。
+- id: hist
+  name: AIの全体像と歴史
+  color: "#1A66A8"
+- id: mlbase
+  name: 機械学習と数理
+  color: "#0B6E63"
+- id: dlcore
+  name: DLの仕組み
+  color: "#4550C2"
+- id: dlapp
+  name: DLの応用
+  color: "#6A3BC4"
+- id: social
+  name: 社会実装と法律
+  color: "#8C4F06"
+- id: moral
+  name: AI倫理とガバナンス
+  color: "#AD2F62"

@@ -37,6 +37,14 @@ hide:
 
 <div class="grid cards" markdown>
 
+-   :material-map-search-outline:{ .lg .middle } **試験範囲マップ**
+
+    ---
+
+    シラバスの全範囲を17分野の放射状の地図で俯瞰。分野どうしのつながり、学習の優先度、キーワード検索まで。
+
+    [:octicons-arrow-right-24: 地図を開く](map/index.html)
+
 -   :material-school-outline:{ .lg .middle } **講義**
 
     ---
@@ -74,6 +82,7 @@ hide:
 ## 最近の更新
 
 <!-- 新しいものを一番上に追加する -->
+- 2026-11-25　[試験範囲マップ](map/index.html)を公開。試験ガイドに2027年の年間スケジュールと2026年第6回の結果を追加
 - 2026-11-24　サイトを開設。[試験ガイド](guide/index.md)・[学習計画](guide/study-plan.md)・[カリキュラム](lectures/index.md)・[網羅チェック表](coverage/index.md)を公開
 
 ## このサイトについて

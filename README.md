@@ -15,6 +15,7 @@ G検定（JDLA Deep Learning for GENERAL）合格のための自分専用の学�
 | `scripts/build_tables.py` | カリキュラム表・網羅チェック表の生成と抜け漏れ検査 |
 | `docs/` | サイトの中身（MkDocs Material） |
 | `templates/` | 講義・Q&Aノートのひな形 |
+| `map/` | 試験範囲マップ（データ・画面の部品・生成と検査の道具・調査メモ）。生成物は `docs/map/index.html` |
 
 ## ローカルで確認
 

@@ -1,0 +1,187 @@
+# 分野間の関係。
+# core: true は「特に重要な7つの関係」（地図では太い実線）。それ以外は細い破線。
+# dir: one（from → to）／ both（双方向）
+# exam の「例題Q7」のような参照は meta.yml の examples に載っている問だけを使う（tools/check.py が確認）。
+
+themes:
+  - {id: ml-dl, title: 機械学習からディープラーニングへ, core: r-ml-nn}
+  - {id: parts-train, title: 部品と学習の仕組み, core: r-nn-train}
+  - {id: cnn-vision, title: 畳み込みと画像認識, core: r-cnn-vision}
+  - {id: attn-llm, title: Attentionと大規模言語モデル, core: r-seq-nlp}
+  - {id: repr-gen, title: 表現の学習と生成AI, core: r-repr-gen}
+  - {id: eval-train, title: 評価と過学習対策, core: r-eval-train}
+  - {id: law-ethics, title: 法律と倫理（ハードローとソフトロー）, core: r-law-ethics}
+
+relations:
+  # ---- 特に重要な7つ ----
+  - id: r-ml-nn
+    from: ml
+    to: nn
+    dir: one
+    core: true
+    theme: ml-dl
+    label: 特徴の作り方まで学ぶ
+    why: ディープラーニングは機械学習の一種。従来の機械学習では人が特徴量を設計したが、多層のニューラルネットワークは特徴の取り出し方までデータから学ぶ。
+    example: 画像の分類で、従来は人が「輪郭」や「色の分布」を特徴として設計していたが、CNNは画素から直接、特徴を学ぶ。
+    exam: 例題Q4（G2022#3）は機械学習の基本の手法を題材にしている。古典的な機械学習とディープラーニングの違いは、シラバスの項目6の目標に挙がっている。
+  - id: r-nn-train
+    from: nn
+    to: train
+    dir: both
+    core: true
+    theme: parts-train
+    label: 部品の選び方が学習を左右
+    why: 活性化関数や誤差関数の選び方で、誤差逆伝播法で伝わる勾配の大きさが決まる。逆に、学習がうまく進むように部品が改良されてきた。
+    example: シグモイド関数は微分が小さいため層が深いと勾配消失が起きやすく、ReLU関数に置き換えると学習が進みやすくなる。
+    exam: 例題Q7（G2022#1）で勾配消失問題が起きやすい条件が、例題Q6（G2024#6）でKL情報量が問われた。
+  - id: r-cnn-vision
+    from: cnn
+    to: vision
+    dir: one
+    core: true
+    theme: cnn-vision
+    label: 畳み込みが画像認識の土台
+    why: 画像認識のモデルの多くは、畳み込み層・プーリング層・正規化層・スキップ結合を組み合わせて作られている。
+    example: ResNetはスキップ結合で152層を実現し、MobileNetはDepthwise Separable Convolutionで計算を減らした。
+    exam: 例題Q3（G2022#1）でスキップ結合のResNet、例題Q8（G2024#4）でパディング、例題Q9（G2024#4）でGAPが問われた。
+  - id: r-seq-nlp
+    from: seq
+    to: nlp
+    dir: one
+    core: true
+    theme: attn-llm
+    label: TransformerがLLMの土台
+    why: RNNとSeq2Seqで始まった系列の処理は、AttentionとTransformerによって大規模化でき、BERTや大規模言語モデルが生まれた。
+    example: BERTはTransformerのエンコーダを、多くの大規模言語モデルはTransformerのデコーダをもとにしている。
+    exam: 例題Q11（G2024#4）で、大規模言語モデルの前提となるスケーリング則が問われた。
+  - id: r-repr-gen
+    from: repr
+    to: gen
+    dir: one
+    core: true
+    theme: repr-gen
+    label: 潜在表現から生成へ
+    why: オートエンコーダはデータを少ない次元の表現に圧縮して学ぶ。VAEはその表現を確率分布として扱い、そこから新しいデータを作れるようにした。
+    example: VAEの潜在空間から点を取り出してデコーダに通すと、学習データにない新しい画像ができる。
+    exam: JDLA公式の例題で直接の題材になった問はない。シラバス2024でVQ-VAE・Diffusion Modelなどが追加された。
+  - id: r-eval-train
+    from: eval
+    to: train
+    dir: both
+    core: true
+    theme: eval-train
+    label: 過学習を見つけて防ぐ
+    why: 評価で過学習を見つけ、正則化や早期終了で防ぐ。どれだけ防げたかは、また評価で確かめる。
+    example: 検証データの誤差が上がり始めた時点で学習を止める（早期終了）。L2正則化で重みを小さくして汎化性能を上げる。
+    exam: JDLA公式の例題で直接の題材になった問はない。過学習の説明はシラバスの項目10の目標に挙がっている。
+  - id: r-law-ethics
+    from: law
+    to: ethics
+    dir: both
+    core: true
+    theme: law-ethics
+    label: ハードローとソフトロー
+    why: 法律（ハードロー）で決まっていることを守るだけでは足りず、プライバシーや公平性はガイドライン（ソフトロー）や設計の工夫で補う。
+    example: カメラの画像の利用では、個人情報保護法を守ったうえで、カメラ画像利活用ガイドブックに沿って生活者に配慮する。
+    exam: 例題Q17（G2022#2）で個人情報保護法、例題Q19（G2022#1）で顔認識技術の倫理的な問題が問われた。
+
+  # ---- そのほかの関係 ----
+  - id: r-aidef-history
+    from: ai-def
+    to: history
+    dir: one
+    theme: ml-dl
+    label: 難問がブームを終わらせた
+    why: トイ・プロブレムしか解けないこと、知識獲得のボトルネック、フレーム問題などが、それぞれのAIブームの限界になった。
+    example: 第2次ブームのエキスパートシステムは、専門家の知識をルールに書き起こす難しさから行き詰まった。
+    exam: 例題Q1（G2024#4）でフレーム問題、例題Q2（G2022#1）でエキスパートシステムが問われた。
+  - id: r-history-ml
+    from: history
+    to: ml
+    dir: one
+    theme: ml-dl
+    label: 第3次ブームの主役へ
+    why: ビッグデータと計算機の進歩で、ルールを人が書く方法から、データから学ぶ機械学習が主流になった。
+    example: スパムフィルタやレコメンデーションは、大量の履歴のデータから学ぶ機械学習で実用になった。
+    exam: 例題Q5（G2024#6）でレコメンデーションの手法が問われた。
+  - id: r-nn-cnn
+    from: nn
+    to: cnn
+    dir: one
+    theme: cnn-vision
+    label: 全結合から畳み込みへ
+    why: 画像を全結合層だけで扱うとパラメータが膨大になる。畳み込み層は小さなフィルタを使い回して、位置の情報を保ったまま特徴を取り出す。
+    example: CNNの出力層では、全結合層の代わりにGAPを使ってパラメータを減らすことがある。
+    exam: 例題Q9（G2024#4）で、全結合層に代わって使われるGAPが問われた。
+  - id: r-ml-gen
+    from: ml
+    to: gen
+    dir: one
+    theme: repr-gen
+    label: 強化学習×ディープラーニング
+    why: 強化学習の行動価値関数や方策を、深層ニューラルネットワークで表すことで、画像などの複雑な入力でも学習できるようになった。
+    example: DQNはQ学習の行動価値関数をCNNで近似し、Atariのゲームを画面から学んだ。
+    exam: JDLA公式の例題で直接の題材になった問はない。
+  - id: r-nlp-practical
+    from: nlp
+    to: practical
+    dir: both
+    theme: attn-llm
+    label: 事前学習して使い回す
+    why: 大規模言語モデルや基盤モデルは、大量のデータで事前学習しておき、ファインチューニングやZero-shotで個別の課題に使い回す。
+    example: BERTを事前学習しておき、少しのラベル付きデータで感情分析向けにファインチューニングする。
+    exam: 例題Q13（G2024#6）でZero-shotが問われた。
+  - id: r-repr-practical
+    from: repr
+    to: practical
+    dir: one
+    theme: repr-gen
+    label: 事前学習の考え方の源流
+    why: 積層オートエンコーダで層ごとに事前学習した考え方は、事前学習済みモデルと転移学習につながっている。
+    example: ラベルのない大量のデータで特徴を学んでおき、少しのラベル付きデータで本来の課題を学習する。
+    exam: JDLA公式の例題で直接の題材になった問はない。
+  - id: r-eval-project
+    from: eval
+    to: project
+    dir: one
+    theme: eval-train
+    label: 正しい評価の設計
+    why: 検証の方法や評価の指標を誤ると、実際に使ったときの性能を見誤る。データの分け方はプロジェクトの段階で決めておく。
+    example: 未来のデータを使って過去を予測するようにデータを分けてしまうと、データリーケージで精度が高く見える。
+    exam: 例題Q14（G2022#1）でデータリーケージの影響、例題Q15（G2022#1）で相関などの統計の指標が問われた。
+  - id: r-project-ethics
+    from: project
+    to: ethics
+    dir: one
+    theme: law-ethics
+    label: データの偏りが不公平を生む
+    why: データの集め方やアノテーションに偏りがあると、学習したAIの判断も偏り、公平性の問題になる。
+    example: ある集団のデータが少ないまま学習すると、その集団で認識の精度が下がる。
+    exam: 例題Q19（G2022#1）で、顔認識の精度が集団によって違う問題が取り上げられた。
+  - id: r-practical-ethics
+    from: practical
+    to: ethics
+    dir: one
+    theme: law-ethics
+    label: 説明可能性を技術で支える
+    why: AIの判断の理由を示すことは透明性の原則にかかわる。Grad-CAMやSHAPなどの説明の手法が、それを技術的に支える。
+    example: 画像の診断AIで、Grad-CAMで判断の根拠になった部分を示し、医師が確かめられるようにする。
+    exam: JDLA公式の例題で直接の題材になった問はない。
+  - id: r-nlp-law
+    from: nlp
+    to: law
+    dir: one
+    theme: law-ethics
+    label: 生成AIと著作権
+    why: 生成AIの学習データや生成物の扱いは、著作権法や利用規約に照らして判断する必要がある。
+    example: 生成した画像が既存の作品によく似ていて、元の作品をもとにしたと言える場合は、著作権侵害になりうる。
+    exam: JDLA公式の例題で直接の題材になった問はない。シラバスの項目「著作権法」のキーワードにAI生成物・利用規約が含まれる。
+  - id: r-ethics-society
+    from: ethics
+    to: society
+    dir: one
+    theme: law-ethics
+    label: 原則をガバナンスで実行する
+    why: AI倫理の原則は、組織のAIポリシー・倫理アセスメント・監査・モニタリングといったガバナンスの仕組みで実行される。
+    example: 開発の前に倫理アセスメントを行い、運用中は出力の偏りをモニタリングして、必要なら人が判断に関与する。
+    exam: 例題Q20（G2024#4）で、AIと地球環境の課題が問われた。

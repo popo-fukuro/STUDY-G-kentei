@@ -1,0 +1,1745 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G検定 試験範囲マップ</title>
+<meta name="description" content="G検定（JDLA Deep Learning for GENERAL）の全体俯瞰。17分野・シラバスの全項目とキーワード・分野間の関係を放射状の地図で示す。作成日 2026-11-25。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<!-- このファイルは map/tools/build.py で生成している。直接編集せず、map/data と map/src を直すこと。 -->
+<style>
+:root {
+  --d-hist: #1A66A8;
+  --d-mlbase: #0B6E63;
+  --d-dlcore: #4550C2;
+  --d-dlapp: #6A3BC4;
+  --d-social: #8C4F06;
+  --d-moral: #AD2F62;
+  --f-ai-def: #1B62A3;
+  --f-history: #1F72B3;
+  --f-ml: #0B7064;
+  --f-eval: #0C6670;
+  --f-nn: #4752C4;
+  --f-train: #3A44A6;
+  --f-cnn: #4B4FC0;
+  --f-seq: #2F4DB0;
+  --f-repr: #4A3DAD;
+  --f-vision: #6A3DCB;
+  --f-nlp: #7A39B5;
+  --f-gen: #5B34AA;
+  --f-practical: #853C9F;
+  --f-project: #8A5300;
+  --f-law: #9A450A;
+  --f-ethics: #B0305C;
+  --f-society: #9C2C6C;
+}
+/* ===== 色・書体（すべてCSS変数で管理。G検定サイトのデザインルールの配色に合わせた） ===== */
+:root {
+  color-scheme: light;
+  --bg: #EDF0F8;
+  --bg-2: #E2E6F3;
+  --surface: #F8F9FD;
+  --surface-2: #FFFFFF;
+  --ink: #1F2A5C;
+  --ink-2: #3E4775;
+  --ink-3: #636B85;
+  --line: #DCE1EE;
+  --line-2: #A9B1CF;
+  --grid: #AEB6D6;
+  --accent: #4F5BD5;
+  --accent-ink: #FFFFFF;
+  --hit: #E8590C;
+  --link-line: #2E376B;
+  --link-on: #D6336C;
+  --center: #1F2A5C;
+  --center-ring: #4F5BD5;
+  --card-bg: #FFFFFF;
+  --card-ink: #1F2A5C;
+  --card-ink-2: #4A5378;
+  --sector-op: 0.08;
+  --trunk-op: 0.5;
+  --shadow: 0 6px 24px rgba(31, 42, 92, 0.14);
+  --pill-high-bg: #C2372F;
+  --pill-high-ink: #FFFFFF;
+  --pill-mid-bg: #F5A524;
+  --pill-mid-ink: #3B2600;
+  --pill-low-bg: #E3E6EF;
+  --pill-low-ink: #3E4775;
+  --badge-sup-bg: #EFE9FF;
+  --badge-sup-ink: #5131A3;
+  --badge-new-bg: #E3F6F3;
+  --badge-new-ink: #0B6E63;
+  --badge-weight-bg: #E3F6F3;
+  --badge-weight-ink: #0A5F55;
+  --flash: #FFE9B0;
+  --font-ui: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --font-display: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --topbar-h: 60px;
+  --radius: 14px;
+  --ease: 220ms cubic-bezier(.2, .7, .2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #11142A;
+    --bg-2: #171B36;
+    --surface: #191D38;
+    --surface-2: #20254A;
+    --ink: #E6E9F7;
+    --ink-2: #B9C0E0;
+    --ink-3: #9098BE;
+    --line: #2D3358;
+    --line-2: #4B5389;
+    --grid: #3B4272;
+    --accent: #9AA2F5;
+    --accent-ink: #11142A;
+    --hit: #FF9F5A;
+    --link-line: #CBD0F2;
+    --link-on: #FF7AA8;
+    --center: #2A3172;
+    --center-ring: #9AA2F5;
+    --card-bg: #1C2144;
+    --card-ink: #E6E9F7;
+    --card-ink-2: #B9C0E0;
+    --sector-op: 0.14;
+    --trunk-op: 0.7;
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+    --pill-high-bg: #C2372F;
+    --pill-high-ink: #FFFFFF;
+    --pill-mid-bg: #F5A524;
+    --pill-mid-ink: #3B2600;
+    --pill-low-bg: #3A4170;
+    --pill-low-ink: #E6E9F7;
+    --badge-sup-bg: #34296A;
+    --badge-sup-ink: #DCD2FF;
+    --badge-new-bg: #12403A;
+    --badge-new-ink: #B5EDE3;
+    --badge-weight-bg: #12403A;
+    --badge-weight-ink: #B5EDE3;
+    --flash: #5E4A10;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11142A;
+  --bg-2: #171B36;
+  --surface: #191D38;
+  --surface-2: #20254A;
+  --ink: #E6E9F7;
+  --ink-2: #B9C0E0;
+  --ink-3: #9098BE;
+  --line: #2D3358;
+  --line-2: #4B5389;
+  --grid: #3B4272;
+  --accent: #9AA2F5;
+  --accent-ink: #11142A;
+  --hit: #FF9F5A;
+  --link-line: #CBD0F2;
+  --link-on: #FF7AA8;
+  --center: #2A3172;
+  --center-ring: #9AA2F5;
+  --card-bg: #1C2144;
+  --card-ink: #E6E9F7;
+  --card-ink-2: #B9C0E0;
+  --sector-op: 0.14;
+  --trunk-op: 0.7;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+  --pill-high-bg: #C2372F;
+  --pill-high-ink: #FFFFFF;
+  --pill-mid-bg: #F5A524;
+  --pill-mid-ink: #3B2600;
+  --pill-low-bg: #3A4170;
+  --pill-low-ink: #E6E9F7;
+  --badge-sup-bg: #34296A;
+  --badge-sup-ink: #DCD2FF;
+  --badge-new-bg: #12403A;
+  --badge-new-ink: #B5EDE3;
+  --badge-weight-bg: #12403A;
+  --badge-weight-ink: #B5EDE3;
+  --flash: #5E4A10;
+}
+
+/* 分野色を背景の上に線として引くときの色（ダークでは少し明るく） */
+:root { --mix-line: 0%; }
+:root[data-theme="dark"] { --mix-line: 38%; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --mix-line: 38%; } }
+
+/* ===== 基本 ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+a { color: var(--accent); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 8px; top: -60px; z-index: 100; background: var(--surface-2); padding: 6px 12px; border-radius: 8px; }
+.skip:focus { top: 8px; }
+[hidden] { display: none !important; }
+
+/* ===== 上部バー ===== */
+.topbar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--topbar-h);
+  padding: 8px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 30;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-mark {
+  width: 34px; height: 34px; flex: none; border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--center) 0 38%, transparent 39% 52%, var(--center) 53% 58%, transparent 59%),
+              conic-gradient(var(--d-hist) 0 60deg, var(--d-mlbase) 0 120deg, var(--d-dlcore) 0 180deg, var(--d-dlapp) 0 240deg, var(--d-social) 0 300deg, var(--d-moral) 0);
+}
+.brand-title { font-family: var(--font-display); font-weight: 800; font-size: 18px; line-height: 1.2; letter-spacing: .02em; white-space: nowrap; }
+.brand-sub { font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+.tabs { display: flex; gap: 4px; margin-left: 8px; }
+.tabs a {
+  text-decoration: none; color: var(--ink-2); padding: 7px 12px; border-radius: 999px;
+  font-weight: 700; font-size: 14px; white-space: nowrap;
+}
+.tabs a:hover { background: var(--bg-2); }
+.tabs a[aria-selected="true"] { background: var(--ink); color: var(--surface); }
+.tabs .ts { display: none; }
+.panel-title:focus { outline: none; }
+.search { position: relative; margin-left: auto; width: min(320px, 32vw); }
+.search input {
+  width: 100%; height: 38px; padding: 0 12px 0 34px; border-radius: 999px;
+  border: 1px solid var(--line-2); background: var(--surface-2); color: var(--ink); font: inherit;
+}
+.search::before {
+  content: ""; position: absolute; left: 13px; top: 12px; width: 10px; height: 10px;
+  border: 2px solid var(--ink-3); border-radius: 50%; pointer-events: none;
+}
+.search::after {
+  content: ""; position: absolute; left: 24px; top: 23px; width: 6px; height: 2px;
+  background: var(--ink-3); transform: rotate(45deg); pointer-events: none;
+}
+.search ul {
+  position: absolute; right: 0; top: 44px; width: min(440px, 92vw); max-height: 60vh; overflow: auto;
+  margin: 0; padding: 6px; list-style: none; background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.search li { padding: 8px 10px; border-radius: 8px; cursor: pointer; line-height: 1.45; }
+.search li[aria-selected="true"], .search li:hover { background: var(--bg-2); }
+.search li .q-name { font-weight: 700; }
+.search li .q-path { display: block; font-size: 12px; color: var(--ink-3); }
+.search li.q-info { cursor: default; font-size: 12px; color: var(--ink-3); }
+.search li.q-info:hover { background: none; }
+.icon-btn {
+  flex: none; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line-2);
+  background: var(--surface-2); cursor: pointer; font-size: 17px; line-height: 1;
+}
+
+main { flex: 1; min-height: 0; position: relative; }
+.links-layout > *, .tables > *, .two-col > *, .exam-wrap section, .fsec-body > * { min-width: 0; }
+.view { position: absolute; inset: 0; overflow: auto; }
+
+/* ===== 地図 ===== */
+#view-map { overflow: hidden; }
+#map-wrap {
+  position: absolute; inset: 0; touch-action: none; cursor: grab;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 60%, color-mix(in srgb, var(--bg-2) 70%, transparent) 100%),
+    var(--bg);
+}
+#map-wrap.dragging { cursor: grabbing; }
+#map { width: 100%; height: 100%; display: block; user-select: none; -webkit-user-select: none; }
+#map text { font-family: var(--font-ui); }
+
+.ring { fill: none; stroke: var(--grid); stroke-width: 1.4; opacity: .55; }
+.ring.dash { stroke-dasharray: 6 10; }
+.tick { stroke: var(--grid); stroke-width: 2; opacity: .7; }
+.tick.major { stroke-width: 4; opacity: .9; }
+.tick-label { fill: var(--ink-3); font-size: 22px; letter-spacing: .08em; }
+.sector { fill: var(--c); opacity: var(--sector-op); }
+.sector-edge { stroke: var(--c); stroke-width: 3; opacity: .35; fill: none; }
+.domain-label { fill: var(--c); font-family: var(--font-display) !important; font-weight: 800; font-size: 46px; letter-spacing: .22em; }
+:root[data-theme="dark"] .domain-label { fill: color-mix(in srgb, var(--c) 55%, white); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .domain-label { fill: color-mix(in srgb, var(--c) 55%, white); } }
+
+.trunk { fill: none; stroke: color-mix(in srgb, var(--c), white var(--mix-line)); stroke-width: 18; stroke-linecap: round; opacity: var(--trunk-op); transition: opacity var(--ease); }
+.center-disc { fill: var(--center); stroke: var(--center-ring); stroke-width: 6; }
+.center-ring2 { fill: none; stroke: var(--center); stroke-width: 2; opacity: .5; }
+.center-title { fill: #FFFFFF; font-family: var(--font-display) !important; font-weight: 800; text-anchor: middle; }
+.center-sub { fill: #C9D7E6; font-size: 22px; text-anchor: middle; letter-spacing: .2em; }
+
+/* 関係の矢印 */
+.rel { cursor: pointer; transition: opacity var(--ease); }
+.rel-line { fill: none; stroke: var(--link-line); stroke-width: 4; opacity: .5; }
+.rel.core .rel-line { stroke-width: 9; opacity: .72; }
+.rel:not(.core) .rel-line { stroke-dasharray: 16 12; }
+.rel-head { fill: var(--link-line); opacity: .65; }
+.rel.core .rel-head { opacity: .8; }
+.rel-hit { fill: none; stroke: transparent; stroke-width: 34; }
+.rel-label { display: none; pointer-events: none; }
+.rel-label rect { fill: var(--surface-2); stroke: var(--link-on); stroke-width: 2.5; }
+.rel-label text { fill: var(--ink); font-size: 24px; font-weight: 700; text-anchor: middle; }
+.labels-on .rel-label { display: inline; }
+.rel.on .rel-label, .rel:hover .rel-label, .rel:focus-visible .rel-label { display: inline; }
+.rel.on .rel-line, .rel:hover .rel-line, .rel:focus-visible .rel-line { stroke: var(--link-on); opacity: 1; }
+.rel.on .rel-head, .rel:hover .rel-head, .rel:focus-visible .rel-head { fill: var(--link-on); opacity: 1; }
+.rel:focus-visible { outline: none; }
+.rel:focus-visible .rel-line { stroke-width: 12; }
+.no-links .rel { display: none; }
+.core-only .rel:not(.core) { display: none; }
+
+/* 大分類カード */
+.card { cursor: pointer; transition: opacity var(--ease); }
+.card:focus { outline: none; }
+.card-bg { fill: var(--card-bg); stroke: color-mix(in srgb, var(--c) 45%, var(--line)); stroke-width: 2; }
+.card-band, .card-band-sq { fill: var(--c); }
+.card-short { fill: #FFFFFF; font-weight: 700; font-size: 27px; text-anchor: middle; }
+.sub-sq { fill: var(--c); opacity: .85; }
+.sub-name { fill: var(--card-ink); font-size: 20px; }
+.card-foot-sep { stroke: var(--line); stroke-width: 1.5; }
+.pill-bg.high { fill: var(--pill-high-bg); }
+.pill-bg.mid { fill: var(--pill-mid-bg); }
+.pill-bg.low { fill: var(--pill-low-bg); }
+.pill-text { font-size: 18px; font-weight: 700; text-anchor: middle; }
+.pill-text.high { fill: var(--pill-high-ink); }
+.pill-text.mid { fill: var(--pill-mid-ink); }
+.pill-text.low { fill: var(--pill-low-ink); }
+.card-open { fill: var(--accent); font-size: 17px; font-weight: 700; text-anchor: end; }
+.card-weight { fill: var(--badge-weight-ink); font-size: 15px; font-weight: 700; }
+.card-weight-bg { fill: var(--badge-weight-bg); }
+.card-compact-bg { fill: var(--c); stroke: color-mix(in srgb, var(--c) 70%, black); stroke-width: 2; }
+.card-big { fill: #FFFFFF; font-family: var(--font-display) !important; font-weight: 800; text-anchor: middle; }
+.card-ring { fill: none; stroke: transparent; stroke-width: 10; }
+.card:focus-visible .card-ring { stroke: var(--accent); }
+.card.hit .card-ring { stroke: var(--hit); stroke-dasharray: 22 10; }
+.card.is-focus .card-ring { stroke: var(--ink); }
+.lod-detail-only { display: none; }
+.lod-detail .lod-detail-only { display: inline; }
+.lod-detail .lod-compact-only { display: none; }
+
+.focusing .card.is-dim, .focusing .rel.is-dim, .focusing .trunk.is-dim { opacity: .18; }
+.focusing .trunk.is-on { opacity: .95; }
+
+/* 操作ボタン */
+.zoom-ctl {
+  position: absolute; right: 16px; top: 16px; display: flex; flex-direction: column; gap: 6px; z-index: 5;
+}
+.zoom-ctl button {
+  width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line-2);
+  background: var(--surface-2); cursor: pointer; font-size: 22px; font-weight: 700; box-shadow: var(--shadow);
+}
+.zoom-ctl button.fit { font-size: 13px; }
+
+/* 左上パネル */
+.legend-panel {
+  position: absolute; left: 16px; top: 16px; width: 290px; max-height: calc(100% - 32px); overflow: auto;
+  background: color-mix(in srgb, var(--surface) 94%, transparent); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow); z-index: 5; font-size: 13px; line-height: 1.6;
+}
+.legend-panel > summary {
+  cursor: pointer; padding: 10px 14px; font-weight: 700; list-style: none; display: flex; align-items: center; gap: 8px;
+}
+.legend-panel > summary::-webkit-details-marker { display: none; }
+.legend-panel > summary::before { content: "▸"; transition: transform var(--ease); }
+.legend-panel[open] > summary::before { transform: rotate(90deg); }
+.legend-body { padding: 0 14px 12px; }
+.legend-body h3 { font-size: 12.5px; margin: 10px 0 4px; color: var(--ink-2); letter-spacing: .06em; }
+.legend-body ol { margin: 0; padding-left: 1.3em; }
+.legend-body label { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 2px 0; }
+.legend-body input { width: 16px; height: 16px; accent-color: var(--accent); }
+.legend-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.legend-list li { display: flex; align-items: center; gap: 8px; }
+.legend-list.cols { grid-template-columns: 1fr 1fr; gap: 3px 8px; }
+.swatch { width: 14px; height: 14px; border-radius: 3px; background: var(--c); flex: none; }
+.line-sample { width: 36px; height: 0; border-top: 4px solid var(--link-line); flex: none; }
+.line-sample.dash { border-top: 2px dashed var(--link-line); }
+.legend-note { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--ink-3); font-size: 12px; }
+
+/* 右下の注記 */
+.a1-note {
+  position: absolute; right: 16px; bottom: 16px; width: 270px; z-index: 4;
+  background: color-mix(in srgb, var(--surface) 94%, transparent); border: 1px solid var(--line);
+  border-left: 6px solid var(--ink); border-radius: var(--radius); padding: 10px 14px; font-size: 12.5px; line-height: 1.6;
+  box-shadow: var(--shadow);
+}
+.a1-note strong { display: block; font-size: 13px; margin-bottom: 2px; }
+.a1-note p { margin: 0; }
+.a1-note .a1-new { margin-top: 4px; color: var(--ink-3); }
+
+/* ===== 右側パネル（スマホでは下からのシート） ===== */
+.panel {
+  position: fixed; right: 0; top: var(--topbar-actual, var(--topbar-h)); bottom: 0; width: min(460px, 100vw);
+  background: var(--surface); border-left: 1px solid var(--line); box-shadow: var(--shadow);
+  transform: translateX(102%); transition: transform var(--ease), visibility var(--ease); visibility: hidden;
+  z-index: 40; display: flex; flex-direction: column;
+}
+.panel.open { transform: none; visibility: visible; }
+.panel-head { flex: none; display: flex; align-items: center; justify-content: space-between; padding: 8px 10px 0 16px; }
+.panel-grip { display: none; }
+.panel-close {
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--surface-2);
+  cursor: pointer; font-size: 20px; line-height: 1;
+}
+.panel-body { flex: 1; overflow: auto; padding: 4px 18px 28px; }
+.crumb { margin: 0; font-size: 12.5px; color: var(--ink-3); }
+.crumb b { color: var(--ink-2); }
+.panel-title { margin: 6px 0 8px; font-size: 21px; line-height: 1.4; display: flex; gap: 10px; align-items: flex-start; }
+.panel-title .swatch { width: 18px; height: 18px; margin-top: 6px; border-radius: 4px; }
+.panel h3 { font-size: 14px; margin: 18px 0 6px; padding-bottom: 4px; border-bottom: 2px solid var(--line); letter-spacing: .04em; }
+.panel p { margin: 6px 0; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none;
+}
+.btn.ghost { background: transparent; color: var(--accent); }
+.link-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.link-list button {
+  width: 100%; text-align: left; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--surface-2); cursor: pointer; line-height: 1.5;
+}
+.link-list button:hover { border-color: var(--line-2); }
+.link-list .lk-to { font-weight: 700; }
+.link-list .lk-label { display: block; font-size: 12.5px; color: var(--ink-3); }
+.kind { display: inline-block; font-size: 11px; font-weight: 700; padding: 0 6px; border-radius: 6px; border: 1px solid var(--line-2); color: var(--ink-2); margin-left: 6px; vertical-align: 1px; }
+.kind.core { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+
+/* ピル・バッジ */
+.pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 10px; border-radius: 999px; line-height: 1.7; white-space: nowrap; }
+.pill.high { background: var(--pill-high-bg); color: var(--pill-high-ink); }
+.pill.mid { background: var(--pill-mid-bg); color: var(--pill-mid-ink); }
+.pill.low { background: var(--pill-low-bg); color: var(--pill-low-ink); }
+.badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 0 6px; border-radius: 6px; line-height: 1.6; vertical-align: 1px; white-space: nowrap; }
+.badge.sup { background: var(--badge-sup-bg); color: var(--badge-sup-ink); }
+.badge.new { background: var(--badge-new-bg); color: var(--badge-new-ink); }
+.badge.weight { background: var(--badge-weight-bg); color: var(--badge-weight-ink); }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+/* 樹形図（├─ 形式の線） */
+.tree, .tree ul { list-style: none; margin: 0; padding: 0; }
+.tree ul { padding-left: 14px; }
+.tree li { position: relative; padding-left: 20px; }
+.tree li::before {
+  content: ""; position: absolute; left: 0; top: 0; width: 14px; height: .95em;
+  border-left: 2px solid var(--line-2); border-bottom: 2px solid var(--line-2);
+}
+.tree li:not(:last-child)::after { content: ""; position: absolute; left: 0; top: .95em; bottom: 0; border-left: 2px solid var(--line-2); }
+.tree > li { padding-left: 0; }
+.tree > li::before, .tree > li::after { display: none; }
+.tree .t-root { font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+.tree .t-sub { font-weight: 700; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+.tree .t-sub .swatch { width: 11px; height: 11px; border-radius: 2px; }
+.tree .t-term { padding: 1px 0; line-height: 1.55; border-radius: 6px; }
+.tree .t-name { font-weight: 700; }
+.tree .t-desc { color: var(--ink-2); }
+.tree .t-term.flash { background: var(--flash); box-shadow: 0 0 0 4px var(--flash); }
+@media (prefers-reduced-motion: no-preference) {
+  .tree .t-term.flash { transition: background 600ms, box-shadow 600ms; }
+}
+.note-link { font-size: 12px; margin-left: 4px; white-space: nowrap; }
+
+dl.info { margin: 0; display: grid; gap: 8px; }
+dl.info dt { font-weight: 700; font-size: 12.5px; color: var(--ink-2); }
+dl.info dd { margin: 0; }
+dl.info ul { margin: 0; padding-left: 1.2em; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid var(--line-2); background: var(--surface-2); color: var(--ink); text-decoration: none; cursor: pointer; white-space: nowrap;
+}
+.chip .swatch { width: 9px; height: 9px; border-radius: 50%; }
+.kw { display: inline-block; font-size: 12.5px; padding: 0 7px; border-radius: 6px; background: var(--bg-2); margin: 0 4px 4px 0; }
+
+/* ===== 分野別詳細 ===== */
+.detail-layout { display: grid; grid-template-columns: 290px 1fr; min-height: 100%; }
+.detail-layout { background: linear-gradient(to right, var(--surface) 290px, transparent 290px); }
+.detail-nav {
+  position: sticky; top: 0; align-self: start; overflow: auto; padding: 16px;
+  max-height: calc(100vh - var(--topbar-actual, var(--topbar-h)));
+  border-right: 1px solid var(--line); background: var(--surface);
+}
+.detail-nav h2 { font-size: 14px; margin: 0 0 8px; }
+.filter { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 12px; }
+.filter button { padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface-2); cursor: pointer; font-size: 13px; font-weight: 700; }
+.filter button[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.nav-domain { margin: 10px 0 4px; font-size: 12px; font-weight: 700; color: var(--ink-3); display: flex; align-items: center; gap: 6px; }
+.nav-list { list-style: none; margin: 0; padding: 0; }
+.nav-list a { display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: 8px; text-decoration: none; color: var(--ink); font-size: 13.5px; }
+.nav-list a:hover { background: var(--bg-2); }
+.nav-list .pill { margin-left: auto; font-size: 11px; padding: 0 8px; }
+.detail-body { padding: 20px clamp(16px, 3vw, 36px) 60px; min-width: 0; }
+.page-head { max-width: 1100px; margin-bottom: 18px; }
+.page-head h1 { font-family: var(--font-display); font-size: 26px; margin: 0 0 4px; line-height: 1.3; font-weight: 800; }
+.page-head p { margin: 0; color: var(--ink-2); }
+.notice { font-size: 12.5px; color: var(--ink-3); margin-top: 6px !important; }
+.fsec { max-width: 1100px; margin: 0 0 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; scroll-margin-top: 12px; }
+.fsec-head { background: var(--c); color: #FFFFFF; padding: 12px 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.fsec-head h2 { margin: 0; font-size: 19px; line-height: 1.4; }
+.fsec-head .dom { font-size: 12px; opacity: .92; }
+.fsec-head .pills { margin-left: auto; }
+.fsec-body { padding: 14px 18px 18px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px 28px; }
+.fsec-body h3 { font-size: 14px; margin: 4px 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--line); }
+.fsec-summary { grid-column: 1 / -1; margin: 0; }
+.fsec-links { grid-column: 1 / -1; }
+
+/* ===== 分野間の関係 ===== */
+.links-layout { display: grid; grid-template-columns: minmax(300px, 520px) 1fr; gap: 24px; padding: 20px clamp(16px, 3vw, 36px) 60px; align-items: start; }
+.links-layout .page-head { grid-column: 1 / -1; margin-bottom: 0; }
+.mini-wrap { position: sticky; top: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px; }
+.mini-wrap svg { width: 100%; height: auto; display: block; }
+.mini-wrap p { margin: 4px 4px 0; font-size: 12px; color: var(--ink-3); }
+.mini-node circle { fill: var(--c); stroke: var(--surface); stroke-width: 3; }
+.mini-node text { font-size: 21px; fill: var(--ink); font-weight: 700; }
+.mini-rel path { fill: none; stroke: var(--link-line); stroke-width: 2; opacity: .45; }
+.mini-rel.core path { stroke-width: 4; opacity: .65; }
+.mini-rel:not(.core) path { stroke-dasharray: 6 5; }
+.mini-rel polygon { fill: var(--link-line); opacity: .55; }
+.mini.sel .mini-rel, .mini.sel .mini-node { opacity: .2; }
+.mini.sel .mini-rel.on, .mini.sel .mini-node.on { opacity: 1; }
+.mini-rel.on path { stroke: var(--link-on); opacity: 1; }
+.mini-rel.on polygon { fill: var(--link-on); opacity: 1; }
+.mini-node.on circle { stroke: var(--link-on); stroke-width: 5; }
+.rel-groups { min-width: 0; }
+.rel-group { margin-bottom: 22px; }
+.rel-group > h2 { font-size: 16px; margin: 0 0 8px; display: flex; align-items: center; gap: 8px; }
+.rel-group > h2 .num { font-family: var(--font-display); font-weight: 800; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--surface); font-size: 13px; }
+.rel-cards { display: grid; gap: 10px; }
+.rel-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; cursor: pointer; text-align: left; width: 100%; line-height: 1.65; }
+.rel-card:hover { border-color: var(--line-2); }
+.rel-card.sel { border-color: var(--link-on); box-shadow: 0 0 0 2px var(--link-on); }
+.rel-card .rc-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 700; }
+.rel-card .rc-arrow { color: var(--ink-3); }
+.rel-card .rc-label { display: block; font-size: 15px; margin: 2px 0 4px; color: var(--link-on); font-weight: 700; }
+.rel-card dl { margin: 0; display: grid; grid-template-columns: 7.5em 1fr; gap: 3px 10px; font-size: 13.5px; }
+.rel-card dt { font-weight: 700; color: var(--ink-2); }
+.rel-card dd { margin: 0; }
+.tables { grid-column: 1 / -1; display: grid; gap: 28px; }
+.tables h2 { font-size: 18px; margin: 0 0 10px; }
+.tbl-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; line-height: 1.6; }
+th, td { border-bottom: 1px solid var(--line); padding: 8px 12px; text-align: left; vertical-align: top; }
+thead th { background: var(--bg-2); font-size: 12.5px; white-space: nowrap; }
+tbody th { white-space: nowrap; }
+tr:last-child td, tr:last-child th { border-bottom: none; }
+.pairs { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.pair { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+.pair h3 { margin: 0 0 6px; font-size: 15px; }
+.pair dl { margin: 0 0 6px; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 13.5px; }
+.pair dt { font-weight: 700; white-space: nowrap; }
+.pair dd { margin: 0; color: var(--ink-2); }
+.pair .point { margin: 6px 0 0; font-size: 13px; padding: 6px 8px; border-radius: 8px; background: var(--bg-2); }
+.pair .point::before { content: "見分け方："; font-weight: 700; }
+
+/* ===== 試験制度と根拠 ===== */
+.exam-wrap { padding: 20px clamp(16px, 3vw, 36px) 60px; max-width: 1180px; }
+.exam-wrap section { margin-bottom: 30px; }
+.exam-wrap h2 { font-size: 18px; margin: 0 0 10px; display: flex; align-items: center; gap: 10px; }
+.exam-wrap h2::before { content: ""; width: 6px; height: 22px; border-radius: 3px; background: var(--ink); }
+.exam-wrap p { margin: 6px 0; }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 4%; right: 4%; top: 15px; border-top: 3px solid var(--line-2); }
+.timeline li { position: relative; padding: 36px 12px 0; }
+.timeline li::before {
+  content: ""; position: absolute; left: 12px; top: 6px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--surface); border: 4px solid var(--line-2);
+}
+.timeline li.done::before { background: var(--line-2); }
+.timeline li.next::before { background: var(--hit); border-color: var(--hit); box-shadow: 0 0 0 5px color-mix(in srgb, var(--hit) 25%, transparent); }
+.timeline li.plan::before { border-style: dashed; border-color: var(--accent); }
+.timeline .tl-when { font-size: 12.5px; color: var(--ink-3); }
+.timeline .tl-name { font-weight: 700; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.timeline .tl-text { font-size: 13px; color: var(--ink-2); margin: 2px 0 0; }
+.status { font-size: 11px; font-weight: 700; padding: 0 7px; border-radius: 6px; border: 1px solid var(--line-2); }
+.status.next { background: var(--hit); color: #FFFFFF; border-color: var(--hit); }
+.status.plan { border-style: dashed; border-color: var(--accent); color: var(--accent); }
+.sys { font-size: 11px; font-weight: 700; padding: 0 6px; border-radius: 6px; }
+.sys.current { background: var(--bg-2); color: var(--ink-2); }
+.sys.new { background: var(--badge-new-bg); color: var(--badge-new-ink); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.two-col h3 { font-size: 14px; margin: 0 0 6px; }
+.src-list { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; font-size: 13.5px; }
+.src-list .src-note { color: var(--ink-3); font-size: 12.5px; }
+.guide { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.guide div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; font-size: 13.5px; }
+.guide b { display: block; }
+.guide .lv { font-size: 11.5px; color: var(--ink-3); font-weight: 700; }
+.method { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 4px; }
+.footer-note { font-size: 12.5px; color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 12px; }
+
+/* ===== スマホ ===== */
+@media (max-width: 860px) {
+  .topbar { flex-wrap: wrap; gap: 8px 10px; padding: 8px 12px; }
+  .brand-sub { display: none; }
+  .brand-title { font-size: 16px; }
+  .tabs { order: 3; width: 100%; margin: 0; overflow-x: auto; scrollbar-width: none; }
+  .tabs a { padding: 6px 12px; font-size: 13.5px; flex: 1; text-align: center; }
+  .tabs .tl { display: none; }
+  .tabs .ts { display: inline; }
+  .search { order: 2; width: auto; flex: 1; margin-left: 0; min-width: 120px; }
+  .icon-btn { order: 1; margin-left: auto; }
+  .brand { order: 0; }
+  .legend-panel { left: 10px; top: 10px; width: min(290px, calc(100% - 76px)); }
+  .zoom-ctl { right: 10px; top: 10px; }
+  .a1-note { left: 10px; right: auto; bottom: 10px; width: min(300px, calc(100% - 20px)); padding: 8px 12px; font-size: 12px; }
+  .a1-note .a1-new { display: none; }
+  .detail-layout { grid-template-columns: 1fr; }
+  .detail-layout { background: none; }
+  .detail-nav { position: static; height: auto; max-height: none; border-right: none; border-bottom: 1px solid var(--line); }
+  .nav-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
+  .fsec-body { grid-template-columns: 1fr; }
+  .links-layout { grid-template-columns: 1fr; }
+  .mini-wrap { position: static; }
+  .timeline { grid-template-columns: 1fr; }
+  .timeline::before { left: 21px; right: auto; top: 10px; bottom: 10px; border-top: none; border-left: 3px solid var(--line-2); }
+  .timeline li { padding: 0 0 16px 46px; }
+  .timeline li::before { left: 12px; top: 3px; }
+  .two-col { grid-template-columns: 1fr; }
+  .rel-card dl { grid-template-columns: 1fr; }
+  .panel {
+    top: auto; left: 0; right: 0; bottom: 0; width: 100%; height: min(78vh, 720px);
+    border-left: none; border-top: 1px solid var(--line); border-radius: 18px 18px 0 0; transform: translateY(102%);
+  }
+  .panel-head { padding: 6px 10px 0 16px; }
+  .panel-grip { display: block; position: absolute; left: 50%; top: 6px; width: 44px; height: 5px; margin-left: -22px; border-radius: 3px; background: var(--line-2); }
+}
+@media (max-width: 480px) {
+  .legend-panel:not([open]) { width: auto; }
+  .nav-groups { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* ===== G検定版の追加部品 ===== */
+.tree .sid { font-size: 11.5px; font-weight: 700; color: var(--ink-3); background: var(--bg-2); border-radius: 6px; padding: 0 6px; }
+.lec { font-size: 11.5px; font-weight: 700; padding: 0 8px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); text-decoration: none; white-space: nowrap; }
+.lec.planned { border-style: dashed; border-color: var(--line-2); color: var(--ink-3); }
+.cat-items { margin: 0; padding-left: 1.1em; display: grid; gap: 3px; }
+.cat-items .chip { margin-left: 4px; vertical-align: 1px; }
+.timeline.timeline-many { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar" id="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <div>
+      <div class="brand-title">G検定 試験範囲マップ</div>
+      <div class="brand-sub">G検定（JDLA Deep Learning for GENERAL）の全体俯瞰</div>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="表示の切り替え">
+    <a role="tab" id="tab-map" href="#map" aria-controls="view-map" aria-label="全体俯瞰マップ"><span class="tl">全体俯瞰マップ</span><span class="ts" aria-hidden="true">地図</span></a>
+    <a role="tab" id="tab-detail" href="#detail" aria-controls="view-detail" aria-label="分野別詳細"><span class="tl">分野別詳細</span><span class="ts" aria-hidden="true">分野別</span></a>
+    <a role="tab" id="tab-links" href="#links" aria-controls="view-links" aria-label="分野間の関係"><span class="tl">分野間の関係</span><span class="ts" aria-hidden="true">関係</span></a>
+    <a role="tab" id="tab-exam" href="#exam" aria-controls="view-exam" aria-label="試験制度と根拠"><span class="tl">試験制度と根拠</span><span class="ts" aria-hidden="true">試験制度</span></a>
+  </nav>
+  <div class="search">
+    <label for="q" class="sr-only">用語検索</label>
+    <input id="q" type="search" placeholder="用語を検索（例：Transformer）" autocomplete="off" spellcheck="false"
+      role="combobox" aria-expanded="false" aria-controls="q-list" aria-autocomplete="list">
+    <ul id="q-list" role="listbox" aria-label="検索結果" hidden></ul>
+  </div>
+  <button type="button" id="theme-toggle" class="icon-btn" aria-label="ライトモードとダークモードを切り替える" title="表示色の切り替え">◐</button>
+</header>
+
+<main id="main">
+  <section id="view-map" class="view" role="tabpanel" aria-labelledby="tab-map">
+    <div id="map-wrap">
+      <svg id="map" aria-label="G検定の出題範囲を、中心から17分野へ放射状に描いた地図。カードはTabキーで選び、Enterキーで詳細を開ける。"></svg>
+    </div>
+    <div class="zoom-ctl" role="group" aria-label="拡大縮小">
+      <button type="button" id="zoom-in" aria-label="拡大">＋</button>
+      <button type="button" id="zoom-out" aria-label="縮小">－</button>
+      <button type="button" id="zoom-fit" class="fit" aria-label="全体を表示">全体</button>
+    </div>
+    <details class="legend-panel" id="legend" open>
+      <summary>使い方・表示設定・凡例</summary>
+      <div class="legend-body" id="legend-body"></div>
+    </details>
+    <aside class="a1-note" id="a1-note" aria-label="シラバスについての注記"></aside>
+  </section>
+
+  <section id="view-detail" class="view" role="tabpanel" aria-labelledby="tab-detail" hidden></section>
+  <section id="view-links" class="view" role="tabpanel" aria-labelledby="tab-links" hidden></section>
+  <section id="view-exam" class="view" role="tabpanel" aria-labelledby="tab-exam" hidden></section>
+</main>
+
+<aside id="panel" class="panel" role="dialog" aria-modal="false" aria-labelledby="panel-title" aria-hidden="true" tabindex="-1">
+  <div class="panel-head">
+    <span class="panel-grip" aria-hidden="true"></span>
+    <span></span>
+    <button type="button" class="panel-close" id="panel-close" aria-label="パネルを閉じる（Escキー）">×</button>
+  </div>
+  <div class="panel-body" id="panel-body"></div>
+</aside>
+
+<script type="application/json" id="map-data">{"meta":{"title":"G検定 試験範囲マップ","subtitle":"G検定（JDLA Deep Learning for GENERAL）の全体俯瞰","centerTitle":["G検定"],"centerSub":"シラバス2024 v1.4","created":"2026-11-25","researchMemo":"research/jdla-research-2026-11-25.md","siteUrl":"https://popo-fukuro.github.io/STUDY-G-kentei/","notice":"試験日程・シラバスは作成日（調査日）時点の情報。最新情報は必ずJDLAの公式サイトで確認すること。","layout":{"size":2960,"radius":1100,"centerRadius":175,"cardWidth":300,"cardHeader":60,"cardRow":32,"cardPad":20,"cardFooter":50,"startAngle":-132,"ringLabel":1380,"ringTick":1428,"lodThreshold":0.5},"footNote":{"title":"地図の土台：シラバス2024 第1.4版","text":"この地図の中分類はシラバスの55項目、用語はその全キーワード（495語）。G2024#6（2024年11月）から適用されている。出題はすべてシラバスの範囲から。","newText":"法律・ガイドライン・生成AIの話題は変わりやすい。試験の前に最新の状況も確かめておくこと。"},"badges":{"revised":{"label":"シラバス2024で拡充","desc":"シラバス2024の改訂ポイント（生成AIに必要な技術の追加、法律・倫理の明確化）や、その後の改訂で項目やキーワードが加わった分野。"},"sup":{"label":"補","desc":"シラバス第1.4版のキーワードにはないが、理解のために追加した関連知識（公式の例題に出てくる語や、削除された語など）。"}},"timeline":[{"when":"2026年11月6日・7日","name":"2026年 第6回","status":"done","text":"オンライン試験のみ。受験者17,717名・合格者13,805名・合格率77.92%（2026-11-24発表）。"},{"when":"2027年1月15日〜17日","name":"2027年 第1回","status":"next","text":"オンライン 2027/1/16(土)、会場 1/15〜1/17。オンライン個人の申込は 2026/11/13〜2027/1/8。合否は2月上旬。"},{"when":"2027年3月5日・6日","name":"2027年 第2回","status":"plan","text":"オンラインのみ。申込 2027/1/22〜2/25。"},{"when":"2027年5月7日〜9日","name":"2027年 第3回","status":"plan","text":"オンライン 5/8(土)、会場 5/7〜5/9。申込 2027/3/12〜4/27。"},{"when":"2027年7月2日・3日","name":"2027年 第4回","status":"plan","text":"オンラインのみ。申込 2027/5/14〜6/24。"},{"when":"2027年9月3日〜5日","name":"2027年 第5回","status":"plan","text":"オンライン 9/4(土)、会場 9/3〜9/5。申込 2027/7/9〜8/27。"},{"when":"2027年11月5日・6日","name":"2027年 第6回","status":"plan","text":"オンラインのみ。申込 2027/9/10〜10/28。"}],"format":[{"aspect":"試験時間","online":"100分","onsite":"120分"},{"aspect":"出題数","online":"145問程度","onsite":"145問程度"},{"aspect":"形式","online":"知識問題（多肢選択式）","onsite":"知識問題（多肢選択式）"},{"aspect":"受験資格","online":"制限なし","onsite":"制限なし"},{"aspect":"受験料（税込）","online":"一般 13,200円／学生 5,500円（割引制度あり）","onsite":"一般 13,200円／学生 5,500円（割引制度なし）"},{"aspect":"申込","online":"受験チケット（有効期限1年）を買って回を予約","onsite":"受験者専用サイトで会場と日時を選ぶ（受験日の3日前まで）"},{"aspect":"開催","online":"年6回（2027年）","onsite":"年3回（2027年は1月・5月・9月）"},{"aspect":"合格基準","online":"公式ページに記載なし（未確認）","onsite":"公式ページに記載なし（未確認）"}],"syllabus":{"version":"第1.4版","date":"2026年5月11日","appliesFrom":"G2024#6（2024年11月の試験）から適用","points":["生成AIの登場を受けて、歴史的な知識とディープラーニングの知識の体系を見直した","基盤モデルや言語モデルなど、生成AIに必要な技術を追加した","法律・倫理は、ディープラーニングを使う人が理解しておくべき点を明確化した"],"history":[{"ver":"1.0","date":"2024-05-14","text":"シラバス2024を新規作成。LLM・MSE/RMSE/MAE・Contrastive Loss・KL情報量・連鎖律・レイヤー正規化・教師強制・Multi-Head Attention・VQ-VAE・RLHF・Diffusion Model・NeRF・自己教師あり学習などを追加し、ENIAC・深層信念ネットワーク・OCR・IoTなどを削除"},{"ver":"1.1","date":"2024-09-06","text":"特徴抽出・訓練誤差・汎化誤差・表現学習・平均絶対誤差などを削除。「正則化層」を「正規化層」に変更"},{"ver":"1.2","date":"2024-09-20","text":"Encoder-Decoder Attentionを削除。CTCを音声処理へ移動"},{"ver":"1.3","date":"2025-05-25","text":"統計的自然言語処理・単回帰分析・SARSA・真陽性/真陰性を追加。Adaboostを削除。LLMを「生成AI」に変更"},{"ver":"1.4","date":"2026-05-11","text":"自然言語処理からChatGPT・GPT-nを削除。「破壊的忘却」を「破滅的忘却」に変更"}]},"categories":[{"name":"人工知能とは","area":"技術分野"},{"name":"人工知能をめぐる動向","area":"技術分野"},{"name":"機械学習の概要","area":"技術分野"},{"name":"ディープラーニングの概要","area":"技術分野"},{"name":"ディープラーニングの要素技術","area":"技術分野"},{"name":"ディープラーニングの応用例","area":"技術分野"},{"name":"AIの社会実装に向けて","area":"技術分野"},{"name":"AIに必要な数理・統計知識","area":"技術分野"},{"name":"AIに関する法律と契約","area":"法律・倫理分野"},{"name":"AI倫理・AIガバナンス","area":"法律・倫理分野"}],"examples":[{"id":"Q1","cat":"人工知能とは","theme":"フレーム問題","from":"G2024#4","fields":["ai-def"]},{"id":"Q2","cat":"人工知能をめぐる動向","theme":"第2次ブームのエキスパートシステム","from":"G2022#1","fields":["history"]},{"id":"Q3","cat":"人工知能をめぐる動向","theme":"ILSVRCで話題になったスキップ結合のモデル（ResNet）","from":"G2022#1","fields":["history","cnn","vision"]},{"id":"Q4","cat":"機械学習の概要","theme":"重回帰分析の例","from":"G2022#3","fields":["ml"]},{"id":"Q5","cat":"機械学習の概要","theme":"レコメンデーションの手法（コンテンツベースフィルタリング）","from":"G2024#6","fields":["ml"]},{"id":"Q6","cat":"ディープラーニングの概要","theme":"カルバック・ライブラー情報量","from":"G2024#6","fields":["nn"]},{"id":"Q7","cat":"ディープラーニングの概要","theme":"勾配消失問題が起こりやすい条件","from":"G2022#1","fields":["nn","train"]},{"id":"Q8","cat":"ディープラーニングの要素技術","theme":"CNNのパディングの効果","from":"G2024#4","fields":["cnn"]},{"id":"Q9","cat":"ディープラーニングの要素技術","theme":"グローバルアベレージプーリング","from":"G2024#4","fields":["cnn"]},{"id":"Q10","cat":"ディープラーニングの要素技術","theme":"Paraphrasing（テキストのデータ拡張）","from":"G2024#6","fields":["repr"]},{"id":"Q11","cat":"ディープラーニングの応用例","theme":"大規模言語モデルの前提となる法則（スケーリング則）","from":"G2024#4","fields":["nlp"]},{"id":"Q12","cat":"ディープラーニングの応用例","theme":"モデルの軽量化（量子化）","from":"G2024#4","fields":["practical"]},{"id":"Q13","cat":"ディープラーニングの応用例","theme":"Zero-shot","from":"G2024#6","fields":["nlp"]},{"id":"Q14","cat":"AIの社会実装に向けて","theme":"データリーケージの影響","from":"G2022#1","fields":["project"]},{"id":"Q15","cat":"AIに必要な数理・統計知識","theme":"相関係数・偏相関係数・共分散・分散","from":"G2022#1","fields":["eval"]},{"id":"Q16","cat":"AIに必要な数理・統計知識","theme":"サイコロの期待値","from":"G2022#3","fields":["eval"]},{"id":"Q17","cat":"AIに関する法律と契約","theme":"個人情報保護法の対象","from":"G2022#2","fields":["law"]},{"id":"Q18","cat":"AIに関する法律と契約","theme":"AI開発契約の留意点","from":"G2023#4","fields":["law"]},{"id":"Q19","cat":"AI倫理・AIガバナンス","theme":"顔認識技術の倫理的な問題","from":"G2022#1","fields":["ethics"]},{"id":"Q20","cat":"AI倫理・AIガバナンス","theme":"AIと地球環境（サステナビリティ）","from":"G2024#4","fields":["society"]}],"priorityMethod":["JDLAは大項目ごとの出題数や重点分野を示していない。そのため優先度は、次の3つの公式情報だけで判断した。出題頻度を断定するものではない。","①JDLA公式の例題（20問）で、その分野が題材になっているか","②シラバス2024の改訂ポイント・改訂履歴（生成AI・言語モデル、法律・倫理の明確化）にその分野が含まれるか","③シラバス上のキーワード数（その分野がシラバスに占める分量。出題数の比率ではない）","「高」は①〜③のうち複数がはっきり当てはまる分野。キーワード数が多い分野、改訂の中心にある分野を高くした。"],"readingGuide":[{"level":"第1階層","name":"試験範囲全体","text":"中心の円。G検定の出題範囲（シラバス2024 第1.4版）の全体。"},{"level":"第2階層","name":"大分類（17分野）","text":"円周上のカード。シラバスの項目を内容の近さで束ねたもの。6つの領域で色分けした。"},{"level":"第3階層","name":"中分類（シラバスの55項目）","text":"カードの中の一覧。拡大すると表示される。項目ID（T01など）と、学ぶ講義の回を付けた。"},{"level":"第4階層","name":"小分類（キーワード495語）","text":"シラバスの全キーワード。カードを選ぶと右のパネルに、分野別詳細タブでは樹形図で表示。各語に1文の説明を付けた。"},{"level":"バッジ","name":"補","text":"シラバスのキーワードにはないが、理解のために追加した語。公式の例題に出てくる語や、改訂で削除された語。"},{"level":"矢印","name":"分野間の関係","text":"太い実線は特に重要な7つの関係、細い破線はその他の関係。矢じりの向きが影響の向き（両端なら双方向）。"}],"sources":[{"name":"G検定 公式ページ","url":"https://www.jdla.org/certificate/general/","note":"試験の概要・次回の日程・受験料"},{"name":"G検定の受験方法（スタートガイド）","url":"https://www.jdla.org/certificate/general/start/","note":"申込の流れ"},{"name":"2027年の年間開催スケジュール","url":"https://www.jdla.org/news/20260911002/","note":"2026-09-11発表"},{"name":"2027年第1回の受験申込開始","url":"https://www.jdla.org/news/20261113001/","note":"2026-11-13発表"},{"name":"2026年第6回の開催結果","url":"https://www.jdla.org/news/20261124001/","note":"2026-11-24発表"},{"name":"試験出題範囲（シラバス）","url":"https://www.jdla.org/download-category/syllabus/","note":"シラバス2024 第1.4版（PDF）"},{"name":"G検定の例題・過去問","url":"https://www.jdla.org/certificate/general/issues/","note":"大項目ごとの例題20問"}]},"domains":[{"id":"hist","name":"AIの全体像と歴史","color":"#1A66A8"},{"id":"mlbase","name":"機械学習と数理","color":"#0B6E63"},{"id":"dlcore","name":"DLの仕組み","color":"#4550C2"},{"id":"dlapp","name":"DLの応用","color":"#6A3BC4"},{"id":"social","name":"社会実装と法律","color":"#8C4F06"},{"id":"moral","name":"AI倫理とガバナンス","color":"#AD2F62"}],"fields":[{"id":"ai-def","order":1,"domain":"hist","color":"#1B62A3","name":"人工知能とは（定義と議論される問題）","short":"AIの定義と難問","shortLines":["AIの定義","と難問"],"priority":"mid","badges":[],"summary":"「AIとは何か」と、AIの研究で昔から議論されてきた難問を押さえる分野。フレーム問題や中国語の部屋などの思考実験は、AIの限界を説明するときの共通の言葉になる。","themes":["人工知能のレベル分け（単純な制御・古典的な人工知能・機械学習・深層学習）","AI効果と「強いAIと弱いAI」","フレーム問題・シンボルグラウンディング問題・身体性","チューリングテストと中国語の部屋","ダートマス会議（「人工知能」という言葉の始まり）"],"keywords":["AI効果","強いAIと弱いAI","フレーム問題","シンボルグラウンディング問題","チューリングテスト","中国語の部屋","ダートマス会議","シンギュラリティ"],"examPoint":"思考実験や問題の名前と、その中身・提唱者の組合せを問う。「この説明はどの問題か」を選ぶ形が多い。","examTrap":"フレーム問題（関係することだけを選べない）とシンボルグラウンディング問題（記号と意味を結びつけられない）の取り違えに注意。","priorityReason":"JDLA公式の例題Q1（G2024#4）がフレーム問題を題材にしている。シラバス2024の改訂ポイントで「人工知能の基礎となる歴史的な知識」の体系が見直された。キーワード数は18語で、全体の中では少なめ。","items":["T01","T02"],"subShort":{"T02":"AI分野の難問"},"subs":[{"id":"T01","name":"人工知能の定義","short":"人工知能の定義","category":"人工知能とは","area":"技術分野","lecture":{"number":1,"title":"人工知能とは？ 定義と「AIの難問」","status":"planned","page":null},"terms":[{"id":"T01-1","name":"AI効果","desc":"AIで実現された技術が「ただの自動化で知能ではない」とみなされ、AIと呼ばれなくなっていく現象。","sup":false,"aka":[],"note":null},{"id":"T01-2","name":"エージェント","desc":"環境を観測し、目的に向けて自分で行動を選ぶ主体。ソフトウェアやロボットを指す。","sup":false,"aka":[],"note":null},{"id":"T01-3","name":"人工知能","desc":"推論や学習など人間の知的なふるまいを、コンピュータで実現しようとする技術や研究分野。定義は専門家の間でも統一されていない。","sup":false,"aka":[],"note":null},{"id":"T01-4","name":"機械学習","desc":"データから規則やパターンを学び、予測や判断に使えるようにする手法の総称。","sup":false,"aka":[],"note":null},{"id":"T01-5","name":"ディープラーニング","desc":"多層のニューラルネットワークで、特徴の取り出し方までデータから学ぶ機械学習の手法。","sup":false,"aka":[],"note":null}]},{"id":"T02","name":"人工知能分野で議論される問題","short":"AI分野の難問","category":"人工知能とは","area":"技術分野","lecture":{"number":1,"title":"人工知能とは？ 定義と「AIの難問」","status":"planned","page":null},"terms":[{"id":"T02-1","name":"シンギュラリティ","desc":"AIが人間の知能を超え、その後の進歩を人間が予測できなくなるとされる転換点（技術的特異点）。カーツワイルは2045年と予測した。","sup":false,"aka":[],"note":null},{"id":"T02-2","name":"シンボルグラウンディング問題","desc":"記号（言葉）と、それが指す実世界の意味をコンピュータがどう結びつけるかという問題。ハルナッドが1990年に提起した。","sup":false,"aka":[],"note":null},{"id":"T02-3","name":"身体性","desc":"知能が成り立つには、身体を通じて環境とかかわる経験が必要だとする考え方。","sup":false,"aka":[],"note":null},{"id":"T02-4","name":"ダートマス会議","desc":"1956年に開かれ、「人工知能（Artificial Intelligence）」という言葉が初めて使われた研究集会。マッカーシーらが提案した。","sup":false,"aka":[],"note":null},{"id":"T02-5","name":"トイ・プロブレム","desc":"迷路やパズルのように、ルールとゴールがはっきりした簡単な問題。第1次ブームのAIはこれしか解けないと批判された。","sup":false,"aka":[],"note":null},{"id":"T02-6","name":"知識獲得のボトルネック","desc":"専門家の知識を聞き出してルールに書き起こす作業が膨大で難しく、エキスパートシステムの壁になった問題。","sup":false,"aka":[],"note":null},{"id":"T02-7","name":"チューリングテスト","desc":"人が文字だけで会話し、相手が機械か人間かを見分けられなければ機械に知能があるとみなすテスト。チューリングが1950年に提案した。","sup":false,"aka":[],"note":null},{"id":"T02-8","name":"中国語の部屋","desc":"規則どおりに記号を操作できても、意味を理解しているとは限らないことを示す思考実験。サールが1980年に発表し、強いAIを批判した。","sup":false,"aka":[],"note":null},{"id":"T02-9","name":"強いAIと弱いAI","desc":"人のように本当に心や理解をもつAI（強いAI）と、知的にふるまう道具としてのAI（弱いAI）を分ける考え方。サールが提唱した。","sup":false,"aka":[],"note":null},{"id":"T02-10","name":"統計的機械翻訳","desc":"大量の対訳データから単語や句の対応の確率を学び、もっともらしい訳を選ぶ機械翻訳。ニューラル機械翻訳の前に主流だった。","sup":false,"aka":[],"note":null},{"id":"T02-11","name":"フレーム問題","desc":"処理能力に限りがあるAIが、課題に関係することだけを選び出して考えることの難しさ。マッカーシーとヘイズが1969年に提起した。","sup":false,"aka":[],"note":null},{"id":"T02-12","name":"ルールベース機械翻訳","desc":"人が書いた文法の規則と辞書に基づいて訳す、初期の機械翻訳の方式。","sup":false,"aka":[],"note":null},{"id":"T02-13","name":"ローブナーコンテスト","desc":"チューリングテストの考え方で、最も人間らしい会話をするプログラムを競う大会。1991年に始まった。","sup":false,"aka":[],"note":null}]}]},{"id":"history","order":2,"domain":"hist","color":"#1F72B3","name":"人工知能をめぐる動向（AIブームの歴史）","short":"AIブームの歴史","shortLines":["AIブーム","の歴史"],"priority":"mid","badges":[],"summary":"探索・推論（第1次ブーム）、知識表現とエキスパートシステム（第2次ブーム）、機械学習とディープラーニング（第3次ブーム）と続くAIの歴史。各時代の代表的なシステムと、ブームが終わった理由をセットで覚える。","themes":["第1次ブーム：探索・推論（探索木、Mini-Max法、SHRDLU、STRIPS）","第2次ブーム：知識表現とエキスパートシステム（MYCIN、DENDRAL、知識獲得のボトルネック）","機械学習が注目された背景（ビッグデータ、次元の呪い）","第3次ブーム：ILSVRC 2012、AlphaGo、生成AI"],"keywords":["幅優先探索","深さ優先探索","αβ法","マイシン (MYCIN)","オントロジー","ワトソン","ILSVRC","ネオコグニトロン","アルファ碁 (AlphaGo)"],"examPoint":"年代・人物・システム名の組合せと、各ブームの特徴（何ができて何が壁になったか）を問う。","examTrap":"幅優先探索（最短の解が見つかる・メモリを多く使う）と深さ優先探索（メモリが少ない・最短とは限らない）の特徴の入れ替えに注意。","priorityReason":"JDLA公式の例題Q2（G2022#1、エキスパートシステム）と例題Q3（G2022#1、ILSVRCとResNet）が題材にしている。シラバス1.3版で項目「ディープラーニング」のLLMが「生成AI」に変わり、統計的自然言語処理が追加された。キーワード数は36語。","items":["T03","T04","T05","T06"],"subShort":{"T04":"知識表現・専門家システム"},"subs":[{"id":"T03","name":"探索・推論","short":"探索・推論","category":"人工知能をめぐる動向","area":"技術分野","lecture":{"number":2,"title":"探索・推論と知識表現（第1次・第2次AIブーム）","status":"planned","page":null},"terms":[{"id":"T03-1","name":"αβ法","desc":"Mini-Max法で、結果に影響しない枝の探索を打ち切って（枝刈り）計算を減らす手法。","sup":false,"aka":["アルファベータ法","α-β法"],"note":null},{"id":"T03-2","name":"Mini-Max法","desc":"自分は得点を最大に、相手は最小にする手を選ぶと考えて、ゲームの最善手を探す方法。","sup":false,"aka":["ミニマックス法","Min-Max法"],"note":null},{"id":"T03-3","name":"SHRDLU","desc":"積み木の世界で、英語の指示を理解して積み木を動かすシステム。ウィノグラードが1970年ごろに開発した。","sup":false,"aka":[],"note":null},{"id":"T03-4","name":"STRIPS","desc":"「前提条件・行動・結果」で行動を記述し、計画を自動で立てるプランニングの代表的な手法。1971年に発表された。","sup":false,"aka":[],"note":null},{"id":"T03-5","name":"探索木","desc":"問題の状態を節、状態の移り変わりを枝として、木の形に表したもの。","sup":false,"aka":[],"note":null},{"id":"T03-6","name":"ハノイの塔","desc":"円盤を決まった規則で別の柱へ移すパズル。探索で解く問題の代表例。","sup":false,"aka":[],"note":null},{"id":"T03-7","name":"幅優先探索","desc":"出発点に近い節から順に、同じ深さを全部調べてから次の深さへ進む探索。最短の解が見つかるがメモリを多く使う。","sup":false,"aka":[],"note":null},{"id":"T03-8","name":"深さ優先探索","desc":"1本の枝を行けるところまで深く進み、行き止まりなら戻って別の枝を調べる探索。メモリは少なくて済むが最短の解とは限らない。","sup":false,"aka":[],"note":null},{"id":"T03-9","name":"ブルートフォース","desc":"考えられるすべての組合せを、総当たりで調べる方法。","sup":false,"aka":[],"note":null},{"id":"T03-10","name":"モンテカルロ法","desc":"ランダムなシミュレーション（プレイアウト）を何度も行い、その結果から手のよさを評価する方法。囲碁AIで使われた。","sup":false,"aka":[],"note":null}]},{"id":"T04","name":"知識表現とエキスパートシステム","short":"知識表現・専門家システム","category":"人工知能をめぐる動向","area":"技術分野","lecture":{"number":2,"title":"探索・推論と知識表現（第1次・第2次AIブーム）","status":"planned","page":null},"terms":[{"id":"T04-1","name":"Cycプロジェクト","desc":"人間の一般常識をすべて知識ベースに書き込もうとするプロジェクト。レナートが1984年に始めた。","sup":false,"aka":[],"note":null},{"id":"T04-2","name":"DENDRAL","desc":"化合物の質量分析のデータから分子の構造を推定する、最初期のエキスパートシステム。1960年代にスタンフォード大学で開発された。","sup":false,"aka":[],"note":null},{"id":"T04-3","name":"is-aの関係・has-aの関係・part-ofの関係","desc":"概念のつながりを表す関係。「〜は〜の一種」「〜は〜を持つ」「〜は〜の一部」。","sup":false,"aka":[],"note":null},{"id":"T04-4","name":"Question-Answering","desc":"自然文の質問に対して、知識ベースや文書から答えを見つけて返す技術。","sup":false,"aka":["QuestionAnswering","質問応答システム"],"note":null},{"id":"T04-5","name":"意味ネットワーク","desc":"概念を節、概念どうしの関係を矢印で結び、知識を網の目のように表す方法。","sup":false,"aka":[],"note":null},{"id":"T04-6","name":"イライザ (ELIZA)","desc":"決まったパターンに当てはめて相手の言葉を言い換えて返す、初期の対話プログラム。ワイゼンバウムが1966年に発表した。","sup":false,"aka":[],"note":null},{"id":"T04-7","name":"インタビューシステム","desc":"専門家への聞き取りを支援し、知識を引き出してエキスパートシステムに取り込むための仕組み。","sup":false,"aka":[],"note":null},{"id":"T04-8","name":"ウェブマイニング","desc":"Webページの文章やリンク、利用の履歴などから役に立つ知識を取り出すこと。","sup":false,"aka":[],"note":null},{"id":"T04-9","name":"オントロジー","desc":"ある分野の概念と、その関係を体系的に定義したもの。知識を共有・再利用するための「概念の辞書」。","sup":false,"aka":[],"note":null},{"id":"T04-10","name":"セマンティックWeb","desc":"Webの情報に意味を表すデータ（メタデータ）を付け、コンピュータが内容を理解して処理できるようにする構想。","sup":false,"aka":["セマンティック・ウェブ","Semantic Web"],"note":null},{"id":"T04-11","name":"データマイニング","desc":"大量のデータから、規則性や関係などの役に立つ知識を掘り起こすこと。","sup":false,"aka":[],"note":null},{"id":"T04-12","name":"東ロボくん","desc":"東京大学の入試合格を目標にした、国立情報学研究所のAIプロジェクト（2011年開始）。文章の読解の難しさが明らかになった。","sup":false,"aka":[],"note":null},{"id":"T04-13","name":"マイシン (MYCIN)","desc":"血液の感染症の患者に合う抗生物質を推薦するエキスパートシステム。1970年代にスタンフォード大学で開発された。","sup":false,"aka":[],"note":null},{"id":"T04-14","name":"ワトソン","desc":"IBMの質問応答システム。2011年にアメリカのクイズ番組で人間のチャンピオンに勝った。","sup":false,"aka":[],"note":null}]},{"id":"T05","name":"機械学習","short":"機械学習","category":"人工知能をめぐる動向","area":"技術分野","lecture":{"number":3,"title":"機械学習とディープラーニングの登場（第3次AIブーム〜生成AI）","status":"planned","page":null},"terms":[{"id":"T05-1","name":"次元の呪い","desc":"特徴量の次元が増えると、必要なデータ量や計算量が急激に増え、学習がうまくいかなくなる現象。","sup":false,"aka":[],"note":null},{"id":"T05-2","name":"スパムフィルタ","desc":"迷惑メールかどうかを、過去のメールから学習して自動で振り分ける仕組み。機械学習の代表的な応用。","sup":false,"aka":["スパムフィルター"],"note":null},{"id":"T05-3","name":"ビッグデータ","desc":"量がとても多く、種類も多様で、次々に生まれるデータ。機械学習が実用になった背景の一つ。","sup":false,"aka":[],"note":null},{"id":"T05-4","name":"レコメンデーションエンジン","desc":"利用者の行動の履歴などから、好みに合いそうな商品やコンテンツを推薦する仕組み。","sup":false,"aka":[],"note":null},{"id":"T05-5","name":"統計的自然言語処理","desc":"大量の文章データから確率や統計を使って言語を扱う手法。人が規則を書く方法に代わって主流になった。","sup":false,"aka":[],"note":null}]},{"id":"T06","name":"ディープラーニング","short":"ディープラーニング","category":"人工知能をめぐる動向","area":"技術分野","lecture":{"number":3,"title":"機械学習とディープラーニングの登場（第3次AIブーム〜生成AI）","status":"planned","page":null},"terms":[{"id":"T06-1","name":"ImageNet","desc":"1,400万枚を超える画像に物体の名前のラベルを付けた、大規模なデータセット。画像認識の研究を大きく進めた。","sup":false,"aka":[],"note":null},{"id":"T06-2","name":"ILSVRC","desc":"ImageNetを使った画像認識の国際コンテスト。2012年にディープラーニングのAlexNetが大差で優勝した。","sup":false,"aka":[],"note":null},{"id":"T06-3","name":"LeNet","desc":"ルカンらが開発した初期の畳み込みニューラルネットワーク。手書きの数字の認識に使われた。","sup":false,"aka":[],"note":null},{"id":"T06-4","name":"アルファ碁 (AlphaGo)","desc":"DeepMindが開発した囲碁のAI。2016年にトップ棋士のイ・セドルに勝った。","sup":false,"aka":[],"note":null},{"id":"T06-5","name":"人間の神経回路","desc":"ニューラルネットワークの発想のもとになった、脳の神経細胞（ニューロン）のつながり。","sup":false,"aka":[],"note":null},{"id":"T06-6","name":"ネオコグニトロン","desc":"福島邦彦が1979年に発表した、視覚の仕組みをまねた多層のネットワーク。CNNの原型とされる。","sup":false,"aka":[],"note":null},{"id":"T06-7","name":"生成AI","desc":"学習したデータをもとに、文章・画像・音声などの新しいコンテンツを作り出すAI。","sup":false,"aka":[],"note":null}]}]},{"id":"ml","order":3,"domain":"mlbase","color":"#0B7064","name":"機械学習の手法（教師あり・教師なし・強化学習）","short":"機械学習の手法","shortLines":["機械学習","の手法"],"priority":"high","badges":[],"summary":"正解つきのデータから学ぶ教師あり学習、正解なしで構造を見つける教師なし学習、試行錯誤で報酬を最大にする強化学習。3つの違いと、それぞれの代表的なモデルが出発点になる。","themes":["回帰問題と分類問題、代表的なモデル（線形回帰・ロジスティック回帰・SVM・決定木）","アンサンブル学習（バギングとブースティング、ランダムフォレスト）","クラスタリング・次元削減・トピックモデル","レコメンデーション（協調フィルタリングとコンテンツベース）","強化学習の枠組み（マルコフ決定過程・価値関数・方策）とQ学習・SARSA"],"keywords":["回帰問題","分類問題","ロジスティック回帰","サポートベクターマシン (SVM)","ランダムフォレスト","k-means法","主成分分析 (PCA)","協調フィルタリング","Q学習","ε-greedy方策"],"examPoint":"具体的な場面（売上の予測、顧客のグループ分けなど）に合う手法を選ばせる形や、手法の名前と特徴の組合せを問う。","examTrap":"ロジスティック回帰は名前に「回帰」とあるが分類のモデル。バギング（並列に学習して平均）とブースティング（順番に学習して間違いを補う）の違いにも注意。","priorityReason":"JDLA公式の例題Q4（G2022#3、重回帰分析）と例題Q5（G2024#6、レコメンデーションの手法）が題材にしている。シラバス1.3版で単回帰分析・SARSAが追加され、Adaboostが削除された。キーワード数は46語で、分野の中で多い。","items":["T07","T08","T09"],"subs":[{"id":"T07","name":"教師あり学習","short":"教師あり学習","category":"機械学習の概要","area":"技術分野","lecture":{"number":4,"title":"教師あり学習（回帰・分類・アンサンブル）","status":"planned","page":null},"terms":[{"id":"T07-1","name":"アンサンブル学習","desc":"複数のモデルを組み合わせ、多数決や平均で1つのモデルより精度を高める手法。","sup":false,"aka":[],"note":null},{"id":"T07-2","name":"カーネル","desc":"データを高い次元の空間に写したときの内積を、直接計算するための関数。SVMで使う。","sup":false,"aka":[],"note":null},{"id":"T07-3","name":"カーネルトリック","desc":"高い次元への写像を実際には計算せず、カーネル関数だけで内積を求めて計算量を抑える工夫。","sup":false,"aka":[],"note":null},{"id":"T07-4","name":"回帰問題","desc":"売上や気温のように、連続した数値を予測する問題。","sup":false,"aka":[],"note":null},{"id":"T07-5","name":"決定木","desc":"条件による分岐を木の形に重ねて、分類や回帰を行うモデル。判断の理由がわかりやすい。","sup":false,"aka":[],"note":null},{"id":"T07-6","name":"勾配ブースティング","desc":"前のモデルの誤差（残差）を次の弱いモデルが補うように、順番に足し合わせていく手法。","sup":false,"aka":[],"note":null},{"id":"T07-7","name":"サポートベクターマシン (SVM)","desc":"クラスの境界と、境界に最も近いデータ（サポートベクター）との距離を最大にする分類のモデル。","sup":false,"aka":[],"note":null},{"id":"T07-8","name":"線形回帰","desc":"説明変数と目的変数の関係を、直線（一次式）で表して予測する回帰のモデル。","sup":false,"aka":[],"note":null},{"id":"T07-9","name":"自己回帰モデル (ARモデル)","desc":"時系列データの今の値を、過去の自分自身の値の組合せで表すモデル。","sup":false,"aka":[],"note":null},{"id":"T07-10","name":"単回帰分析","desc":"1つの説明変数で、目的変数を予測する線形回帰。","sup":false,"aka":[],"note":null},{"id":"T07-11","name":"重回帰分析","desc":"2つ以上の説明変数で、目的変数を予測する線形回帰。","sup":false,"aka":[],"note":null},{"id":"T07-12","name":"多クラス分類","desc":"3つ以上のクラスのうち、どれに当てはまるかを予測する分類問題。","sup":false,"aka":[],"note":null},{"id":"T07-13","name":"バギング","desc":"データからランダムに作った複数の標本で別々にモデルを学習し、結果をまとめるアンサンブル学習。","sup":false,"aka":[],"note":null},{"id":"T07-14","name":"ブースティング","desc":"前のモデルが間違えたデータを重視しながら、モデルを順番に学習していくアンサンブル学習。","sup":false,"aka":[],"note":null},{"id":"T07-15","name":"ブートストラップサンプリング","desc":"元のデータから、重複を許してランダムにデータを取り出し、新しい標本を作る方法。","sup":false,"aka":[],"note":null},{"id":"T07-16","name":"分類問題","desc":"データがどのグループ（クラス）に属するかを予測する問題。","sup":false,"aka":[],"note":null},{"id":"T07-17","name":"ベクトル自己回帰モデル (VARモデル)","desc":"複数の時系列データを、互いの過去の値も使って同時に表す自己回帰モデル。","sup":false,"aka":[],"note":null},{"id":"T07-18","name":"マージン最大化","desc":"クラスの境界と、最も近いデータとの距離をできるだけ大きくとるSVMの考え方。","sup":false,"aka":[],"note":null},{"id":"T07-19","name":"ランダムフォレスト","desc":"特徴量とデータをランダムに選んだ多数の決定木の多数決で予測する、バギングの手法。","sup":false,"aka":[],"note":null},{"id":"T07-20","name":"ロジスティック回帰","desc":"入力の重み付きの和をシグモイド関数で0〜1の確率に変える、分類のためのモデル。","sup":false,"aka":[],"note":null}]},{"id":"T08","name":"教師なし学習","short":"教師なし学習","category":"機械学習の概要","area":"技術分野","lecture":{"number":5,"title":"教師なし学習（クラスタリング・次元削減・推薦）","status":"planned","page":null},"terms":[{"id":"T08-1","name":"k-means法","desc":"データを指定したk個のグループに分けるクラスタリングの手法。各グループの中心の計算と、データの割り当てを繰り返す。","sup":false,"aka":[],"note":null},{"id":"T08-2","name":"t-SNE","desc":"高い次元のデータの近さの関係を保ったまま、2次元や3次元に縮めて可視化する手法。","sup":false,"aka":[],"note":null},{"id":"T08-3","name":"ウォード法","desc":"まとめたときのばらつきの増え方が最も小さい組から順に結合していく、階層的クラスタリングの手法。","sup":false,"aka":[],"note":null},{"id":"T08-4","name":"協調フィルタリング","desc":"好みが似ているほかの利用者の行動の履歴をもとに推薦する方法。","sup":false,"aka":[],"note":null},{"id":"T08-5","name":"クラスタリング","desc":"正解のラベルなしで、似たデータどうしをグループにまとめる手法。","sup":false,"aka":[],"note":null},{"id":"T08-6","name":"コールドスタート問題","desc":"新しい利用者や商品には履歴がないため、協調フィルタリングでは推薦が難しい問題。","sup":false,"aka":[],"note":null},{"id":"T08-7","name":"コンテンツベースフィルタリング","desc":"商品の特徴（ジャンルや説明文など）と利用者の好みを照らし合わせて推薦する方法。履歴の少ない商品でも推薦できる。","sup":false,"aka":[],"note":null},{"id":"T08-8","name":"次元削減","desc":"データの情報をなるべく保ったまま、特徴量の数（次元）を減らすこと。","sup":false,"aka":[],"note":null},{"id":"T08-9","name":"主成分分析 (PCA)","desc":"データのばらつきが最も大きい方向から順に新しい軸（主成分）をとり、少ない次元で表す手法。","sup":false,"aka":[],"note":null},{"id":"T08-10","name":"潜在的ディリクレ配分法 (LDA)","desc":"文書は複数のトピックが混ざったもので、トピックごとに単語の出やすさが違うと考えるトピックモデル。","sup":false,"aka":[],"note":null},{"id":"T08-11","name":"多次元尺度構成法 (MDS)","desc":"データどうしの距離の関係をできるだけ保って、低い次元に配置する手法。","sup":false,"aka":[],"note":null},{"id":"T08-12","name":"デンドログラム (樹形図)","desc":"階層的クラスタリングで、データがまとまっていく順番を木の形に表した図。","sup":false,"aka":[],"note":null},{"id":"T08-13","name":"特異値分解 (SVD)","desc":"行列を3つの行列の積に分解する方法。次元削減や推薦に使う。","sup":false,"aka":[],"note":null},{"id":"T08-14","name":"トピックモデル","desc":"文書の集まりから、その背後にある話題（トピック）を推定するモデル。","sup":false,"aka":[],"note":null}]},{"id":"T09","name":"強化学習","short":"強化学習","category":"機械学習の概要","area":"技術分野","lecture":{"number":6,"title":"強化学習","status":"planned","page":null},"terms":[{"id":"T09-1","name":"Actor-Critic","desc":"行動を選ぶ役（Actor）と、その行動を評価する役（Critic）を組み合わせた強化学習の手法。","sup":false,"aka":[],"note":null},{"id":"T09-2","name":"ε-greedy方策","desc":"確率εでランダムに行動を試し（探索）、それ以外は今いちばん良い行動を選ぶ（活用）方策。","sup":false,"aka":["ε-greedy","イプシロングリーディ"],"note":null},{"id":"T09-3","name":"REINFORCE","desc":"得られた報酬をもとに方策のパラメータを直接更新する、方策勾配法の基本的なアルゴリズム。","sup":false,"aka":[],"note":null},{"id":"T09-4","name":"Q学習","desc":"行動価値（Q値）を、次の状態で最も大きいQ値を使って更新していく強化学習の手法。","sup":false,"aka":[],"note":null},{"id":"T09-5","name":"UCB方策","desc":"これまでの平均の報酬に、試した回数が少ない行動ほど大きくなる上乗せをして行動を選ぶ方策。","sup":false,"aka":[],"note":null},{"id":"T09-6","name":"行動価値関数","desc":"ある状態である行動をとったとき、その後に得られる報酬の合計の期待値を表す関数（Q関数）。","sup":false,"aka":[],"note":null},{"id":"T09-7","name":"状態価値関数","desc":"ある状態から方策に従って行動したとき、得られる報酬の合計の期待値を表す関数。","sup":false,"aka":[],"note":null},{"id":"T09-8","name":"バンディットアルゴリズム","desc":"当たりの確率がわからない複数の選択肢から、探索と活用のバランスをとって報酬を最大にする手法。","sup":false,"aka":[],"note":null},{"id":"T09-9","name":"方策勾配法","desc":"方策そのものをパラメータで表し、報酬が増える方向へパラメータを更新する強化学習の手法。","sup":false,"aka":[],"note":null},{"id":"T09-10","name":"マルコフ決定過程","desc":"次の状態が今の状態と行動だけで決まる性質（マルコフ性）を前提にした、強化学習の問題の枠組み。","sup":false,"aka":[],"note":null},{"id":"T09-11","name":"割引率","desc":"将来の報酬をどれだけ割り引いて評価するかを決める、0〜1の値。","sup":false,"aka":[],"note":null},{"id":"T09-12","name":"SARSA","desc":"実際に選んだ次の行動のQ値を使って行動価値を更新する手法。Q学習と違い、今の方策に沿って学ぶ（方策オン型）。","sup":false,"aka":[],"note":null}]}]},{"id":"eval","order":4,"domain":"mlbase","color":"#0C6670","name":"モデルの評価と数理・統計","short":"評価と数理・統計","shortLines":["評価と","数理・統計"],"priority":"high","badges":[],"summary":"作ったモデルが本当に役に立つかを確かめる評価の方法と指標、そしてその土台になる確率・統計の知識。適合率と再現率のように、似た指標の違いをはっきりさせることが大切。","themes":["混同行列と正解率・適合率・再現率・F値、ROC曲線・AUC","回帰の評価指標（MSE・RMSE・MAE）","過学習と汎化性能、交差検証とホールドアウト検証","モデル選択の基準（AIC・BIC・オッカムの剃刀）","代表値・散らばり・相関、確率分布、仮説検定、距離と類似度"],"keywords":["混同行列","正解率・適合率・再現率・F値","ROC曲線・AUC","過学習","k-分割交差検証","平均二乗誤差 (MSE)","相関係数","期待値","正規分布","コサイン類似度"],"examPoint":"指標の定義を場面に当てはめる問題（見逃しを減らしたいなら再現率など）や、簡単な計算（期待値・分散など）が出る。","examTrap":"適合率（陽性と予測した中の正しさ）と再現率（本当の陽性をどれだけ拾えたか）の取り違え、共分散と相関係数の違いに注意。","priorityReason":"JDLA公式の例題Q15（G2022#1、相関係数・偏相関係数・共分散・分散）と例題Q16（G2022#3、期待値）が題材にしている。シラバス2024でMSE・RMSE・MAEが追加され、1.3版で真陽性・真陰性が追加された。キーワード数は45語で、分野の中で多い。","items":["T10","T37"],"subShort":{"T37":"数理・統計知識"},"subs":[{"id":"T10","name":"モデルの選択・評価","short":"モデルの選択・評価","category":"機械学習の概要","area":"技術分野","lecture":{"number":7,"title":"モデルの選択・評価","status":"planned","page":null},"terms":[{"id":"T10-1","name":"k-分割交差検証","desc":"データをk個に分け、1つを検証用・残りを学習用にする組合せを入れ替えながら、k回評価する方法。","sup":false,"aka":["k分割交差検証"],"note":null},{"id":"T10-2","name":"平均二乗誤差 (MSE)","desc":"予測値と正解の差を2乗して平均した値。大きな誤差を重く評価する。","sup":false,"aka":[],"note":null},{"id":"T10-3","name":"二乗平均平方根誤差 (RMSE)","desc":"MSEの平方根。元のデータと同じ単位で誤差の大きさを表す。","sup":false,"aka":[],"note":null},{"id":"T10-4","name":"平均絶対値誤差 (MAE)","desc":"予測値と正解の差の絶対値の平均。外れ値の影響を受けにくい。","sup":false,"aka":[],"note":null},{"id":"T10-5","name":"ROC曲線・AUC","desc":"しきい値を変えたときの偽陽性率と真陽性率の関係を描いた曲線（ROC曲線）と、その下の面積（AUC）。1に近いほど性能が良い。","sup":false,"aka":[],"note":null},{"id":"T10-6","name":"赤池情報量規準 (AIC)","desc":"モデルの当てはまりの良さと、パラメータの多さ（複雑さ）の両方からモデルを選ぶための指標。小さいほど良い。","sup":false,"aka":[],"note":null},{"id":"T10-7","name":"オッカムの剃刀","desc":"同じくらいうまく説明できるなら、より単純なモデルを選ぶべきだという考え方。","sup":false,"aka":[],"note":null},{"id":"T10-8","name":"過学習","desc":"学習データに合わせすぎて、未知のデータでの性能が下がる状態。","sup":false,"aka":[],"note":null},{"id":"T10-9","name":"交差検証","desc":"データを学習用と検証用に分け、学習に使っていないデータで性能を確かめる方法の総称。","sup":false,"aka":[],"note":null},{"id":"T10-10","name":"偽陽性・偽陰性","desc":"本当は陰性なのに陽性と予測すること（偽陽性）と、本当は陽性なのに陰性と予測すること（偽陰性）。","sup":false,"aka":[],"note":null},{"id":"T10-11","name":"真陽性・真陰性","desc":"陽性を正しく陽性と予測すること（真陽性）と、陰性を正しく陰性と予測すること（真陰性）。","sup":false,"aka":[],"note":null},{"id":"T10-12","name":"混同行列","desc":"予測と正解の組合せ（真陽性・偽陽性・偽陰性・真陰性）の件数をまとめた表。","sup":false,"aka":[],"note":null},{"id":"T10-13","name":"正解率・適合率・再現率・F値","desc":"全体のうち当たった割合（正解率）、陽性と予測した中で本当に陽性の割合（適合率）、本当の陽性のうち見つけられた割合（再現率）、適合率と再現率の調和平均（F値）。","sup":false,"aka":[],"note":null},{"id":"T10-14","name":"汎化性能","desc":"学習に使っていない未知のデータに対しても、正しく予測できる力。","sup":false,"aka":[],"note":null},{"id":"T10-15","name":"ベイズ情報量規準 (BIC)","desc":"AICと同じくモデルの良さと複雑さを比べる指標。データが多いほど複雑さへの罰が強くなる。","sup":false,"aka":[],"note":null},{"id":"T10-16","name":"ホールドアウト検証","desc":"データを学習用と検証用に一度だけ分けて評価する、最も単純な検証方法。","sup":false,"aka":[],"note":null}]},{"id":"T37","name":"AIに必要な数理・統計知識","short":"数理・統計知識","category":"AIに必要な数理・統計知識","area":"技術分野","lecture":{"number":21,"title":"AIに必要な数理・統計知識","status":"planned","page":null},"terms":[{"id":"T37-1","name":"移動平均","desc":"時系列データで、一定の期間の平均を少しずつずらしながら計算し、変動をならす方法。","sup":false,"aka":[],"note":null},{"id":"T37-2","name":"確率分布","desc":"確率変数がどの値をどのくらいの確率でとるかを表したもの。","sup":false,"aka":[],"note":null},{"id":"T37-3","name":"確率変数","desc":"サイコロの目のように、確率に従っていろいろな値をとる変数。","sup":false,"aka":[],"note":null},{"id":"T37-4","name":"確率密度","desc":"連続した値をとる確率変数で、その値の近くになりやすさを表す量。範囲で積分すると確率になる。","sup":false,"aka":[],"note":null},{"id":"T37-5","name":"疑似相関","desc":"2つの変数に因果関係がないのに、別の要因などによって相関があるように見えること。","sup":false,"aka":[],"note":null},{"id":"T37-6","name":"期待値","desc":"確率変数がとる値に、その確率をかけて足し合わせた平均的な値。","sup":false,"aka":[],"note":null},{"id":"T37-7","name":"帰無仮説","desc":"仮説検定で、否定されることを期待して立てる「差がない・効果がない」という仮説。","sup":false,"aka":[],"note":null},{"id":"T37-8","name":"共分散","desc":"2つの変数の偏差の積の平均。一緒に増えるか減るかの傾向を表すが、大きさは単位に左右される。","sup":false,"aka":[],"note":null},{"id":"T37-9","name":"コサイン類似度","desc":"2つのベクトルの向きがどれだけ近いかを、なす角のコサインで表した指標。文書や単語の似ている度合いに使う。","sup":false,"aka":[],"note":null},{"id":"T37-10","name":"最小二乗法","desc":"予測と実測の差の2乗の合計が最も小さくなるように、モデルのパラメータを決める方法。","sup":false,"aka":[],"note":null},{"id":"T37-11","name":"最頻値","desc":"データの中で最も多く現れる値。","sup":false,"aka":[],"note":null},{"id":"T37-12","name":"最尤法","desc":"観測されたデータが得られる確率（尤度）が最も大きくなるように、パラメータを決める方法。","sup":false,"aka":[],"note":null},{"id":"T37-13","name":"条件付き確率","desc":"ある出来事が起きたという条件のもとで、別の出来事が起きる確率。","sup":false,"aka":[],"note":null},{"id":"T37-14","name":"正規分布","desc":"平均を中心に左右対称の釣り鐘型をした確率分布。多くの自然現象に見られる。","sup":false,"aka":[],"note":null},{"id":"T37-15","name":"相関係数","desc":"2つの変数の直線的な関係の強さを、−1〜1で表した指標。共分散をそれぞれの標準偏差で割って求める。","sup":false,"aka":[],"note":null},{"id":"T37-16","name":"相互情報量","desc":"一方の変数を知ることで、もう一方の不確かさがどれだけ減るかを表す量。","sup":false,"aka":[],"note":null},{"id":"T37-17","name":"対立仮説","desc":"仮説検定で、帰無仮説が否定されたときに採用する「差がある・効果がある」という仮説。","sup":false,"aka":[],"note":null},{"id":"T37-18","name":"中央値","desc":"データを小さい順に並べたとき、真ん中にくる値。外れ値の影響を受けにくい。","sup":false,"aka":[],"note":null},{"id":"T37-19","name":"度数分布","desc":"データを区間に分け、それぞれの区間に入る個数を数えて整理したもの。ヒストグラムで表す。","sup":false,"aka":[],"note":null},{"id":"T37-20","name":"二項分布","desc":"成功の確率がpの試行をn回繰り返したときの、成功の回数の確率分布。","sup":false,"aka":[],"note":null},{"id":"T37-21","name":"外れ値","desc":"ほかのデータから大きく離れた値。平均などの統計量や学習の結果をゆがめることがある。","sup":false,"aka":[],"note":null},{"id":"T37-22","name":"標準偏差","desc":"分散の平方根。データのばらつきを、元の単位で表す。","sup":false,"aka":[],"note":null},{"id":"T37-23","name":"平均","desc":"データの値をすべて足して、個数で割った値。","sup":false,"aka":[],"note":null},{"id":"T37-24","name":"分散","desc":"各データと平均との差（偏差）を2乗して平均した値。ばらつきの大きさを表す。","sup":false,"aka":[],"note":null},{"id":"T37-25","name":"偏相関係数","desc":"ほかの変数の影響を取り除いたうえで、2つの変数の相関の強さを表す指標。","sup":false,"aka":[],"note":null},{"id":"T37-26","name":"ベルヌーイ分布","desc":"成功（1）か失敗（0）かの、1回だけの試行の結果を表す確率分布。","sup":false,"aka":[],"note":null},{"id":"T37-27","name":"ポアソン分布","desc":"一定の時間や範囲の中で、まれな出来事が起きる回数の確率分布。","sup":false,"aka":[],"note":null},{"id":"T37-28","name":"マハラノビス距離","desc":"データのばらつきや、変数どうしの相関を考えに入れた距離。異常の検知に使う。","sup":false,"aka":[],"note":null},{"id":"T37-29","name":"ユークリッド距離","desc":"2点を結ぶ直線の長さで表す、いちばん普通の距離。","sup":false,"aka":[],"note":null}]}]},{"id":"nn","order":5,"domain":"dlcore","color":"#4752C4","name":"ニューラルネットワークの基本部品（構造・活性化関数・誤差関数・全結合層）","short":"NNの基本部品","shortLines":["NNの","基本部品"],"priority":"mid","badges":[],"summary":"ニューラルネットワークの骨組み（層とパーセプトロン）、出力を曲げる活性化関数、学習の目標を決める誤差関数。ディープラーニングのすべての技術の部品になる。","themes":["単純パーセプトロンと多層パーセプトロン（線形分離の限界）","CPU・GPU・TPUの違いと、GPUが学習に向く理由","活性化関数（シグモイド・tanh・ReLU・ソフトマックス）と勾配消失問題","誤差関数（平均二乗誤差・交差エントロピー・KL情報量・Contrastive Loss・Triplet Loss）"],"keywords":["単純パーセプトロン","多層パーセプトロン","GPU","ReLU関数","シグモイド関数","ソフトマックス関数","勾配消失問題","交差エントロピー","カルバック・ライブラー情報量 (KL)"],"examPoint":"活性化関数の出力の範囲や微分の大きさ、問題の種類に合う誤差関数の組合せ（回帰なら平均二乗誤差、分類なら交差エントロピー）を問う。","examTrap":"シグモイド関数の微分の最大値は0.25、tanh関数は1。KL情報量は2つの分布を入れ替えると値が変わる（対称ではない）。","priorityReason":"JDLA公式の例題Q6（G2024#6、KL情報量）と例題Q7（G2022#1、勾配消失問題）が題材にしている。シラバス2024でContrastive Loss・KL情報量が追加された。キーワード数は19語で、少なめ。","items":["T11","T12","T13","T17"],"subShort":{"T11":"NNとディープラーニング"},"subs":[{"id":"T11","name":"ニューラルネットワークとディープラーニング","short":"NNとディープラーニング","category":"ディープラーニングの概要","area":"技術分野","lecture":{"number":8,"title":"ニューラルネットワークと活性化関数","status":"planned","page":null},"terms":[{"id":"T11-1","name":"CPU","desc":"汎用の計算装置。複雑な処理を順番にこなすのが得意で、大量の単純な計算を並列に行うのは苦手。","sup":false,"aka":[],"note":null},{"id":"T11-2","name":"GPU","desc":"もとは画像処理用の、単純な計算を大量に並列で行える装置。行列の計算が多いディープラーニングの学習を大きく速くした。","sup":false,"aka":[],"note":null},{"id":"T11-3","name":"TPU","desc":"Googleが開発した、ディープラーニングのテンソル計算に特化した装置。","sup":false,"aka":[],"note":null},{"id":"T11-4","name":"隠れ層・入力層・出力層","desc":"データを受け取る層（入力層）、途中で特徴を変換する層（隠れ層）、結果を出す層（出力層）。","sup":false,"aka":[],"note":null},{"id":"T11-5","name":"多層パーセプトロン","desc":"入力層と出力層の間に隠れ層をもつニューラルネットワーク。線形分離できない問題も扱える。","sup":false,"aka":[],"note":null},{"id":"T11-6","name":"単純パーセプトロン","desc":"入力層と出力層だけの最も単純なニューラルネットワーク。線形分離できる問題しか解けない。","sup":false,"aka":[],"note":null}]},{"id":"T12","name":"活性化関数","short":"活性化関数","category":"ディープラーニングの概要","area":"技術分野","lecture":{"number":8,"title":"ニューラルネットワークと活性化関数","status":"planned","page":null},"terms":[{"id":"T12-1","name":"Leaky ReLU関数","desc":"入力が負のときにもわずかな傾きをもたせたReLU関数。負の側で勾配が0になる問題を和らげる。","sup":false,"aka":[],"note":null},{"id":"T12-2","name":"ReLU関数","desc":"入力が正ならそのまま、負なら0を出す活性化関数。勾配消失が起きにくく、隠れ層で広く使われる。","sup":false,"aka":[],"note":null},{"id":"T12-3","name":"tanh関数","desc":"出力が−1〜1になる活性化関数。微分の最大値は1で、シグモイド関数より勾配が消えにくい。","sup":false,"aka":[],"note":null},{"id":"T12-4","name":"シグモイド関数","desc":"出力が0〜1になるS字型の活性化関数。微分の最大値が0.25と小さく、層が深いと勾配消失が起きやすい。","sup":false,"aka":[],"note":null},{"id":"T12-5","name":"ソフトマックス関数","desc":"複数の出力を、合計が1になる確率に変える活性化関数。多クラス分類の出力層で使う。","sup":false,"aka":[],"note":null},{"id":"T12-6","name":"勾配消失問題","desc":"誤差逆伝播で層をさかのぼるほど勾配が小さくなり、入力に近い層が学習できなくなる問題。微分の小さい活性化関数で起きやすい。","sup":false,"aka":[],"note":null}]},{"id":"T13","name":"誤差関数","short":"誤差関数","category":"ディープラーニングの概要","area":"技術分野","lecture":{"number":9,"title":"誤差関数・正則化・誤差逆伝播法","status":"planned","page":null},"terms":[{"id":"T13-1","name":"Contrastive Loss","desc":"同じ組のデータは近く、違う組のデータは一定以上遠くなるように学習させる誤差関数。","sup":false,"aka":[],"note":null},{"id":"T13-2","name":"Triplet Loss","desc":"基準・同じ種類・違う種類の3つのデータを使い、同じ種類との距離が違う種類との距離より小さくなるように学習させる誤差関数。","sup":false,"aka":[],"note":null},{"id":"T13-3","name":"カルバック・ライブラー情報量 (KL)","desc":"2つの確率分布がどれだけ違うかを表す量。2つを入れ替えると値が変わる（非対称）。","sup":false,"aka":[],"note":null},{"id":"T13-4","name":"交差エントロピー","desc":"予測した確率分布と正解の分布のずれを表す量。分類問題の誤差関数として使う。","sup":false,"aka":[],"note":null},{"id":"T13-5","name":"平均二乗誤差関数","desc":"予測値と正解の差の2乗の平均を誤差とする関数。回帰問題で使う。","sup":false,"aka":[],"note":null}]},{"id":"T17","name":"全結合層","short":"全結合層","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":11,"title":"CNNの部品（全結合・畳み込み・正規化・プーリング・スキップ結合）","status":"planned","page":null},"terms":[{"id":"T17-1","name":"重み","desc":"入力にかける係数で、学習によって調整されるパラメータ。入力の重要度を表す。","sup":false,"aka":[],"note":null},{"id":"T17-2","name":"線形関数","desc":"入力に重みをかけて足し、バイアスを加えるだけの一次式の関数。全結合層の計算の中身。","sup":false,"aka":[],"note":null}]}]},{"id":"train","order":6,"domain":"dlcore","color":"#3A44A6","name":"学習の仕組みと最適化（正則化・誤差逆伝播法・最適化手法）","short":"学習と最適化","shortLines":["学習と","最適化"],"priority":"mid","badges":[],"summary":"ニューラルネットワークが重みを少しずつ直していく仕組み。誤差逆伝播法で勾配を求め、最適化手法で重みを更新し、正則化で過学習を防ぐ。","themes":["誤差逆伝播法と連鎖律、勾配消失問題・勾配爆発問題","勾配降下法の種類（バッチ・ミニバッチ・オンライン、SGD）","最適化手法の発展（モーメンタム→AdaGrad→RMSprop・AdaDelta→Adam→AdaBound・AMSBound）","局所最適解・鞍点、学習率とハイパーパラメータの探索","正則化（L1・L2、ドロップアウト）と早期終了"],"keywords":["誤差逆伝播法","連鎖律","確率的勾配降下法 (SGD)","Adam","学習率","局所最適解","鞍点","L1正則化","L2正則化","ドロップアウト","早期終了"],"examPoint":"最適化手法の改良の流れ（何を何で改善したか）や、正則化の効果の違い、エポックとイテレーションの区別を問う。","examTrap":"L1正則化は不要な重みを0にしやすく（特徴の選択）、L2正則化は重み全体を小さくする。ラッソ回帰がL1、リッジ回帰がL2。","priorityReason":"JDLA公式の例題Q7（G2022#1、勾配消失問題）が題材にしている。シラバス2024で連鎖律が追加された。キーワード数は35語。","items":["T14","T15","T16"],"subs":[{"id":"T14","name":"正則化","short":"正則化","category":"ディープラーニングの概要","area":"技術分野","lecture":{"number":9,"title":"誤差関数・正則化・誤差逆伝播法","status":"planned","page":null},"terms":[{"id":"T14-1","name":"L0正則化","desc":"0でないパラメータの個数に罰を与える正則化。計算が難しいため、L1正則化で代わりに近づけることが多い。","sup":false,"aka":[],"note":null},{"id":"T14-2","name":"L1正則化","desc":"パラメータの絶対値の和に罰を与える正則化。不要な重みが0になりやすく、特徴を選ぶ効果がある。","sup":false,"aka":[],"note":null},{"id":"T14-3","name":"L2正則化","desc":"パラメータの2乗の和に罰を与える正則化。重みを全体に小さくして、なめらかなモデルにする。","sup":false,"aka":[],"note":null},{"id":"T14-4","name":"正則化","desc":"誤差関数に罰則の項を加えるなどして、モデルが複雑になりすぎないようにし、過学習を防ぐ方法の総称。","sup":false,"aka":[],"note":null},{"id":"T14-5","name":"ドロップアウト","desc":"学習のたびに一部のニューロンをランダムに無効にして、過学習を防ぐ方法。","sup":false,"aka":[],"note":null},{"id":"T14-6","name":"ラッソ回帰","desc":"L1正則化を加えた線形回帰。","sup":false,"aka":[],"note":null},{"id":"T14-7","name":"リッジ回帰","desc":"L2正則化を加えた線形回帰。","sup":false,"aka":[],"note":null}]},{"id":"T15","name":"誤差逆伝播法","short":"誤差逆伝播法","category":"ディープラーニングの概要","area":"技術分野","lecture":{"number":9,"title":"誤差関数・正則化・誤差逆伝播法","status":"planned","page":null},"terms":[{"id":"T15-1","name":"勾配消失問題","desc":"入力側の層ほど勾配が小さくなり、学習が進まなくなる問題。活性化関数の微分を何度もかけ合わせるために起きる。","sup":false,"aka":[],"note":null},{"id":"T15-2","name":"勾配爆発問題","desc":"層をさかのぼるにつれて勾配が大きくなりすぎ、学習が不安定になる問題。","sup":false,"aka":[],"note":null},{"id":"T15-3","name":"信用割当問題","desc":"出力の誤差に対して、どのパラメータにどれだけ責任があるかを決める問題。誤差逆伝播法はこれを解く方法になった。","sup":false,"aka":[],"note":null},{"id":"T15-4","name":"連鎖律","desc":"合成関数の微分は、それぞれの関数の微分のかけ算で求められるという法則。誤差逆伝播法の土台。","sup":false,"aka":[],"note":null}]},{"id":"T16","name":"最適化手法","short":"最適化手法","category":"ディープラーニングの概要","area":"技術分野","lecture":{"number":10,"title":"最適化手法（勾配降下法とその仲間）","status":"planned","page":null},"terms":[{"id":"T16-1","name":"AdaBound","desc":"学習の初めはAdamのように動き、学習率に上限と下限を設けて、だんだんSGDに近づける最適化手法。","sup":false,"aka":[],"note":null},{"id":"T16-2","name":"AdaDelta","desc":"AdaGradで学習率が小さくなりすぎる問題を、直近の勾配の情報だけを使うことで改善した最適化手法。","sup":false,"aka":[],"note":null},{"id":"T16-3","name":"AdaGrad","desc":"よく更新されたパラメータほど学習率を小さくする最適化手法。学習が進むと学習率が小さくなりすぎることがある。","sup":false,"aka":[],"note":null},{"id":"T16-4","name":"Adam","desc":"モーメンタムとRMSpropの考え方を組み合わせた、広く使われる最適化手法。","sup":false,"aka":[],"note":null},{"id":"T16-5","name":"AMSBound","desc":"AMSGradに学習率の上限と下限を加え、だんだんSGDに近づける最適化手法。","sup":false,"aka":[],"note":null},{"id":"T16-6","name":"RMSprop","desc":"勾配の2乗の移動平均で学習率を調整し、AdaGradの学習率が小さくなりすぎる問題を改善した最適化手法。","sup":false,"aka":[],"note":null},{"id":"T16-7","name":"鞍点","desc":"ある方向では最小、別の方向では最大になっている点。勾配が0になるため学習が止まりやすい。","sup":false,"aka":[],"note":null},{"id":"T16-8","name":"イテレーション","desc":"パラメータを1回更新すること。ミニバッチ1つ分の学習にあたる。","sup":false,"aka":[],"note":null},{"id":"T16-9","name":"エポック","desc":"学習データ全体を1回使い切ること。","sup":false,"aka":[],"note":null},{"id":"T16-10","name":"オンライン学習","desc":"データを1件ずつ使って、そのつどパラメータを更新する学習方法。","sup":false,"aka":[],"note":null},{"id":"T16-11","name":"学習率","desc":"1回の更新でパラメータをどれだけ動かすかを決めるハイパーパラメータ。","sup":false,"aka":[],"note":null},{"id":"T16-12","name":"確率的勾配降下法 (SGD)","desc":"ランダムに選んだ一部のデータで勾配を計算し、パラメータを更新する方法。","sup":false,"aka":[],"note":null},{"id":"T16-13","name":"グリッドサーチ","desc":"ハイパーパラメータの候補の組合せを、格子状にすべて試して最良を選ぶ方法。","sup":false,"aka":[],"note":null},{"id":"T16-14","name":"勾配降下法","desc":"誤差関数の勾配（傾き）の逆向きにパラメータを少しずつ動かして、誤差を最小にする方法。","sup":false,"aka":[],"note":null},{"id":"T16-15","name":"局所最適解","desc":"周りと比べれば最小だが、全体では最小ではない解。","sup":false,"aka":[],"note":null},{"id":"T16-16","name":"早期終了","desc":"検証データでの誤差が下がらなくなった時点で学習を止め、過学習を防ぐ方法。","sup":false,"aka":[],"note":null},{"id":"T16-17","name":"大域最適解","desc":"全体の中で、本当に誤差が最小になる解。","sup":false,"aka":[],"note":null},{"id":"T16-18","name":"二重降下現象","desc":"モデルを大きくしたり学習を続けたりすると、テストでの誤差がいったん悪化したあと再び下がる現象。","sup":false,"aka":[],"note":null},{"id":"T16-19","name":"ノーフリーランチの定理","desc":"あらゆる問題に対して、ほかより常に優れた万能のアルゴリズムは存在しないという定理。","sup":false,"aka":[],"note":null},{"id":"T16-20","name":"ハイパーパラメータ","desc":"学習率や層の数など、学習の前に人が決めておく設定値。","sup":false,"aka":[],"note":null},{"id":"T16-21","name":"バッチ学習","desc":"学習データ全体を使って勾配を計算し、まとめてパラメータを更新する学習方法。","sup":false,"aka":[],"note":null},{"id":"T16-22","name":"ミニバッチ学習","desc":"データを小さなまとまり（ミニバッチ）に分け、まとまりごとにパラメータを更新する学習方法。","sup":false,"aka":[],"note":null},{"id":"T16-23","name":"モーメンタム","desc":"前回の更新の向きを慣性のように引き継ぎ、学習の振動を抑えて速く進める工夫。","sup":false,"aka":[],"note":null},{"id":"T16-24","name":"ランダムサーチ","desc":"ハイパーパラメータをランダムに選んで試し、最良を探す方法。","sup":false,"aka":[],"note":null}]}]},{"id":"cnn","order":7,"domain":"dlcore","color":"#4B4FC0","name":"畳み込みニューラルネットワークの層（畳み込み・正規化・プーリング・スキップ結合）","short":"CNNの層","priority":"mid","badges":[],"summary":"画像の特徴を取り出すCNNを作る層。フィルタを当てる畳み込み、値をそろえる正規化、まとめて小さくするプーリング、深くしても学習できるようにするスキップ結合。","themes":["畳み込み操作（フィルタ・ストライド・パディング・特徴マップ）","計算を減らす・範囲を広げる畳み込み（Depthwise Separable、Dilated／Atrous）","正規化の種類（バッチ・レイヤー・インスタンス・グループ）","プーリング（最大値・平均値・GAP）と不変性","スキップ結合とResNet"],"keywords":["畳み込みニューラルネットワーク (CNN)","フィルタ","ストライド","パディング","特徴マップ","バッチ正規化","レイヤー正規化","最大値プーリング","グローバルアベレージプーリング (GAP)","ResNet"],"examPoint":"パディングやストライドで出力の大きさがどう変わるか、正規化の種類ごとにどの単位でそろえるか、GAPの役割を問う。","examTrap":"バッチ正規化はミニバッチ内でそろえ、レイヤー正規化は1つのデータの中でそろえる。Dilated ConvolutionとAtrous Convolutionは同じもの。","priorityReason":"JDLA公式の例題Q8（G2024#4、パディング）・例題Q9（G2024#4、GAP）・例題Q3（G2022#1、スキップ結合のResNet）が題材にしている。シラバス2024でレイヤー正規化が追加され、1.1版で「正則化層」が「正規化層」に改められた。キーワード数は19語。","items":["T18","T19","T20","T21"],"subs":[{"id":"T18","name":"畳み込み層","short":"畳み込み層","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":11,"title":"CNNの部品（全結合・畳み込み・正規化・プーリング・スキップ結合）","status":"planned","page":null},"terms":[{"id":"T18-1","name":"Atrous Convolution","desc":"フィルタの要素の間にすき間をあけて、計算量を増やさずに広い範囲を見る畳み込み。Dilated Convolutionと同じもの。","sup":false,"aka":[],"note":null},{"id":"T18-2","name":"Depthwise Separable Convolution","desc":"畳み込みを、チャネルごとの空間方向の畳み込みと1×1の畳み込みに分けて、計算量を大きく減らす方法。","sup":false,"aka":[],"note":null},{"id":"T18-3","name":"Dilated Convolution","desc":"フィルタを間隔をあけて当て、見ている範囲（受容野）を広げる畳み込み。","sup":false,"aka":["Dilation Convolution"],"note":null},{"id":"T18-4","name":"カーネル","desc":"畳み込みで画像に重ねて計算する、小さな重みの行列。フィルタとも呼ぶ。","sup":false,"aka":[],"note":null},{"id":"T18-5","name":"ストライド","desc":"フィルタをずらす間隔。大きくすると、出力の特徴マップが小さくなる。","sup":false,"aka":[],"note":null},{"id":"T18-6","name":"畳み込み操作","desc":"画像にフィルタを重ねてずらしながら、かけ算と足し算を行って特徴を取り出す計算。","sup":false,"aka":[],"note":null},{"id":"T18-7","name":"畳み込みニューラルネットワーク (CNN)","desc":"畳み込み層とプーリング層を重ねて、画像などから特徴を取り出すニューラルネットワーク。","sup":false,"aka":[],"note":null},{"id":"T18-8","name":"特徴マップ","desc":"畳み込みの結果できる、どこにどんな特徴があるかを表した出力。","sup":false,"aka":[],"note":null},{"id":"T18-9","name":"パディング","desc":"入力の周りを0などで埋めて、畳み込み後の出力の大きさを調整すること。","sup":false,"aka":[],"note":null},{"id":"T18-10","name":"フィルタ","desc":"畳み込みで使う重みの行列。縦の線や角など、特定の特徴に強く反応する。","sup":false,"aka":[],"note":null}]},{"id":"T19","name":"正規化層","short":"正規化層","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":11,"title":"CNNの部品（全結合・畳み込み・正規化・プーリング・スキップ結合）","status":"planned","page":null},"terms":[{"id":"T19-1","name":"グループ正規化","desc":"チャネルをいくつかのグループに分け、グループごとに正規化する方法。ミニバッチが小さくても安定する。","sup":false,"aka":[],"note":null},{"id":"T19-2","name":"バッチ正規化","desc":"ミニバッチの中のデータで、各チャネルの出力を平均0・分散1にそろえる方法。学習を安定させ、速くする。","sup":false,"aka":[],"note":null},{"id":"T19-3","name":"レイヤー正規化","desc":"1つのデータの中で、層の出力全体を正規化する方法。RNNやTransformerで使う。","sup":false,"aka":[],"note":null},{"id":"T19-4","name":"インスタンス正規化","desc":"1つのデータの1つのチャネルごとに正規化する方法。画像のスタイル変換で使う。","sup":false,"aka":[],"note":null}]},{"id":"T20","name":"プーリング層","short":"プーリング層","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":11,"title":"CNNの部品（全結合・畳み込み・正規化・プーリング・スキップ結合）","status":"planned","page":null},"terms":[{"id":"T20-1","name":"グローバルアベレージプーリング (GAP)","desc":"各特徴マップ全体の平均を1つの値にまとめるプーリング。全結合層の代わりに使い、パラメータを減らす。","sup":false,"aka":[],"note":null},{"id":"T20-2","name":"最大値プーリング","desc":"区切った範囲の中の最大値を取り出して、特徴マップを小さくする方法。","sup":false,"aka":[],"note":null},{"id":"T20-3","name":"不変性の獲得","desc":"プーリングによって、対象の位置が少しずれても同じ特徴として扱えるようになること。","sup":false,"aka":[],"note":null},{"id":"T20-4","name":"平均値プーリング","desc":"区切った範囲の中の平均値を取り出して、特徴マップを小さくする方法。","sup":false,"aka":[],"note":null}]},{"id":"T21","name":"スキップ結合","short":"スキップ結合","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":11,"title":"CNNの部品（全結合・畳み込み・正規化・プーリング・スキップ結合）","status":"planned","page":null},"terms":[{"id":"T21-1","name":"ResNet","desc":"層を飛び越えて入力を足し合わせるスキップ結合で、とても深いネットワークを学習できるようにしたモデル。2015年のILSVRCで優勝した。","sup":false,"aka":[],"note":null}]}]},{"id":"seq","order":8,"domain":"dlcore","color":"#2F4DB0","name":"系列データとAttention（回帰結合層・Attention・Transformer）","short":"系列とAttention","shortLines":["系列と","Attention"],"priority":"high","badges":["revised"],"summary":"文章や音声のように順番のあるデータを扱う仕組み。前の情報を引き継ぐRNNとその改良（LSTM・GRU）から、注目すべき所を計算するAttention、そして大規模言語モデルの土台になったTransformerへとつながる。","themes":["RNNの構造と学習（BPTT・教師強制）、勾配消失・勾配爆発","LSTMとGRUのゲート機構、双方向RNN","Seq2Seq（エンコーダ・デコーダ）","Attention（クエリ・キー・バリュー）、Self-AttentionとSource-Target Attention","TransformerとMulti-Head Attention、位置エンコーディング"],"keywords":["リカレントニューラルネットワーク (RNN)","LSTM","GRU","ゲート機構","教師強制","Seq2Seq","Attention","Self-Attention","Transformer","位置エンコーディング"],"examPoint":"RNNの弱点と、それをLSTM・GRU・Attentionがどう解決したかの流れ、クエリ・キー・バリューの役割を問う。","examTrap":"Self-Attentionは同じ系列の中の関係、Source-Target Attentionは入力側と出力側の関係。Transformer自体は語順がわからないので位置エンコーディングが要る。","priorityReason":"シラバス2024の改訂ポイント「基盤モデルや言語モデルなど生成AIに必要な技術の追加」の土台にあたり、エルマンネットワーク・教師強制・Multi-Head Attentionが追加された。JDLA公式の例題で直接の題材になった問はない。キーワード数は22語。","items":["T22","T23"],"subs":[{"id":"T22","name":"回帰結合層","short":"回帰結合層","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":12,"title":"RNNとAttention・Transformer","status":"planned","page":null},"terms":[{"id":"T22-1","name":"BPTT","desc":"時間方向に展開したRNNに、誤差逆伝播法を当てはめて学習する方法。","sup":false,"aka":[],"note":null},{"id":"T22-2","name":"GRU","desc":"LSTMを簡単にし、リセットゲートと更新ゲートの2つで情報の流れを調整するRNN。","sup":false,"aka":[],"note":null},{"id":"T22-3","name":"LSTM","desc":"入力・忘却・出力のゲートと記憶セルで長い期間の情報を保ち、勾配消失を起こしにくくしたRNN。","sup":false,"aka":[],"note":null},{"id":"T22-4","name":"エルマンネットワーク","desc":"隠れ層の出力を、次の時刻の入力に戻す基本的なRNN。","sup":false,"aka":[],"note":null},{"id":"T22-5","name":"勾配消失問題","desc":"RNNで時間をさかのぼるほど勾配が小さくなり、遠い過去の情報を学べなくなる問題。","sup":false,"aka":[],"note":null},{"id":"T22-6","name":"勾配爆発問題","desc":"RNNで時間をさかのぼるほど勾配が大きくなりすぎ、学習が不安定になる問題。","sup":false,"aka":[],"note":null},{"id":"T22-7","name":"教師強制","desc":"系列を作るモデルの学習で、前の時刻の予測ではなく正解を次の入力に使う方法。","sup":false,"aka":[],"note":null},{"id":"T22-8","name":"ゲート機構","desc":"情報をどれだけ通すか・忘れるかを、0〜1の値で調整する仕組み。LSTMやGRUの中心。","sup":false,"aka":[],"note":null},{"id":"T22-9","name":"双方向RNN (Bidirectional RNN)","desc":"過去から未来へと、未来から過去への2方向のRNNを組み合わせ、前後の文脈を使うモデル。","sup":false,"aka":[],"note":null},{"id":"T22-10","name":"時系列データ","desc":"株価や音声のように、時間の順番に意味があるデータ。","sup":false,"aka":[],"note":null},{"id":"T22-11","name":"ジョルダンネットワーク","desc":"出力層の値を、次の時刻の入力に戻す初期のRNN。","sup":false,"aka":[],"note":null},{"id":"T22-12","name":"リカレントニューラルネットワーク (RNN)","desc":"前の時刻の情報を次の時刻に引き継ぐ構造をもち、系列データを扱うニューラルネットワーク。","sup":false,"aka":[],"note":null}]},{"id":"T23","name":"Attention","short":"Attention","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":12,"title":"RNNとAttention・Transformer","status":"planned","page":null},"terms":[{"id":"T23-1","name":"Attention","desc":"入力のどの部分に注目すべきかを重みとして計算し、重要な情報を取り出す仕組み。","sup":false,"aka":[],"note":null},{"id":"T23-2","name":"Multi-Head Attention","desc":"複数のAttentionを並列に計算して、いろいろな観点の関係を同時にとらえる仕組み。","sup":false,"aka":[],"note":null},{"id":"T23-3","name":"Self-Attention","desc":"同じ系列の中の各要素どうしの関係を計算するAttention。Transformerの中心。","sup":false,"aka":[],"note":null},{"id":"T23-4","name":"Seq2Seq","desc":"入力の系列をエンコーダで表現に変え、デコーダで別の系列を出力するモデル。機械翻訳で使われた。","sup":false,"aka":[],"note":null},{"id":"T23-5","name":"Source-Target Attention","desc":"出力側（Target）が、入力側（Source）の情報のどこに注目するかを計算するAttention。","sup":false,"aka":[],"note":null},{"id":"T23-6","name":"Transformer","desc":"RNNを使わずAttentionだけで系列を処理するモデル。2017年に発表され、大規模言語モデルの土台になった。","sup":false,"aka":[],"note":null},{"id":"T23-7","name":"位置エンコーディング","desc":"単語の順番の情報をベクトルにして入力に加える方法。Attentionだけでは順番がわからないため使う。","sup":false,"aka":[],"note":null},{"id":"T23-8","name":"キー","desc":"Attentionで、クエリと照らし合わせて関連の強さを測るための情報。","sup":false,"aka":[],"note":null},{"id":"T23-9","name":"クエリ","desc":"Attentionで、「何を探しているか」を表す情報。","sup":false,"aka":[],"note":null},{"id":"T23-10","name":"バリュー","desc":"Attentionで、関連の強さに応じて重み付けして取り出される中身の情報。","sup":false,"aka":[],"note":null}]}]},{"id":"repr","order":9,"domain":"dlcore","color":"#4A3DAD","name":"オートエンコーダ（AE）とデータ拡張","short":"AE・データ拡張","shortLines":["AE・","データ拡張"],"priority":"mid","badges":[],"summary":"入力を圧縮して元に戻すことで特徴を学ぶオートエンコーダと、学習データを水増しして汎化性能を上げるデータ拡張。オートエンコーダの発展形のVAEは、生成モデルにもつながる。","themes":["オートエンコーダの仕組み（エンコーダとデコーダ）と次元削減","積層オートエンコーダと事前学習","変分オートエンコーダ（VAE）とその改良（VQ-VAE・info VAE・β-VAE）","画像のデータ拡張（反転・回転・切り出し・Cutout・Mixup・CutMix・RandAugment）","テキストのデータ拡張（paraphrasing・noising）"],"keywords":["変分オートエンコーダ (VAE)","積層オートエンコーダ","事前学習","Cutout","Mixup","CutMix","Random Erasing","RandAugment","paraphrasing"],"examPoint":"データ拡張の手法の名前と中身の組合せ（どれが混ぜる手法で、どれが消す手法か）を問う。","examTrap":"Cutoutは塗りつぶすだけ、CutMixは別の画像を貼ってラベルも混ぜる、Mixupは画像全体を重ねて混ぜる。","priorityReason":"JDLA公式の例題Q10（G2024#6、paraphrasing）が題材にしている。シラバス2024でVQ-VAE・info VAE・β-VAEが追加された。キーワード数は17語で、少なめ。","items":["T24","T25"],"subs":[{"id":"T24","name":"オートエンコーダ","short":"オートエンコーダ","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":13,"title":"オートエンコーダとデータ拡張","status":"planned","page":null},"terms":[{"id":"T24-1","name":"VQ-VAE・info VAE・β-VAE","desc":"VAEの改良版。潜在変数を離散的なコードにする（VQ-VAE）、潜在変数と入力の情報のつながりを保つ（info VAE）、潜在変数の各要素が独立した意味をもつよう促す（β-VAE）。","sup":false,"aka":[],"note":null},{"id":"T24-2","name":"次元削減","desc":"オートエンコーダで、入力をより少ない次元の表現に圧縮すること。","sup":false,"aka":[],"note":null},{"id":"T24-3","name":"事前学習","desc":"本来の学習の前に、別の課題やデータで重みを学習しておくこと。積層オートエンコーダでは層ごとに行った。","sup":false,"aka":[],"note":null},{"id":"T24-4","name":"積層オートエンコーダ","desc":"オートエンコーダを層ごとに順番に学習して積み重ねる方法。深いネットワークの事前学習に使われた。","sup":false,"aka":[],"note":null},{"id":"T24-5","name":"変分オートエンコーダ (VAE)","desc":"入力を確率分布として潜在空間に表し、そこからサンプリングして新しいデータを生成できるオートエンコーダ。","sup":false,"aka":[],"note":null}]},{"id":"T25","name":"データ拡張","short":"データ拡張","category":"ディープラーニングの要素技術","area":"技術分野","lecture":{"number":13,"title":"オートエンコーダとデータ拡張","status":"planned","page":null},"terms":[{"id":"T25-1","name":"Contrast","desc":"画像の明暗の差（コントラスト）を変えるデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-2","name":"Brightness","desc":"画像の明るさを変えるデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-3","name":"Crop","desc":"画像の一部を切り出すデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-4","name":"CutMix","desc":"画像の一部を切り取って別の画像の一部を貼り付け、ラベルも面積の割合で混ぜるデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-5","name":"Cutout","desc":"画像の一部の領域を、四角く塗りつぶすデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-6","name":"Mixup","desc":"2つの画像とラベルを、一定の割合で重ね合わせて混ぜるデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-7","name":"noising","desc":"データにノイズ（雑音）を加えるデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-8","name":"paraphrasing","desc":"文章の意味を変えずに、言い換えや同じ意味の語への置き換えをするテキストのデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-9","name":"RandAugment","desc":"多くの変換の候補からランダムに選んで適用し、変換の数と強さの2つだけを調整するデータ拡張。","sup":false,"aka":["RandAugument"],"note":null},{"id":"T25-10","name":"Random Erasing","desc":"画像の中のランダムな四角い領域を、ランダムな値で消すデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-11","name":"Random Flip","desc":"画像をランダムに左右や上下に反転させるデータ拡張。","sup":false,"aka":[],"note":null},{"id":"T25-12","name":"Rotate","desc":"画像を回転させるデータ拡張。","sup":false,"aka":[],"note":null}]}]},{"id":"vision","order":10,"domain":"dlapp","color":"#6A3DCB","name":"画像認識と音声処理","short":"画像・音声","priority":"high","badges":[],"summary":"CNNを中心にした画像認識のモデル（分類・物体検出・セグメンテーション・姿勢推定）と、音声の信号処理から音声認識・音声合成まで。モデル名と「何をするモデルか」の対応が多い分野。","themes":["画像分類のモデルの発展（AlexNet→VGG・GoogLeNet→ResNet→EfficientNet・Vision Transformer）","物体検出（R-CNN系の2段階型と、YOLO・SSDの1段階型）","セグメンテーションの種類（セマンティック・インスタンス・パノプティック）と代表モデル","軽量なモデルと自動設計（MobileNet・NAS・MnasNet）、姿勢推定（OpenPose）","音声のデジタル化と特徴量（A-D変換・PCM・FFT・MFCC）、音声認識・音声合成（HMM・WaveNet・CTC）"],"keywords":["AlexNet","ResNet","Vision Transformer","物体検出","YOLO","Faster R-CNN","セマンティックセグメンテーション","インスタンスセグメンテーション","U-Net","メル周波数ケプストラム係数 (MFCC)","WaveNet"],"examPoint":"モデルの名前と特徴・課題（物体検出か、セグメンテーションか）の組合せや、ILSVRCで優勝したモデルの順番を問う。","examTrap":"セマンティックセグメンテーションは同じ種類の物体を区別しない、インスタンスセグメンテーションは物体ごとに区別する。Mask R-CNNはインスタンスセグメンテーション。","priorityReason":"JDLA公式の例題Q3（G2022#1、ILSVRCとResNet）が題材にしている。シラバス2024で話者識別が追加され、1.2版でCTCが音声処理へ移された。キーワード数は48語で、分野の中で最も多い。","items":["T26","T28"],"subs":[{"id":"T26","name":"画像認識","short":"画像認識","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":14,"title":"画像認識（分類・物体検出・セグメンテーション）","status":"planned","page":null},"terms":[{"id":"T26-1","name":"AlexNet","desc":"2012年のILSVRCで大差をつけて優勝したCNN。ReLUやドロップアウトを使い、第3次AIブームのきっかけになった。","sup":false,"aka":[],"note":null},{"id":"T26-2","name":"DeepLab","desc":"Atrous Convolutionで広い範囲を見る、セマンティックセグメンテーションのモデル。","sup":false,"aka":[],"note":null},{"id":"T26-3","name":"DenseNet","desc":"各層を、それより前のすべての層と結合するCNN。特徴を再利用してパラメータを減らす。","sup":false,"aka":[],"note":null},{"id":"T26-4","name":"EfficientNet","desc":"層の深さ・幅・入力画像の解像度を、バランスよく同時に大きくする方法（複合スケーリング）を使ったCNN。","sup":false,"aka":[],"note":null},{"id":"T26-5","name":"Fast R-CNN","desc":"画像全体を一度だけCNNに通して候補領域の特徴を取り出し、R-CNNを高速にした物体検出のモデル。","sup":false,"aka":[],"note":null},{"id":"T26-6","name":"Faster R-CNN","desc":"候補領域を探す部分もニューラルネットワーク（RPN）で行い、さらに速くした物体検出のモデル。","sup":false,"aka":[],"note":null},{"id":"T26-7","name":"FCN (Fully Convolutional Network)","desc":"全結合層を使わず、畳み込み層だけで作ったセマンティックセグメンテーションのモデル。","sup":false,"aka":["FCN"],"note":null},{"id":"T26-8","name":"FPN","desc":"解像度の違う特徴マップを組み合わせて、大小さまざまな物体を検出しやすくした構造。","sup":false,"aka":[],"note":null},{"id":"T26-9","name":"GoogLeNet","desc":"大きさの違うフィルタを並列に使うInceptionモジュールを重ねたCNN。2014年のILSVRCで優勝した。","sup":false,"aka":[],"note":null},{"id":"T26-10","name":"Mask R-CNN","desc":"Faster R-CNNに物体の形を切り出す仕組みを加え、インスタンスセグメンテーションを行うモデル。","sup":false,"aka":[],"note":null},{"id":"T26-11","name":"MnasNet","desc":"スマホでの実際の処理速度も考えに入れながら、NASで自動設計されたモバイル向けのCNN。","sup":false,"aka":[],"note":null},{"id":"T26-12","name":"MobileNet","desc":"Depthwise Separable Convolutionで計算量を減らした、スマホなど向けの軽いCNN。","sup":false,"aka":[],"note":null},{"id":"T26-13","name":"NAS (Neural Architecture Search)","desc":"ネットワークの構造そのものを、強化学習などで自動的に探す方法。","sup":false,"aka":[],"note":null},{"id":"T26-14","name":"OpenPose","desc":"画像の中の複数の人の関節の位置を推定し、骨格をつなぐ姿勢推定の手法。","sup":false,"aka":["Open Pose"],"note":null},{"id":"T26-15","name":"PSPNet","desc":"大きさの違う領域ごとにプーリングして、画像全体の文脈を取り込むセマンティックセグメンテーションのモデル。","sup":false,"aka":[],"note":null},{"id":"T26-16","name":"ResNet","desc":"スキップ結合で152層もの深いネットワークを実現したCNN。2015年のILSVRCで優勝した。","sup":false,"aka":[],"note":null},{"id":"T26-17","name":"SegNet","desc":"エンコーダとデコーダからなり、プーリングした位置を覚えておいて元の解像度に戻すセグメンテーションのモデル。","sup":false,"aka":[],"note":null},{"id":"T26-18","name":"SENet","desc":"チャネルごとの重要度を学習して重み付けする仕組みをもつCNN。2017年のILSVRCで優勝した。","sup":false,"aka":[],"note":null},{"id":"T26-19","name":"SSD","desc":"大きさの違う複数の特徴マップから、1回の処理で物体の位置と種類を同時に予測する物体検出のモデル。","sup":false,"aka":[],"note":null},{"id":"T26-20","name":"U-Net","desc":"U字型のエンコーダ・デコーダの構造で、同じ解像度の特徴を結合するセグメンテーションのモデル。医療画像で広く使われる。","sup":false,"aka":["UNet"],"note":null},{"id":"T26-21","name":"VGG","desc":"3×3の小さなフィルタを深く重ねた、単純な構造のCNN。2014年のILSVRCで好成績を出した。","sup":false,"aka":[],"note":null},{"id":"T26-22","name":"Vision Transformer","desc":"画像を小さなパッチに分け、単語の列のようにTransformerで処理する画像認識のモデル。","sup":false,"aka":[],"note":null},{"id":"T26-23","name":"Wide ResNet","desc":"ResNetの層を深くする代わりに幅（チャネル数）を広げ、性能と学習の速さを改善したモデル。","sup":false,"aka":[],"note":null},{"id":"T26-24","name":"YOLO","desc":"画像全体を一度だけ見て、物体の位置と種類を同時に予測する高速な物体検出のモデル。","sup":false,"aka":[],"note":null},{"id":"T26-25","name":"一般物体認識","desc":"決まった物に限らず、日常のさまざまな物体を認識すること。","sup":false,"aka":[],"note":null},{"id":"T26-26","name":"インスタンスセグメンテーション","desc":"物体ごとに区別して、その形を画素単位で切り出すこと。","sup":false,"aka":[],"note":null},{"id":"T26-27","name":"姿勢推定","desc":"画像や動画から、人の関節の位置や体の向きを推定すること。","sup":false,"aka":[],"note":null},{"id":"T26-28","name":"セマンティックセグメンテーション","desc":"画像の画素1つ1つに、どの種類に属するかのラベルを付けること。同じ種類の物体どうしは区別しない。","sup":false,"aka":[],"note":null},{"id":"T26-29","name":"物体検出","desc":"画像の中の物体の位置を四角い枠で示し、その種類も判定すること。","sup":false,"aka":[],"note":null},{"id":"T26-30","name":"物体識別","desc":"画像に写っている物体が何かを判定すること。","sup":false,"aka":[],"note":null},{"id":"T26-31","name":"パノプティックセグメンテーション","desc":"セマンティックとインスタンスの両方を組み合わせ、背景も含めて物体ごとに画素単位でラベルを付けること。","sup":false,"aka":[],"note":null}]},{"id":"T28","name":"音声処理","short":"音声処理","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":16,"title":"音声処理","status":"planned","page":null},"terms":[{"id":"T28-1","name":"A-D変換","desc":"音声などの連続したアナログの信号を、コンピュータで扱えるデジタルの数値に変えること。","sup":false,"aka":[],"note":null},{"id":"T28-2","name":"WaveNet","desc":"DeepMindが2016年に発表した、音声の波形を直接生成するモデル。自然な音声合成を実現した。","sup":false,"aka":[],"note":null},{"id":"T28-3","name":"音韻","desc":"言語の中で意味を区別するのに使われる音の単位を、抽象的にとらえたもの。","sup":false,"aka":[],"note":null},{"id":"T28-4","name":"音声合成","desc":"文字や文章から、人の声のような音声を作り出すこと。","sup":false,"aka":[],"note":null},{"id":"T28-5","name":"音声認識","desc":"人の話し声を、コンピュータで文字に変換すること。","sup":false,"aka":[],"note":null},{"id":"T28-6","name":"音素","desc":"言葉の意味を区別する、音の最小の単位。","sup":false,"aka":[],"note":null},{"id":"T28-7","name":"隠れマルコフモデル","desc":"観測できない状態が確率的に移り変わり、そこから観測データが出ると考えるモデル。かつての音声認識の主流。","sup":false,"aka":[],"note":null},{"id":"T28-8","name":"感情分析","desc":"声の調子などから、話し手の感情を推定すること。","sup":false,"aka":[],"note":null},{"id":"T28-9","name":"高速フーリエ変換 (FFT)","desc":"信号を周波数ごとの成分に分けるフーリエ変換を、高速に計算する方法。","sup":false,"aka":[],"note":null},{"id":"T28-10","name":"スペクトル包絡","desc":"音声の周波数ごとの強さの、なだらかな全体の形。声の音色を決める。","sup":false,"aka":[],"note":null},{"id":"T28-11","name":"パルス符号変調器 (PCM)","desc":"アナログの信号を一定の間隔で取り出し（標本化）、数値に置き換えて（量子化）デジタルにする方式。","sup":false,"aka":[],"note":null},{"id":"T28-12","name":"フォルマント","desc":"音声のスペクトルに現れる、強さの山の部分。母音の聞き分けにかかわる。","sup":false,"aka":[],"note":null},{"id":"T28-13","name":"フォルマント周波数","desc":"フォルマントが現れる周波数。低い方から第1、第2…と呼ぶ。","sup":false,"aka":[],"note":null},{"id":"T28-14","name":"メル周波数ケプストラム係数 (MFCC)","desc":"人の聴覚の特性に合わせて、音声のスペクトル包絡の特徴を表した値。音声認識の特徴量として使う。","sup":false,"aka":[],"note":null},{"id":"T28-15","name":"メル尺度","desc":"人が感じる音の高さに合わせて、周波数を変換した尺度。","sup":false,"aka":[],"note":null},{"id":"T28-16","name":"話者識別","desc":"声の特徴から、話しているのが誰かを判定すること。","sup":false,"aka":[],"note":null},{"id":"T28-17","name":"CTC","desc":"音声の区切りと出力する文字の対応がわからなくても、系列どうしを学習できる方法。音声認識で使う。","sup":false,"aka":[],"note":null}]}]},{"id":"nlp","order":11,"domain":"dlapp","color":"#7A39B5","name":"自然言語処理とマルチモーダル","short":"言語・マルチモーダル","shortLines":["言語・","マルチモーダル"],"priority":"high","badges":["revised"],"summary":"言葉をコンピュータで扱う技術（単語の表現から大規模言語モデルまで）と、画像と文章など複数の種類のデータをまとめて扱うマルチモーダル。生成AIの中心にある分野。","themes":["文章の表現の発展（ワンホット・BoW・TF-IDF→分散表現・word2vec→文脈で変わる表現・ELMo・BERT）","自然言語処理の基本の処理（形態素解析・構文解析）と応用（機械翻訳・要約・質問応答・感情分析）","大規模言語モデル（LLM）と評価のベンチマーク（GLUE）","マルチモーダルのモデル（CLIP・DALL-E・Flamingo・Unified-IO）と課題（画像の説明文・VQA・Text-To-Image）","基盤モデル・Zero-shot・マルチタスク学習"],"keywords":["word2vec","分散表現","TF-IDF","BERT","大規模言語モデル (LLM)","Seq2Seq","CLIP","基盤モデル","Zero-shot","Text-To-Image"],"examPoint":"手法の発展の順番や、手法と特徴の組合せ（CBOWとスキップグラムの違いなど）、マルチモーダルのモデルの課題を問う。","examTrap":"CBOWは周りの語から真ん中の語を予測し、スキップグラムは真ん中の語から周りの語を予測する。ChatGPT・GPT-nはシラバス1.4版でキーワードから削除された。","priorityReason":"JDLA公式の例題Q11（G2024#4、大規模言語モデルの前提となるスケーリング則）と例題Q13（G2024#6、Zero-shot）が題材にしている。シラバス2024の改訂ポイントで「基盤モデルや言語モデル」が追加され、1.4版でChatGPT・GPT-nが削除された。キーワード数は35語。","items":["T27","T32"],"subs":[{"id":"T27","name":"自然言語処理","short":"自然言語処理","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":15,"title":"自然言語処理と大規模言語モデル","status":"planned","page":null},"terms":[{"id":"T27-1","name":"BERT","desc":"Transformerのエンコーダを使い、文の一部を隠して前後から当てる学習などで事前学習した言語モデル。2018年にGoogleが発表した。","sup":false,"aka":[],"note":null},{"id":"T27-2","name":"BoW (Bag-of-Words)","desc":"文章を、語順を無視して単語ごとの出現回数で表す方法。","sup":false,"aka":[],"note":null},{"id":"T27-3","name":"CBOW","desc":"周りの単語から真ん中の単語を予測して、単語の分散表現を学ぶword2vecの方法。","sup":false,"aka":[],"note":null},{"id":"T27-4","name":"CEC","desc":"LSTMの記憶セルで、誤差を減らさずに長く伝える仕組み（Constant Error Carousel）。","sup":false,"aka":[],"note":null},{"id":"T27-5","name":"ELMo","desc":"双方向のLSTMで、文脈によって変わる単語の表現を学ぶ言語モデル。","sup":false,"aka":[],"note":null},{"id":"T27-6","name":"fastText","desc":"単語をさらに文字の並び（部分語）に分けて学習し、未知の単語にも対応しやすくした分散表現の手法。","sup":false,"aka":[],"note":null},{"id":"T27-7","name":"GLUE","desc":"文の分類や含意の判定など、複数の課題で言語モデルの理解力を総合的に評価するベンチマーク。","sup":false,"aka":[],"note":null},{"id":"T27-8","name":"n-gram","desc":"連続するn個の単語や文字の並び。言語を統計的に扱うときに使う。","sup":false,"aka":["N-gram"],"note":null},{"id":"T27-9","name":"PaLM","desc":"Googleが2022年に発表した、5,400億パラメータの大規模言語モデル。","sup":false,"aka":[],"note":null},{"id":"T27-10","name":"Seq2Seq","desc":"入力の文章を別の文章に変換する、エンコーダ・デコーダのモデル。機械翻訳や要約に使う。","sup":false,"aka":[],"note":null},{"id":"T27-11","name":"TF-IDF","desc":"単語の出現頻度（TF）に、多くの文書に出る語ほど小さくなる値（IDF）をかけて、その文書での単語の重要さを表す指標。","sup":false,"aka":[],"note":null},{"id":"T27-12","name":"word2vec","desc":"周りの単語との関係から、単語を意味が反映されたベクトル（分散表現）で表す手法。2013年に発表された。","sup":false,"aka":[],"note":null},{"id":"T27-13","name":"感情分析","desc":"文章が肯定的か否定的かなど、書き手の感情や評価を判定すること。","sup":false,"aka":[],"note":null},{"id":"T27-14","name":"機械翻訳","desc":"ある言語の文章を、別の言語にコンピュータで翻訳すること。","sup":false,"aka":[],"note":null},{"id":"T27-15","name":"形態素解析","desc":"文章を意味をもつ最小の単位（形態素）に分け、品詞などを判定すること。","sup":false,"aka":[],"note":null},{"id":"T27-16","name":"構文解析","desc":"文の中の語どうしの文法的な関係（係り受けなど）を解析すること。","sup":false,"aka":[],"note":null},{"id":"T27-17","name":"質問応答","desc":"質問文に対して、適切な答えを返すこと。","sup":false,"aka":[],"note":null},{"id":"T27-18","name":"情報検索","desc":"大量の文書から、目的に合う情報を探し出すこと。","sup":false,"aka":[],"note":null},{"id":"T27-19","name":"スキップグラム","desc":"真ん中の単語から周りの単語を予測して、単語の分散表現を学ぶword2vecの方法。","sup":false,"aka":[],"note":null},{"id":"T27-20","name":"単語埋め込み","desc":"単語を、意味の近さが距離に表れる数値のベクトルに変換すること。","sup":false,"aka":[],"note":null},{"id":"T27-21","name":"分散表現","desc":"単語などを、多くの次元に意味が分散した密なベクトルで表す方法。","sup":false,"aka":[],"note":null},{"id":"T27-22","name":"文書要約","desc":"長い文章から重要な内容を取り出し、短くまとめること。","sup":false,"aka":[],"note":null},{"id":"T27-23","name":"ワンホットベクトル","desc":"1つの要素だけが1で、残りがすべて0のベクトル。単語を区別するだけで、意味の近さは表せない。","sup":false,"aka":[],"note":null},{"id":"T27-24","name":"大規模言語モデル (LLM)","desc":"大量の文章で事前学習した、とても多くのパラメータをもつ言語モデル。文章の生成・要約・質問応答などを幅広くこなす。","sup":false,"aka":[],"note":null},{"id":"T27-25","name":"統計的機械翻訳","desc":"対訳データから単語や句の対応の確率を学んで訳す機械翻訳。ニューラル機械翻訳が登場する前の主流。","sup":false,"aka":[],"note":null},{"name":"スケーリング則","desc":"モデルの大きさ・データの量・計算量を増やすほど、性能が一定の法則に従って上がるという経験則。JDLA公式の例題Q11の題材だが、シラバス1.4版のキーワードにはない。","sup":true,"aka":[],"note":null,"id":"T27-x1"},{"name":"ChatGPT・GPT-n","desc":"OpenAIの大規模言語モデル（GPT）と、それを使った対話サービス。シラバス1.4版でキーワードから削除された。","sup":true,"aka":[],"note":null,"id":"T27-x2"}]},{"id":"T32","name":"マルチモーダル","short":"マルチモーダル","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":19,"title":"マルチモーダル・モデルの解釈性・軽量化","status":"planned","page":null},"terms":[{"id":"T32-1","name":"CLIP","desc":"画像とその説明文の組を大量に学び、画像と文章を同じ空間で比べられるようにしたモデル。2021年にOpenAIが発表した。","sup":false,"aka":[],"note":null},{"id":"T32-2","name":"DALL-E","desc":"文章の指示から画像を生成する、OpenAIのモデル。","sup":false,"aka":[],"note":null},{"id":"T32-3","name":"Flamingo","desc":"画像と文章を組み合わせた入力を扱う、DeepMindの視覚言語モデル。少しの例を見せるだけで新しい課題に対応する。","sup":false,"aka":[],"note":null},{"id":"T32-4","name":"Image Captioning","desc":"画像の内容を説明する文章を、自動で作ること。","sup":false,"aka":[],"note":null},{"id":"T32-5","name":"Text-To-Image","desc":"文章から画像を生成すること。","sup":false,"aka":[],"note":null},{"id":"T32-6","name":"Visual Question Answering","desc":"画像についての質問に、文章で答えること。","sup":false,"aka":[],"note":null},{"id":"T32-7","name":"Unified-IO","desc":"画像・文章などさまざまな入出力の課題を、1つのモデルで扱えるようにしたモデル。","sup":false,"aka":[],"note":null},{"id":"T32-8","name":"Zero-shot","desc":"学習のときに見ていないクラスや課題に、例を与えずに対応すること。","sup":false,"aka":["ゼロショット"],"note":null},{"id":"T32-9","name":"基盤モデル","desc":"大量で多様なデータで事前学習され、さまざまな課題に合わせて使える大規模なモデル。","sup":false,"aka":[],"note":null},{"id":"T32-10","name":"マルチタスク学習","desc":"関連する複数の課題を1つのモデルで同時に学習し、性能を互いに高めること。","sup":false,"aka":[],"note":null}]}]},{"id":"gen","order":12,"domain":"dlapp","color":"#5B34AA","name":"深層強化学習とデータ生成","short":"深層強化学習と生成","shortLines":["深層強化学習","と生成"],"priority":"mid","badges":["revised"],"summary":"強化学習にディープラーニングを組み合わせた深層強化学習と、画像・文章・音声などを作り出す生成モデル。ゲームAIやロボット、画像生成AIの裏側にある技術。","themes":["DQNとその改良（ダブルDQN・デュエリングネットワーク・ノイジーネットワーク・Rainbow）","分散学習と方策の学習（A3C・APE-X・PPO）、ゲームAI（AlphaStar・OpenAI Five・Agent57）","現実への応用（sim2real・ドメインランダマイゼーション・オフライン強化学習・残差強化学習）","RLHFによる言語モデルの調整","生成モデル（GAN・DCGAN・Pix2Pix・CycleGAN・Diffusion Model・NeRF）"],"keywords":["DQN","ダブルDQN","Rainbow","PPO","RLHF","sim2real","ドメインランダマイゼーション","敵対的生成ネットワーク (GAN)","CycleGAN","Diffusion Model","NeRF"],"examPoint":"手法と改良点の組合せ（DQNの何をダブルDQNが直したか）や、生成モデルの仕組みの違いを問う。","examTrap":"Pix2Pixは対になった画像が必要、CycleGANは対になったデータがなくても変換できる。","priorityReason":"シラバス2024の改訂ポイントで生成AIに必要な技術としてRLHF・Diffusion Model・NeRFが追加され、1.3版でマルチエージェント強化学習（MARL）の表記が改められた。JDLA公式の例題で直接の題材になった問はない。キーワード数は29語。","items":["T29","T30"],"subs":[{"id":"T29","name":"深層強化学習","short":"深層強化学習","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":17,"title":"深層強化学習","status":"planned","page":null},"terms":[{"id":"T29-1","name":"A3C","desc":"複数のエージェントが並列に環境とやり取りし、非同期にActor-Criticで学習する手法。","sup":false,"aka":[],"note":null},{"id":"T29-2","name":"Agent57","desc":"DeepMindの深層強化学習のエージェント。2020年に、Atariの57種類すべてのゲームで人間の基準を上回った。","sup":false,"aka":[],"note":null},{"id":"T29-3","name":"APE-X","desc":"経験を集める役と学習する役を分け、多数のエージェントを並列に動かして大量の経験を集める分散型の深層強化学習。","sup":false,"aka":[],"note":null},{"id":"T29-4","name":"DQN","desc":"Q学習の行動価値関数を、深層ニューラルネットワークで近似した手法。Atariのゲームで人間並みの成績を出した。","sup":false,"aka":[],"note":null},{"id":"T29-5","name":"OpenAI Five","desc":"OpenAIが開発した、対戦ゲームDota 2で5体が協力して戦うAI。プロのチームに勝った。","sup":false,"aka":[],"note":null},{"id":"T29-6","name":"PPO","desc":"方策を一度に変えすぎないよう更新の幅を制限し、安定して学習できるようにした方策勾配法。RLHFでも使われる。","sup":false,"aka":[],"note":null},{"id":"T29-7","name":"Rainbow","desc":"DQNの複数の改良（ダブルDQN・デュエリングネットワーク・ノイジーネットワークなど）を組み合わせた手法。","sup":false,"aka":[],"note":null},{"id":"T29-8","name":"RLHF","desc":"人の評価から報酬モデルを作り、強化学習でモデルを調整する手法。大規模言語モデルを人の好みに合わせるのに使う。","sup":false,"aka":[],"note":null},{"id":"T29-9","name":"sim2real","desc":"シミュレーションの中で学習した方策を、現実のロボットなどに移して使うこと。","sup":false,"aka":[],"note":null},{"id":"T29-10","name":"アルファスター (AlphaStar)","desc":"DeepMindが開発した、リアルタイム戦略ゲームStarCraft IIのAI。トップレベルのプレイヤーに勝った。","sup":false,"aka":[],"note":null},{"id":"T29-11","name":"オフライン強化学習","desc":"環境とやり取りせずに、あらかじめ集めたデータだけで方策を学習する強化学習。","sup":false,"aka":[],"note":null},{"id":"T29-12","name":"残差強化学習","desc":"従来の制御の方策に、強化学習で学んだ補正（残差）を足して動作を改善する方法。","sup":false,"aka":[],"note":null},{"id":"T29-13","name":"状態表現学習","desc":"画像などの観測から、強化学習に役立つ状態の表し方を学ぶこと。","sup":false,"aka":[],"note":null},{"id":"T29-14","name":"ダブルDQN","desc":"行動の選択と評価に別のネットワークを使い、DQNが行動価値を大きく見積もりすぎる問題を和らげた手法。","sup":false,"aka":[],"note":null},{"id":"T29-15","name":"デュエリングネットワーク","desc":"行動価値を、状態そのものの価値と、行動ごとの有利さに分けて推定するDQNの構造。","sup":false,"aka":[],"note":null},{"id":"T29-16","name":"ドメインランダマイゼーション","desc":"シミュレーションの見た目や物理の条件をランダムに変えて学習し、現実との違いに強くする方法。","sup":false,"aka":[],"note":null},{"id":"T29-17","name":"ノイジーネットワーク","desc":"ネットワークの重みにノイズを加えて、探索を促すDQNの改良。","sup":false,"aka":[],"note":null},{"id":"T29-18","name":"報酬成形","desc":"学習しやすくなるよう、本来の報酬に途中経過への報酬などを加えて設計し直すこと。","sup":false,"aka":[],"note":null},{"id":"T29-19","name":"マルチエージェント強化学習 (MARL)","desc":"複数のエージェントが同じ環境で協力したり競争したりしながら学習する強化学習。","sup":false,"aka":[],"note":null},{"id":"T29-20","name":"連続値制御","desc":"ロボットの関節の角度のように、行動が連続した値をとる制御の問題。","sup":false,"aka":[],"note":null}]},{"id":"T30","name":"データ生成","short":"データ生成","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":18,"title":"データ生成（生成モデル）と転移学習","status":"planned","page":null},"terms":[{"id":"T30-1","name":"CycleGAN","desc":"対になったデータがなくても、2つの画像の分野（例：馬としま馬）を互いに変換できるGAN。","sup":false,"aka":[],"note":null},{"id":"T30-2","name":"DCGAN","desc":"生成器と識別器に畳み込みニューラルネットワークを使い、学習を安定させたGAN。","sup":false,"aka":[],"note":null},{"id":"T30-3","name":"Diffusion Model","desc":"データにノイズを少しずつ加える過程を逆にたどり、ノイズから少しずつデータを復元して生成するモデル（拡散モデル）。","sup":false,"aka":["拡散モデル"],"note":null},{"id":"T30-4","name":"NeRF","desc":"いくつかの方向から撮った写真から3次元の空間をニューラルネットワークで表し、新しい視点の画像を作る手法。","sup":false,"aka":[],"note":null},{"id":"T30-5","name":"Pix2Pix","desc":"対になった画像のデータで学習し、線画を写真風にするなど、ある画像を別の画像に変換するGAN。","sup":false,"aka":[],"note":null},{"id":"T30-6","name":"音声生成","desc":"音声をAIで作り出すこと。","sup":false,"aka":[],"note":null},{"id":"T30-7","name":"画像生成","desc":"画像をAIで作り出すこと。","sup":false,"aka":[],"note":null},{"id":"T30-8","name":"敵対的生成ネットワーク (GAN)","desc":"偽物を作る生成器と、本物か偽物かを見分ける識別器を競わせて学習する生成モデル。2014年にグッドフェローらが発表した。","sup":false,"aka":[],"note":null},{"id":"T30-9","name":"文章生成","desc":"文章をAIで作り出すこと。","sup":false,"aka":[],"note":null}]}]},{"id":"practical","order":13,"domain":"dlapp","color":"#853C9F","name":"転移学習・モデルの解釈性・モデルの軽量化","short":"転移・解釈・軽量化","shortLines":["転移・解釈・","軽量化"],"priority":"mid","badges":[],"summary":"学習済みのモデルを使い回す転移学習、AIの判断の理由を示す解釈性、スマホなどで動かすための軽量化。ディープラーニングを実際の現場で使うための工夫が集まった分野。","themes":["転移学習とファインチューニング、事前学習済みモデル","少ないラベルで学ぶ方法（Few-shot・One-shot・半教師あり学習・自己教師あり学習）と破滅的忘却","判断の根拠の可視化（CAM・Grad-CAM）と特徴量の重要度（LIME・SHAP・Permutation Importance）","モデルの軽量化（蒸留・プルーニング・量子化・宝くじ仮説）とエッジAI"],"keywords":["事前学習済みモデル","自己教師あり学習","破滅的忘却","Few-shot","Grad-CAM","LIME","SHAP","蒸留","プルーニング","量子化","エッジAI"],"examPoint":"軽量化の手法の名前と中身（蒸留・プルーニング・量子化）、説明の手法の名前と特徴を問う。","examTrap":"蒸留は小さなモデルに学ばせる、プルーニングは重みを取り除く、量子化は数値のビット数を減らす。シラバスの表記は「破滅的忘却」（1.4版で「破壊的忘却」から変更）。","priorityReason":"JDLA公式の例題Q12（G2024#4、量子化）が題材にしている。シラバス2024で自己教師あり学習・破壊的忘却が追加され、1.4版で「破滅的忘却」に改められた。キーワード数は19語。","items":["T31","T33","T34"],"subShort":{"T31":"転移学習・微調整"},"subs":[{"id":"T31","name":"転移学習・ファインチューニング","short":"転移学習・微調整","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":18,"title":"データ生成（生成モデル）と転移学習","status":"planned","page":null},"terms":[{"id":"T31-1","name":"Few-shot","desc":"少しの例だけで、新しい課題に対応すること。","sup":false,"aka":[],"note":null},{"id":"T31-2","name":"One-shot","desc":"1つの例だけで、新しい課題に対応すること。","sup":false,"aka":[],"note":null},{"id":"T31-3","name":"自己教師あり学習","desc":"人がラベルを付けなくても、データ自身から作った課題（隠した部分の予測など）で学習する方法。","sup":false,"aka":[],"note":null},{"id":"T31-4","name":"事前学習","desc":"大量のデータで汎用的な特徴を学んでおくこと。その後のファインチューニングの土台になる。","sup":false,"aka":[],"note":null},{"id":"T31-5","name":"事前学習済みモデル","desc":"大量のデータですでに学習され、公開・再利用できるモデル。","sup":false,"aka":[],"note":null},{"id":"T31-6","name":"破滅的忘却","desc":"新しい課題を学習すると、以前に学習した課題の性能が大きく下がってしまう現象。","sup":false,"aka":[],"note":null},{"id":"T31-7","name":"半教師あり学習","desc":"少しのラベル付きデータと、大量のラベルなしデータを組み合わせて学習する方法。","sup":false,"aka":[],"note":null}]},{"id":"T33","name":"モデルの解釈性","short":"モデルの解釈性","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":19,"title":"マルチモーダル・モデルの解釈性・軽量化","status":"planned","page":null},"terms":[{"id":"T33-1","name":"CAM","desc":"最後の畳み込み層の特徴マップと出力の重みから、画像のどこが判断の根拠になったかを示す手法。GAPのある構造で使う。","sup":false,"aka":[],"note":null},{"id":"T33-2","name":"Grad-CAM","desc":"勾配の情報を使って、判断の根拠となった画像の領域を示す手法。CAMより幅広いモデルに使える。","sup":false,"aka":[],"note":null},{"id":"T33-3","name":"LIME","desc":"説明したい1つの予測の周りを簡単なモデルで近似して、どの特徴が効いたかを示す手法。","sup":false,"aka":[],"note":null},{"id":"T33-4","name":"Permutation Importance","desc":"ある特徴量の値をシャッフルしたときの精度の下がり方から、その特徴量の重要度を測る手法。","sup":false,"aka":[],"note":null},{"id":"T33-5","name":"SHAP","desc":"ゲーム理論のシャプレイ値を使い、各特徴量が予測にどれだけ貢献したかを公平に配分して示す手法。","sup":false,"aka":[],"note":null},{"id":"T33-6","name":"説明可能AI (XAI)","desc":"AIの判断の理由や根拠を、人が理解できるように示す技術や研究。","sup":false,"aka":[],"note":null}]},{"id":"T34","name":"モデルの軽量化","short":"モデルの軽量化","category":"ディープラーニングの応用例","area":"技術分野","lecture":{"number":19,"title":"マルチモーダル・モデルの解釈性・軽量化","status":"planned","page":null},"terms":[{"id":"T34-1","name":"エッジAI","desc":"クラウドではなく、スマホやカメラなど現場の機器（エッジ）の中でAIの処理を行うこと。","sup":false,"aka":[],"note":null},{"id":"T34-2","name":"蒸留","desc":"大きなモデル（教師）の出力を目標に、小さなモデル（生徒）を学習させて性能を引き継ぐ方法。","sup":false,"aka":[],"note":null},{"id":"T34-3","name":"宝くじ仮説","desc":"大きなネットワークの中には、それだけで同じくらいの性能を出せる小さな部分ネットワークが含まれているという仮説。","sup":false,"aka":[],"note":null},{"id":"T34-4","name":"プルーニング","desc":"重要でない重みやニューロンを取り除いて、モデルを小さくする方法（枝刈り）。","sup":false,"aka":[],"note":null},{"id":"T34-5","name":"モデル圧縮","desc":"性能をなるべく落とさずに、モデルの大きさや計算量を減らす方法の総称。","sup":false,"aka":[],"note":null},{"id":"T34-6","name":"量子化","desc":"重みなどの数値を、より少ないビット数で表してモデルを軽くする方法。","sup":false,"aka":[],"note":null}]}]},{"id":"project","order":14,"domain":"social","color":"#8A5300","name":"AIの社会実装（プロジェクトの進め方とデータ）","short":"プロジェクトとデータ","shortLines":["プロジェクト","とデータ"],"priority":"mid","badges":[],"summary":"AIを実際の事業に組み込むまでの進め方と、学習に使うデータの集め方・扱い方。技術だけでなく、関係者との合意やデータの品質がプロジェクトの成否を分ける。","themes":["AIプロジェクトの流れ（課題設定→PoC→開発→運用）とCRISP-DM・CRISP-ML","MLOpsと開発の環境（Python・Jupyter Notebook・Docker・クラウド・Web API）","開発の進め方（アジャイルとウォーターフォール）と、外部との連携（オープン・イノベーション・産学連携）","データの準備（アノテーション・コーパス・オープンデータセット）とデータリーケージ"],"keywords":["AIプロジェクトの進め方","PoC","CRISP-DM","MLOps","アジャイル","アノテーション","オープンデータセット","データリーケージ"],"examPoint":"プロジェクトの各段階で何をするか、データの扱いで起きる問題（データリーケージなど）の原因と影響を問う。","examTrap":"データリーケージがあると検証では精度が高く見えるが、実際に使うと精度が出ない。過学習とは原因が違う。","priorityReason":"JDLA公式の例題Q14（G2022#1、データリーケージの影響）が題材にしている。キーワード数は23語。シラバスの改訂履歴で、この分野の変更はない。","items":["T35","T36"],"subShort":{"T36":"データの収集と加工"},"subs":[{"id":"T35","name":"AIプロジェクトの進め方","short":"AIプロジェクトの進め方","category":"AIの社会実装に向けて","area":"技術分野","lecture":{"number":20,"title":"AIプロジェクトの進め方とデータ","status":"planned","page":null},"terms":[{"id":"T35-1","name":"AIのビジネス活用","desc":"AIを使って、業務の効率化や新しい製品・サービスなど、事業の価値を生み出すこと。","sup":false,"aka":[],"note":null},{"id":"T35-2","name":"AIプロジェクトの進め方","desc":"課題の設定からデータの収集、PoC、開発、運用と改善までを段階的に進めていく流れ。","sup":false,"aka":[],"note":null},{"id":"T35-3","name":"BPR","desc":"業務の流れを根本から見直して、つくり直すこと（ビジネスプロセス・リエンジニアリング）。","sup":false,"aka":[],"note":null},{"id":"T35-4","name":"CRISP-DM","desc":"ビジネスの理解から、データの理解・準備、モデルの作成、評価、展開へと進む、データ分析の標準的な進め方。","sup":false,"aka":[],"note":null},{"id":"T35-5","name":"CRISP-ML","desc":"CRISP-DMを機械学習向けに広げ、品質の確認や運用・監視の段階も含めた進め方。","sup":false,"aka":[],"note":null},{"id":"T35-6","name":"Docker","desc":"アプリと実行環境をコンテナにまとめて、どこでも同じように動かせるようにするツール。","sup":false,"aka":[],"note":null},{"id":"T35-7","name":"Jupyter Notebook","desc":"コードと実行結果、説明の文章を1つのノートにまとめ、対話的に実行できるツール。","sup":false,"aka":[],"note":null},{"id":"T35-8","name":"MLOps","desc":"機械学習のモデルの開発から運用・監視・再学習までを、継続的に回すための仕組みと考え方。","sup":false,"aka":[],"note":null},{"id":"T35-9","name":"PoC","desc":"本格的な開発の前に、アイデアや技術が本当に役立つかを小さく試して確かめること（概念実証）。","sup":false,"aka":[],"note":null},{"id":"T35-10","name":"Python","desc":"機械学習のライブラリが充実していて、AIの開発で広く使われるプログラミング言語。","sup":false,"aka":[],"note":null},{"id":"T35-11","name":"Web API","desc":"ネットワーク越しに、ほかのシステムの機能やデータを呼び出して使うための窓口。","sup":false,"aka":[],"note":null},{"id":"T35-12","name":"アジャイル","desc":"短い期間で開発と確認を繰り返し、変化に合わせながら進める開発の方法。","sup":false,"aka":[],"note":null},{"id":"T35-13","name":"ウォーターフォール","desc":"要件定義から設計・開発・テストへと工程を順に進め、原則として前の工程に戻らない開発の方法。","sup":false,"aka":[],"note":null},{"id":"T35-14","name":"オープン・イノベーション","desc":"社外の技術やアイデアを取り入れたり外部と協力したりして、新しい価値を生み出すこと。","sup":false,"aka":[],"note":null},{"id":"T35-15","name":"クラウド","desc":"サーバや計算の資源を、インターネット経由で必要な分だけ使う仕組み。","sup":false,"aka":[],"note":null},{"id":"T35-16","name":"産学連携","desc":"企業と大学などの研究機関が協力して、研究開発や人材の育成を行うこと。","sup":false,"aka":[],"note":null},{"id":"T35-17","name":"ステークホルダーのニーズ","desc":"利用者・経営者・現場など、プロジェクトにかかわる人たちの要望。最初にすり合わせておく。","sup":false,"aka":[],"note":null},{"id":"T35-18","name":"データサイエンティスト","desc":"データの分析や機械学習を使って、ビジネスの課題を解決する専門家。","sup":false,"aka":[],"note":null},{"id":"T35-19","name":"他企業や他業種との連携","desc":"データや技術、ノウハウを持ち寄るために、ほかの会社やほかの業種と協力すること。","sup":false,"aka":[],"note":null}]},{"id":"T36","name":"データの収集・加工・分析・学習","short":"データの収集と加工","category":"AIの社会実装に向けて","area":"技術分野","lecture":{"number":20,"title":"AIプロジェクトの進め方とデータ","status":"planned","page":null},"terms":[{"id":"T36-1","name":"アノテーション","desc":"画像や文章などのデータに、正解のラベルや情報を付ける作業。","sup":false,"aka":[],"note":null},{"id":"T36-2","name":"オープンデータセット","desc":"誰でも使えるように公開されているデータセット。利用の条件（ライセンス）の確認が必要。","sup":false,"aka":[],"note":null},{"id":"T36-3","name":"コーパス","desc":"自然言語処理のために集めて整理した、大量の文章のデータ。","sup":false,"aka":[],"note":null},{"id":"T36-4","name":"データリーケージ","desc":"予測のときには使えないはずの情報（正解など）が学習データに紛れ込み、検証では精度が高いのに実際には精度が出なくなること。","sup":false,"aka":[],"note":null}]}]},{"id":"law","order":15,"domain":"social","color":"#9A450A","name":"AIに関する法律と契約","short":"法律と契約","priority":"high","badges":["revised"],"summary":"AIの開発と利用にかかわる法律（個人情報・著作権・特許・営業秘密・独占禁止）と、AIの開発やサービスの契約の考え方。データを集める・学習させる・提供するそれぞれの場面で、何に気をつけるかを押さえる。","themes":["個人情報保護法（個人情報・個人データ・保有個人データの違い、要配慮個人情報、匿名加工情報と仮名加工情報、第三者提供と委託）とGDPR","著作権法（著作物の要件、AI生成物の扱い、著作権侵害の判断）","特許法（発明の要件、発明者、職務発明）","不正競争防止法（営業秘密の3要件、限定提供データ）と独占禁止法","AI開発の契約（AI・データの利用に関する契約ガイドライン、請負と準委任、PoC、精度保証）とAIサービスの契約"],"keywords":["個人情報","要配慮個人情報","匿名加工情報","仮名加工情報","第三者提供","著作物","AI生成物","営業秘密","準委任契約","AI・データの利用に関する契約ガイドライン"],"examPoint":"具体的な事例が法律の対象になるか、どの契約の形が合うかを判断させる問題が多い。「最も不適切なものを選べ」の形に注意。","examTrap":"匿名加工情報は元に戻せない加工、仮名加工情報はほかの情報と照らし合わせれば個人を識別できる加工。請負は完成の義務あり、準委任は完成の義務なし。","priorityReason":"JDLA公式の例題Q17（G2022#2、個人情報保護法）と例題Q18（G2023#4、AI開発契約）が題材にしている。シラバス2024の改訂ポイントで、法律・倫理は「理解しておくべきポイントを明確化」された。キーワード数は40語。","items":["E01","E02","E03","E04","E05","E06","E07"],"subs":[{"id":"E01","name":"個人情報保護法","short":"個人情報保護法","category":"AIに関する法律と契約","area":"法律・倫理分野","lecture":{"number":22,"title":"個人情報保護法","status":"planned","page":null},"terms":[{"id":"E01-1","name":"GDPR","desc":"EUの一般データ保護規則。EU域内の個人データの扱いを厳しく定め、域外の事業者に適用されることもある。2018年に適用が始まった。","sup":false,"aka":[],"note":null},{"id":"E01-2","name":"仮名加工情報","desc":"ほかの情報と照らし合わせない限り、特定の個人を識別できないように加工した情報。社内での分析などに使いやすい。","sup":false,"aka":[],"note":null},{"id":"E01-3","name":"個人識別符号","desc":"指紋や顔の特徴のデータ、マイナンバーや旅券の番号など、それだけで特定の個人を識別できる符号。","sup":false,"aka":[],"note":null},{"id":"E01-4","name":"個人データ","desc":"個人情報をデータベースなどに整理したもののうち、それを構成する個人情報。","sup":false,"aka":[],"note":null},{"id":"E01-5","name":"個人情報","desc":"生きている個人に関する情報で、氏名などで特定の個人を識別できるもの、または個人識別符号を含むもの。","sup":false,"aka":[],"note":null},{"id":"E01-6","name":"第三者提供","desc":"個人データを、本人や委託先などではないほかの人に渡すこと。原則として本人の同意が必要。","sup":false,"aka":[],"note":null},{"id":"E01-7","name":"匿名加工情報","desc":"特定の個人を識別できず、元の個人情報に戻せないように加工した情報。一定の条件を守れば本人の同意なく第三者に提供できる。","sup":false,"aka":[],"note":null},{"id":"E01-8","name":"保有個人データ","desc":"事業者が、本人からの開示・訂正・利用停止などの求めに応じる権限をもつ個人データ。","sup":false,"aka":[],"note":null},{"id":"E01-9","name":"要配慮個人情報","desc":"人種・信条・病歴・犯罪の経歴など、不当な差別や偏見が生じないよう特に配慮が必要な個人情報。取得には原則として本人の同意が要る。","sup":false,"aka":[],"note":null},{"id":"E01-10","name":"利用目的","desc":"個人情報を何のために使うか。できるだけ具体的に決め、本人に知らせるか公表する必要がある。","sup":false,"aka":[],"note":null},{"id":"E01-11","name":"委託","desc":"個人データの取扱いを外部に任せること。第三者提供には当たらないが、委託先を監督する義務がある。","sup":false,"aka":[],"note":null}]},{"id":"E02","name":"著作権法","short":"著作権法","category":"AIに関する法律と契約","area":"法律・倫理分野","lecture":{"number":23,"title":"知的財産と競争のルール（著作権・特許・不正競争防止・独占禁止）","status":"planned","page":null},"terms":[{"id":"E02-1","name":"創作性","desc":"作った人の個性が表れていること。著作物として保護されるための要件の一つ。","sup":false,"aka":[],"note":null},{"id":"E02-2","name":"著作物","desc":"思想や感情を創作的に表現したもので、文芸・学術・美術・音楽の範囲に属するもの。","sup":false,"aka":[],"note":null},{"id":"E02-3","name":"AI生成物","desc":"AIが作った文章や画像など。人の創作的な関与がなければ、著作物とは認められにくいと考えられている。","sup":false,"aka":[],"note":null},{"id":"E02-4","name":"利用規約","desc":"サービスやデータを使うときの条件を定めた取り決め。学習に使うデータや、生成物の扱いを確かめる必要がある。","sup":false,"aka":[],"note":null},{"id":"E02-5","name":"著作権侵害","desc":"他人の著作物を、許可なく複製・公開などして権利を侵すこと。似ていること（類似性）と、元の作品をもとにしたこと（依拠性）が判断の要素になる。","sup":false,"aka":[],"note":null},{"id":"E02-6","name":"著作権","desc":"著作物を作った人がもつ、複製や公開などを独占的に行える権利。登録しなくても、創作した時点で発生する。","sup":false,"aka":[],"note":null}]},{"id":"E03","name":"特許法","short":"特許法","category":"AIに関する法律と契約","area":"法律・倫理分野","lecture":{"number":23,"title":"知的財産と競争のルール（著作権・特許・不正競争防止・独占禁止）","status":"planned","page":null},"terms":[{"id":"E03-1","name":"発明","desc":"自然法則を利用した技術的な思想の創作のうち、高度なもの。","sup":false,"aka":[],"note":null},{"id":"E03-2","name":"新規性","desc":"出願の前に、世の中に知られていないこと。特許を受けるための要件の一つ。","sup":false,"aka":[],"note":null},{"id":"E03-3","name":"進歩性","desc":"その分野の専門家が、すでにある技術から簡単には思いつけないこと。特許を受けるための要件の一つ。","sup":false,"aka":[],"note":null},{"id":"E03-4","name":"知的財産権","desc":"特許権・著作権・商標権など、人の知的な創作の成果を守る権利の総称。","sup":false,"aka":[],"note":null},{"id":"E03-5","name":"発明者","desc":"発明を実際に生み出した人。日本では人に限られ、AIは発明者になれないとされている。","sup":false,"aka":[],"note":null},{"id":"E03-6","name":"職務発明","desc":"従業員が仕事として行った発明。契約や社内の規則で、会社が特許を受ける権利を取得できる。","sup":false,"aka":[],"note":null},{"id":"E03-7","name":"特許権","desc":"発明を一定の期間（原則として出願から20年）、独占的に実施できる権利。","sup":false,"aka":[],"note":null}]},{"id":"E04","name":"不正競争防止法","short":"不正競争防止法","category":"AIに関する法律と契約","area":"法律・倫理分野","lecture":{"number":23,"title":"知的財産と競争のルール（著作権・特許・不正競争防止・独占禁止）","status":"planned","page":null},"terms":[{"id":"E04-1","name":"営業秘密","desc":"秘密として管理され（秘密管理性）、事業に役立ち（有用性）、世の中に知られていない（非公知性）情報。","sup":false,"aka":[],"note":null},{"id":"E04-2","name":"限定提供データ","desc":"特定の相手に限って提供される、電子的に管理された大量のデータ。不正な取得や使用が禁じられる。","sup":false,"aka":[],"note":null}]},{"id":"E05","name":"独占禁止法","short":"独占禁止法","category":"AIに関する法律と契約","area":"法律・倫理分野","lecture":{"number":23,"title":"知的財産と競争のルール（著作権・特許・不正競争防止・独占禁止）","status":"planned","page":null},"terms":[{"id":"E05-1","name":"競争制限","desc":"事業者が取り決めなどによって、市場での自由な競争を妨げること。","sup":false,"aka":[],"note":null},{"id":"E05-2","name":"公正競争阻害性","desc":"ある行為が、公正な競争を妨げるおそれがあること。不公正な取引方法に当たるかを判断するときの要素。","sup":false,"aka":[],"note":null}]},{"id":"E06","name":"AI開発委託契約","short":"AI開発委託契約","category":"AIに関する法律と契約","area":"法律・倫理分野","lecture":{"number":24,"title":"AI開発委託契約とAIサービス提供契約","status":"planned","page":null},"terms":[{"id":"E06-1","name":"AI・データの利用に関する契約ガイドライン","desc":"経済産業省が作った、AIの開発やデータの利用の契約の考え方とモデル契約をまとめた指針。開発をアセスメント・PoC・開発・追加学習の段階に分ける。","sup":false,"aka":["AI・データ契約ガイドライン"],"note":null},{"id":"E06-2","name":"NDA","desc":"取引の中で知った秘密の情報を、外部に漏らさないことを約束する契約（秘密保持契約）。","sup":false,"aka":[],"note":null},{"id":"E06-3","name":"請負契約","desc":"仕事の完成を約束し、その成果に対して報酬が支払われる契約。","sup":false,"aka":[],"note":null},{"id":"E06-4","name":"準委任契約","desc":"専門家として注意を尽くして仕事をすること（善管注意義務）を約束する契約。完成の義務はない。","sup":false,"aka":[],"note":null},{"id":"E06-5","name":"精度保証","desc":"AIの精度をあらかじめ保証すること。学習してみないと精度がわからないため、開発の契約で保証するのは難しい。","sup":false,"aka":[],"note":null},{"id":"E06-6","name":"PoC","desc":"本開発の前に、技術的に実現できるかを確かめる段階。ガイドラインでは準委任契約が合うとされる。","sup":false,"aka":[],"note":null},{"id":"E06-7","name":"保守契約","desc":"開発したあとのシステムやモデルの保守・運用について決める契約。再学習の扱いなども決めておく。","sup":false,"aka":[],"note":null}]},{"id":"E07","name":"AIサービス提供契約","short":"AIサービス提供契約","category":"AIに関する法律と契約","area":"法律・倫理分野","lecture":{"number":24,"title":"AI開発委託契約とAIサービス提供契約","status":"planned","page":null},"terms":[{"id":"E07-1","name":"SaaS","desc":"ソフトウェアを、インターネット経由のサービスとして提供する形。","sup":false,"aka":[],"note":null},{"id":"E07-2","name":"データ利用権","desc":"契約に基づいて、データを使える範囲や条件を定めた権限。","sup":false,"aka":[],"note":null},{"id":"E07-3","name":"利用規約","desc":"AIサービスの使い方や、入力したデータ・出力の扱い、責任の範囲などを定めた取り決め。","sup":false,"aka":[],"note":null},{"id":"E07-4","name":"精度保証","desc":"AIサービスの出力の精度を保証すること。利用規約では保証しないと定めることが多い。","sup":false,"aka":[],"note":null}]}]},{"id":"ethics","order":16,"domain":"moral","color":"#B0305C","name":"AI倫理の原則とリスク（ガイドライン・プライバシー・公平性・安全性・悪用・透明性）","short":"倫理の原則とリスク","shortLines":["倫理の原則","とリスク"],"priority":"high","badges":["revised"],"summary":"AIを使うときに守るべき原則と、AIが引き起こしうるリスク。法律で決まっていないことも、ガイドライン（ソフトロー）や設計の工夫で対処する考え方を押さえる。","themes":["ハードローとソフトロー、リスクベースアプローチ、AI倫理の価値原則","プライバシー（プライバシー・バイ・デザイン、カメラ画像利活用ガイドブック）","公平性（データの偏り、サンプリングバイアス、センシティブ属性と代理変数）","安全性とセキュリティ（敵対的攻撃、データ汚染、モデル窃取）","悪用（ディープフェイク、フェイクニュース）と透明性（説明可能性、データの来歴）"],"keywords":["ソフトロー","リスクベースアプローチ","プライバシー・バイ・デザイン","アルゴリズムバイアス","センシティブ属性","代理変数","Adversarial Attack (Adversarial Examples)","データ汚染","ディープフェイク","説明可能性"],"examPoint":"事例を示して、どの倫理的な問題に当たるか・どう対処すべきかを問う。「最も不適切なものを選べ」の形が多い。","examTrap":"センシティブ属性を学習データから外しても、代理変数を通じて差別が起きることがある。ソフトローは法的な拘束力がない。","priorityReason":"JDLA公式の例題Q19（G2022#1、顔認識技術の倫理的な問題）が題材にしている。シラバス2024の改訂ポイントで法律・倫理が明確化され、AI倫理・AIガバナンスは11項目に増えた。キーワード数は25語。","items":["E08","E09","E10","E11","E12","E13"],"subs":[{"id":"E08","name":"国内外のガイドライン","short":"国内外のガイドライン","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":25,"title":"AI倫理の原則・国内外のガイドライン・プライバシー・公平性","status":"planned","page":null},"terms":[{"id":"E08-1","name":"AI倫理","desc":"AIを開発・利用するときに守るべき価値観や原則。人権・公平性・透明性などを含む。","sup":false,"aka":[],"note":null},{"id":"E08-2","name":"AIガバナンス","desc":"AIのリスクを適切に管理しながら価値を引き出すための、組織や社会のルールと仕組み。","sup":false,"aka":[],"note":null},{"id":"E08-3","name":"価値原則","desc":"人間中心・公平性・プライバシーなど、AIの開発や利用で大切にすべき基本的な価値をまとめたもの。","sup":false,"aka":[],"note":null},{"id":"E08-4","name":"ハードロー","desc":"法律のように、守らなければ罰則などがある、拘束力のある決まり。","sup":false,"aka":[],"note":null},{"id":"E08-5","name":"ソフトロー","desc":"ガイドラインや業界の自主的な基準のように、法的な拘束力はないが守ることが期待される決まり。","sup":false,"aka":[],"note":null},{"id":"E08-6","name":"リスクベースアプローチ","desc":"AIのリスクの大きさに応じて、求める対策や規制の強さを変える考え方。EUのAI法などで採られている。","sup":false,"aka":[],"note":null}]},{"id":"E09","name":"プライバシー","short":"プライバシー","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":25,"title":"AI倫理の原則・国内外のガイドライン・プライバシー・公平性","status":"planned","page":null},"terms":[{"id":"E09-1","name":"カメラ画像利活用ガイドブック","desc":"カメラの画像を使う事業者が、生活者のプライバシーに配慮するための考え方をまとめた指針。経済産業省と総務省が作った。","sup":false,"aka":[],"note":null},{"id":"E09-2","name":"プライバシー・バイ・デザイン","desc":"企画・設計の段階から、プライバシーの保護を組み込んでおく考え方。","sup":false,"aka":[],"note":null}]},{"id":"E10","name":"公平性","short":"公平性","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":25,"title":"AI倫理の原則・国内外のガイドライン・プライバシー・公平性","status":"planned","page":null},"terms":[{"id":"E10-1","name":"アルゴリズムバイアス","desc":"アルゴリズムやデータの偏りによって、特定の集団に不公平な結果が出ること。","sup":false,"aka":[],"note":null},{"id":"E10-2","name":"公平性の定義","desc":"何をもって公平とするかの基準。集団ごとの結果をそろえる、条件が同じなら扱いをそろえるなど複数あり、同時には満たせないこともある。","sup":false,"aka":[],"note":null},{"id":"E10-3","name":"サンプリングバイアス","desc":"データを集める段階の偏りで、集めたデータが本来の対象全体を正しく代表していないこと。","sup":false,"aka":[],"note":null},{"id":"E10-4","name":"センシティブ属性","desc":"性別・人種・宗教など、差別につながるおそれがあり、扱いに注意が必要な属性。","sup":false,"aka":[],"note":null},{"id":"E10-5","name":"代理変数","desc":"センシティブ属性と強く関係する別の変数（住んでいる地域など）。直接使わなくても、これを通じて差別が生じることがある。","sup":false,"aka":[],"note":null},{"id":"E10-6","name":"データの偏り","desc":"学習データの中身が、一部の集団や状況にかたよっていること。AIの判断の偏りの原因になる。","sup":false,"aka":[],"note":null}]},{"id":"E11","name":"安全性とセキュリティ","short":"安全性とセキュリティ","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":26,"title":"安全性・悪用・透明性・民主主義","status":"planned","page":null},"terms":[{"id":"E11-1","name":"Adversarial Attack (Adversarial Examples)","desc":"人にはわからないほど小さな細工を入力に加えて、AIに誤った判断をさせる攻撃（敵対的攻撃）。","sup":false,"aka":[],"note":null},{"id":"E11-2","name":"セキュリティ・バイ・デザイン","desc":"企画・設計の段階から、セキュリティの対策を組み込んでおく考え方。","sup":false,"aka":[],"note":null},{"id":"E11-3","name":"データ汚染","desc":"学習データに不正なデータを混ぜて、AIの判断をゆがめる攻撃。","sup":false,"aka":[],"note":null},{"id":"E11-4","name":"データ窃取","desc":"AIの出力を分析するなどして、学習に使われたデータを盗み出す攻撃。","sup":false,"aka":[],"note":null},{"id":"E11-5","name":"モデル窃取","desc":"AIへの問い合わせとその答えを大量に集めて、元のモデルと同じようにふるまうモデルを作る攻撃。","sup":false,"aka":[],"note":null},{"id":"E11-6","name":"モデル汚染","desc":"学習済みのモデルそのものに細工をして、特定の条件で誤った動作をさせる攻撃。","sup":false,"aka":[],"note":null}]},{"id":"E12","name":"悪用","short":"悪用","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":26,"title":"安全性・悪用・透明性・民主主義","status":"planned","page":null},"terms":[{"id":"E12-1","name":"ディープフェイク","desc":"ディープラーニングで作った、本物と見分けにくい偽の映像や音声。","sup":false,"aka":[],"note":null},{"id":"E12-2","name":"フェイクニュース","desc":"事実でない情報を、ニュースのように装って広めるもの。生成AIで大量に作られるおそれがある。","sup":false,"aka":[],"note":null}]},{"id":"E13","name":"透明性","short":"透明性","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":26,"title":"安全性・悪用・透明性・民主主義","status":"planned","page":null},"terms":[{"id":"E13-1","name":"データの来歴","desc":"データがどこで、どのように作られ、どう加工されてきたかの記録。","sup":false,"aka":[],"note":null},{"id":"E13-2","name":"説明可能性","desc":"AIがなぜその結果を出したのかを、人が理解できるように説明できること。","sup":false,"aka":[],"note":null},{"id":"E13-3","name":"ブラックボックス","desc":"内部の仕組みが複雑で、なぜその判断になったのかが外からわからない状態。","sup":false,"aka":[],"note":null}]}]},{"id":"society","order":17,"domain":"moral","color":"#9C2C6C","name":"社会への影響とAIガバナンス（民主主義・環境・労働・その他の価値・ガバナンス）","short":"社会とガバナンス","shortLines":["社会と","ガバナンス"],"priority":"mid","badges":["revised"],"summary":"AIが社会全体に与える影響（民主主義・環境・働き方など）と、組織がAIを責任をもって使うための仕組み（AIガバナンス）。シラバス2024で大きく広がった範囲。","themes":["民主主義への影響（エコーチェンバー・フィルターバブル・フェイクニュース）","環境保護（モデルの学習の電力消費と気候変動）","労働政策（AIとの協働・スキルの喪失・労働力不足）","その他の重要な価値（インクルージョン・軍事利用・死者への敬意・人間の自律性）","AIガバナンス（AIポリシー・倫理アセスメント・人間の関与・監査・モニタリング・トレーサビリティ）"],"keywords":["エコーチェンバー","フィルターバブル","モデル学習の電力消費","スキルの喪失","人間の自律性","倫理アセスメント","人間の関与","トレーサビリティ"],"examPoint":"現象の名前と中身の組合せ（エコーチェンバーとフィルターバブルなど）や、ガバナンスの取組みとして適切なものを問う。","examTrap":"エコーチェンバーは似た意見の人どうしの交流で考えが強まる現象、フィルターバブルはアルゴリズムで自分好みの情報に囲まれる状態。","priorityReason":"JDLA公式の例題Q20（G2024#4、AIと地球環境）が題材にしている。シラバス2024で民主主義・環境保護・労働政策などの項目が加わった。キーワード数は22語で、少なめ。","items":["E14","E15","E16","E17","E18"],"subs":[{"id":"E14","name":"民主主義","short":"民主主義","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":26,"title":"安全性・悪用・透明性・民主主義","status":"planned","page":null},"terms":[{"id":"E14-1","name":"エコーチェンバー","desc":"似た意見の人とばかりつながることで、同じ意見が反響するように強まっていく現象。","sup":false,"aka":[],"note":null},{"id":"E14-2","name":"フィルターバブル","desc":"推薦のアルゴリズムによって、自分の好みに合う情報ばかりに囲まれてしまう状態。","sup":false,"aka":[],"note":null},{"id":"E14-3","name":"フェイクニュース","desc":"偽の情報が広まることで、人々の判断や選挙などの民主的な仕組みがゆがめられるおそれ。","sup":false,"aka":[],"note":null}]},{"id":"E15","name":"環境保護","short":"環境保護","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":27,"title":"環境・労働・その他の価値とAIガバナンス","status":"planned","page":null},"terms":[{"id":"E15-1","name":"気候変動","desc":"地球の気温の上昇などの、長い期間の気候の変化。AIの電力消費による温室効果ガスの排出が課題になっている。","sup":false,"aka":[],"note":null},{"id":"E15-2","name":"モデル学習の電力消費","desc":"大規模なモデルの学習に必要な、大量の電力。環境への負荷として問題になっている。","sup":false,"aka":[],"note":null}]},{"id":"E16","name":"労働政策","short":"労働政策","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":27,"title":"環境・労働・その他の価値とAIガバナンス","status":"planned","page":null},"terms":[{"id":"E16-1","name":"AIとの協働","desc":"人がAIに仕事をまかせきりにするのではなく、役割を分けて一緒に働くこと。","sup":false,"aka":[],"note":null},{"id":"E16-2","name":"スキルの喪失","desc":"AIに頼ることで、人がもともと持っていた技能や判断力が衰えてしまうこと。","sup":false,"aka":[],"note":null},{"id":"E16-3","name":"労働力不足","desc":"少子高齢化などで働き手が足りなくなること。AIの活用が期待される背景の一つ。","sup":false,"aka":[],"note":null}]},{"id":"E17","name":"その他の重要な価値","short":"その他の重要な価値","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":27,"title":"環境・労働・その他の価値とAIガバナンス","status":"planned","page":null},"terms":[{"id":"E17-1","name":"インクルージョン","desc":"年齢・障害・言語などにかかわらず、誰もがAIの恩恵を受けられ、取り残されないようにすること。","sup":false,"aka":[],"note":null},{"id":"E17-2","name":"軍事利用","desc":"AIを兵器などの軍事目的に使うこと。人の判断を通さずに攻撃する自律型の兵器が議論になっている。","sup":false,"aka":[],"note":null},{"id":"E17-3","name":"死者への敬意","desc":"亡くなった人の声や姿をAIで再現するときなどに、故人の尊厳や遺族の気持ちに配慮すること。","sup":false,"aka":[],"note":null},{"id":"E17-4","name":"人間の自律性","desc":"人が自分の意思で判断し、決められること。AIが人の判断を不当に操作しないよう配慮が求められる。","sup":false,"aka":[],"note":null}]},{"id":"E18","name":"AIガバナンス","short":"AIガバナンス","category":"AI倫理・AIガバナンス","area":"法律・倫理分野","lecture":{"number":27,"title":"環境・労働・その他の価値とAIガバナンス","status":"planned","page":null},"terms":[{"id":"E18-1","name":"AIポリシー","desc":"組織が、AIをどのような方針で開発・利用するかを定めたもの。","sup":false,"aka":[],"note":null},{"id":"E18-2","name":"ダイバーシティ","desc":"開発チームなどに多様な背景の人を入れ、偏った判断を防ぐこと。","sup":false,"aka":[],"note":null},{"id":"E18-3","name":"AIに対する監査","desc":"AIのシステムが方針や規則に沿って適切に作られ、使われているかを点検すること。","sup":false,"aka":[],"note":null},{"id":"E18-4","name":"倫理アセスメント","desc":"AIを開発・導入する前に、倫理的なリスクを洗い出して評価すること。","sup":false,"aka":[],"note":null},{"id":"E18-5","name":"人間の関与","desc":"AIの判断の過程に人がかかわり、最終的な判断や監督を行うこと（ヒューマン・イン・ザ・ループ）。","sup":false,"aka":[],"note":null},{"id":"E18-6","name":"モニタリング","desc":"運用中のAIの性能や出力の偏りなどを、続けて監視すること。","sup":false,"aka":[],"note":null},{"id":"E18-7","name":"再現性","desc":"同じ条件で、同じ結果が得られること。AIの検証や説明に必要になる。","sup":false,"aka":[],"note":null},{"id":"E18-8","name":"トレーサビリティ","desc":"データやモデルの作られ方、判断の過程を、後からたどれるようにすること。","sup":false,"aka":[],"note":null}]}]}],"themes":[{"id":"ml-dl","title":"機械学習からディープラーニングへ","core":"r-ml-nn"},{"id":"parts-train","title":"部品と学習の仕組み","core":"r-nn-train"},{"id":"cnn-vision","title":"畳み込みと画像認識","core":"r-cnn-vision"},{"id":"attn-llm","title":"Attentionと大規模言語モデル","core":"r-seq-nlp"},{"id":"repr-gen","title":"表現の学習と生成AI","core":"r-repr-gen"},{"id":"eval-train","title":"評価と過学習対策","core":"r-eval-train"},{"id":"law-ethics","title":"法律と倫理（ハードローとソフトロー）","core":"r-law-ethics"}],"relations":[{"id":"r-ml-nn","from":"ml","to":"nn","dir":"one","core":true,"theme":"ml-dl","label":"特徴の作り方まで学ぶ","why":"ディープラーニングは機械学習の一種。従来の機械学習では人が特徴量を設計したが、多層のニューラルネットワークは特徴の取り出し方までデータから学ぶ。","example":"画像の分類で、従来は人が「輪郭」や「色の分布」を特徴として設計していたが、CNNは画素から直接、特徴を学ぶ。","exam":"例題Q4（G2022#3）は機械学習の基本の手法を題材にしている。古典的な機械学習とディープラーニングの違いは、シラバスの項目6の目標に挙がっている。"},{"id":"r-nn-train","from":"nn","to":"train","dir":"both","core":true,"theme":"parts-train","label":"部品の選び方が学習を左右","why":"活性化関数や誤差関数の選び方で、誤差逆伝播法で伝わる勾配の大きさが決まる。逆に、学習がうまく進むように部品が改良されてきた。","example":"シグモイド関数は微分が小さいため層が深いと勾配消失が起きやすく、ReLU関数に置き換えると学習が進みやすくなる。","exam":"例題Q7（G2022#1）で勾配消失問題が起きやすい条件が、例題Q6（G2024#6）でKL情報量が問われた。"},{"id":"r-cnn-vision","from":"cnn","to":"vision","dir":"one","core":true,"theme":"cnn-vision","label":"畳み込みが画像認識の土台","why":"画像認識のモデルの多くは、畳み込み層・プーリング層・正規化層・スキップ結合を組み合わせて作られている。","example":"ResNetはスキップ結合で152層を実現し、MobileNetはDepthwise Separable Convolutionで計算を減らした。","exam":"例題Q3（G2022#1）でスキップ結合のResNet、例題Q8（G2024#4）でパディング、例題Q9（G2024#4）でGAPが問われた。"},{"id":"r-seq-nlp","from":"seq","to":"nlp","dir":"one","core":true,"theme":"attn-llm","label":"TransformerがLLMの土台","why":"RNNとSeq2Seqで始まった系列の処理は、AttentionとTransformerによって大規模化でき、BERTや大規模言語モデルが生まれた。","example":"BERTはTransformerのエンコーダを、多くの大規模言語モデルはTransformerのデコーダをもとにしている。","exam":"例題Q11（G2024#4）で、大規模言語モデルの前提となるスケーリング則が問われた。"},{"id":"r-repr-gen","from":"repr","to":"gen","dir":"one","core":true,"theme":"repr-gen","label":"潜在表現から生成へ","why":"オートエンコーダはデータを少ない次元の表現に圧縮して学ぶ。VAEはその表現を確率分布として扱い、そこから新しいデータを作れるようにした。","example":"VAEの潜在空間から点を取り出してデコーダに通すと、学習データにない新しい画像ができる。","exam":"JDLA公式の例題で直接の題材になった問はない。シラバス2024でVQ-VAE・Diffusion Modelなどが追加された。"},{"id":"r-eval-train","from":"eval","to":"train","dir":"both","core":true,"theme":"eval-train","label":"過学習を見つけて防ぐ","why":"評価で過学習を見つけ、正則化や早期終了で防ぐ。どれだけ防げたかは、また評価で確かめる。","example":"検証データの誤差が上がり始めた時点で学習を止める（早期終了）。L2正則化で重みを小さくして汎化性能を上げる。","exam":"JDLA公式の例題で直接の題材になった問はない。過学習の説明はシラバスの項目10の目標に挙がっている。"},{"id":"r-law-ethics","from":"law","to":"ethics","dir":"both","core":true,"theme":"law-ethics","label":"ハードローとソフトロー","why":"法律（ハードロー）で決まっていることを守るだけでは足りず、プライバシーや公平性はガイドライン（ソフトロー）や設計の工夫で補う。","example":"カメラの画像の利用では、個人情報保護法を守ったうえで、カメラ画像利活用ガイドブックに沿って生活者に配慮する。","exam":"例題Q17（G2022#2）で個人情報保護法、例題Q19（G2022#1）で顔認識技術の倫理的な問題が問われた。"},{"id":"r-aidef-history","from":"ai-def","to":"history","dir":"one","theme":"ml-dl","label":"難問がブームを終わらせた","why":"トイ・プロブレムしか解けないこと、知識獲得のボトルネック、フレーム問題などが、それぞれのAIブームの限界になった。","example":"第2次ブームのエキスパートシステムは、専門家の知識をルールに書き起こす難しさから行き詰まった。","exam":"例題Q1（G2024#4）でフレーム問題、例題Q2（G2022#1）でエキスパートシステムが問われた。"},{"id":"r-history-ml","from":"history","to":"ml","dir":"one","theme":"ml-dl","label":"第3次ブームの主役へ","why":"ビッグデータと計算機の進歩で、ルールを人が書く方法から、データから学ぶ機械学習が主流になった。","example":"スパムフィルタやレコメンデーションは、大量の履歴のデータから学ぶ機械学習で実用になった。","exam":"例題Q5（G2024#6）でレコメンデーションの手法が問われた。"},{"id":"r-nn-cnn","from":"nn","to":"cnn","dir":"one","theme":"cnn-vision","label":"全結合から畳み込みへ","why":"画像を全結合層だけで扱うとパラメータが膨大になる。畳み込み層は小さなフィルタを使い回して、位置の情報を保ったまま特徴を取り出す。","example":"CNNの出力層では、全結合層の代わりにGAPを使ってパラメータを減らすことがある。","exam":"例題Q9（G2024#4）で、全結合層に代わって使われるGAPが問われた。"},{"id":"r-ml-gen","from":"ml","to":"gen","dir":"one","theme":"repr-gen","label":"強化学習×ディープラーニング","why":"強化学習の行動価値関数や方策を、深層ニューラルネットワークで表すことで、画像などの複雑な入力でも学習できるようになった。","example":"DQNはQ学習の行動価値関数をCNNで近似し、Atariのゲームを画面から学んだ。","exam":"JDLA公式の例題で直接の題材になった問はない。"},{"id":"r-nlp-practical","from":"nlp","to":"practical","dir":"both","theme":"attn-llm","label":"事前学習して使い回す","why":"大規模言語モデルや基盤モデルは、大量のデータで事前学習しておき、ファインチューニングやZero-shotで個別の課題に使い回す。","example":"BERTを事前学習しておき、少しのラベル付きデータで感情分析向けにファインチューニングする。","exam":"例題Q13（G2024#6）でZero-shotが問われた。"},{"id":"r-repr-practical","from":"repr","to":"practical","dir":"one","theme":"repr-gen","label":"事前学習の考え方の源流","why":"積層オートエンコーダで層ごとに事前学習した考え方は、事前学習済みモデルと転移学習につながっている。","example":"ラベルのない大量のデータで特徴を学んでおき、少しのラベル付きデータで本来の課題を学習する。","exam":"JDLA公式の例題で直接の題材になった問はない。"},{"id":"r-eval-project","from":"eval","to":"project","dir":"one","theme":"eval-train","label":"正しい評価の設計","why":"検証の方法や評価の指標を誤ると、実際に使ったときの性能を見誤る。データの分け方はプロジェクトの段階で決めておく。","example":"未来のデータを使って過去を予測するようにデータを分けてしまうと、データリーケージで精度が高く見える。","exam":"例題Q14（G2022#1）でデータリーケージの影響、例題Q15（G2022#1）で相関などの統計の指標が問われた。"},{"id":"r-project-ethics","from":"project","to":"ethics","dir":"one","theme":"law-ethics","label":"データの偏りが不公平を生む","why":"データの集め方やアノテーションに偏りがあると、学習したAIの判断も偏り、公平性の問題になる。","example":"ある集団のデータが少ないまま学習すると、その集団で認識の精度が下がる。","exam":"例題Q19（G2022#1）で、顔認識の精度が集団によって違う問題が取り上げられた。"},{"id":"r-practical-ethics","from":"practical","to":"ethics","dir":"one","theme":"law-ethics","label":"説明可能性を技術で支える","why":"AIの判断の理由を示すことは透明性の原則にかかわる。Grad-CAMやSHAPなどの説明の手法が、それを技術的に支える。","example":"画像の診断AIで、Grad-CAMで判断の根拠になった部分を示し、医師が確かめられるようにする。","exam":"JDLA公式の例題で直接の題材になった問はない。"},{"id":"r-nlp-law","from":"nlp","to":"law","dir":"one","theme":"law-ethics","label":"生成AIと著作権","why":"生成AIの学習データや生成物の扱いは、著作権法や利用規約に照らして判断する必要がある。","example":"生成した画像が既存の作品によく似ていて、元の作品をもとにしたと言える場合は、著作権侵害になりうる。","exam":"JDLA公式の例題で直接の題材になった問はない。シラバスの項目「著作権法」のキーワードにAI生成物・利用規約が含まれる。"},{"id":"r-ethics-society","from":"ethics","to":"society","dir":"one","theme":"law-ethics","label":"原則をガバナンスで実行する","why":"AI倫理の原則は、組織のAIポリシー・倫理アセスメント・監査・モニタリングといったガバナンスの仕組みで実行される。","example":"開発の前に倫理アセスメントを行い、運用中は出力の偏りをモニタリングして、必要なら人が判断に関与する。","exam":"例題Q20（G2024#4）で、AIと地球環境の課題が問われた。"}],"tables":{"compare":{"title":"従来の機械学習とディープラーニングの違い","columns":["観点","従来の機械学習","ディープラーニング","試験での着眼点"],"rows":[["特徴量の作り方","人が設計する（特徴量エンジニアリング）","データから自動で学ぶ","「特徴量を自動で獲得する」がディープラーニングの特徴"],["必要なデータ量","比較的少なくても学習できる","大量のデータが必要になりやすい","ビッグデータが第3次ブームの背景"],["計算資源","CPUでも十分なことが多い","GPU・TPUで大量の並列計算を行う","GPUが学習に向く理由（並列計算）"],["得意なデータ","表形式の構造化データ","画像・音声・文章などの非構造化データ","画像認識・音声認識・自然言語処理での成功"],["解釈のしやすさ","決定木や線形回帰などは理由を説明しやすい","ブラックボックスになりやすく、説明の手法（Grad-CAM・SHAPなど）が要る","説明可能AI（XAI）と透明性"],["代表的な手法","線形回帰・ロジスティック回帰・SVM・決定木・ランダムフォレスト・k-means法","CNN・RNN・LSTM・Transformer・GAN・VAE","手法がどちらに属するかの区別"],["学習の難しさ","ハイパーパラメータが比較的少ない","勾配消失・過学習などへの対策（正規化・正則化・最適化手法）が要る","勾配消失問題とその対策の流れ"]]},"pairs":{"title":"似た概念の見分け方","items":[{"id":"p-learning-types","title":"教師あり学習／教師なし学習／強化学習","items":[["教師あり学習","正解（ラベル）つきのデータから、入力と正解の関係を学ぶ"],["教師なし学習","正解のないデータから、まとまりや構造を見つける"],["強化学習","試行錯誤で行動し、報酬の合計が最大になる行動の選び方を学ぶ"]],"point":"正解があるか、報酬で学ぶかで区別する。顧客のグループ分けは教師なし、売上の予測は教師あり。","fields":["ml"]},{"id":"p-reg-cls","title":"回帰問題／分類問題","items":[["回帰問題","連続した数値を予測する（売上・気温）"],["分類問題","どのクラスに属するかを予測する（迷惑メールかどうか）"]],"point":"ロジスティック回帰は名前に「回帰」とあるが、分類に使う。","fields":["ml"]},{"id":"p-bag-boost","title":"バギング／ブースティング","items":[["バギング","複数のモデルを並列に独立して学習し、結果を平均や多数決でまとめる（ランダムフォレスト）"],["ブースティング","モデルを順番に学習し、前のモデルの間違いを次のモデルが補う（勾配ブースティング）"]],"point":"「並列で独立」がバギング、「順番に補う」がブースティング。","fields":["ml"]},{"id":"p-cf-cb","title":"協調フィルタリング／コンテンツベースフィルタリング","items":[["協調フィルタリング","好みが似たほかの利用者の行動の履歴から推薦する"],["コンテンツベースフィルタリング","商品そのものの特徴と利用者の好みを照らし合わせて推薦する"]],"point":"新しい商品や利用者で困る（コールドスタート問題）のは協調フィルタリング。","fields":["ml"]},{"id":"p-qlearn-sarsa","title":"Q学習／SARSA","items":[["Q学習","次の状態で最も大きいQ値を使って更新する（方策オフ型）"],["SARSA","実際に選んだ次の行動のQ値を使って更新する（方策オン型）"]],"point":"更新に「最大のQ値」を使うか、「実際に選んだ行動のQ値」を使うか。","fields":["ml"]},{"id":"p-precision-recall","title":"適合率／再現率","items":[["適合率","陽性と予測したもののうち、本当に陽性だった割合"],["再現率","本当に陽性のもののうち、陽性と予測できた割合"]],"point":"見逃しを減らしたい（病気の検査など）なら再現率、誤検知を減らしたいなら適合率を重視する。","fields":["eval"]},{"id":"p-mse-mae","title":"MSE／RMSE／MAE","items":[["MSE","誤差の2乗の平均。大きな誤差を重く見る"],["RMSE","MSEの平方根。元のデータと同じ単位になる"],["MAE","誤差の絶対値の平均。外れ値の影響を受けにくい"]],"point":"外れ値に強いのはMAE。単位をそろえたいならRMSE。","fields":["eval"]},{"id":"p-cov-corr","title":"共分散／相関係数／偏相関係数","items":[["共分散","偏差の積の平均。単位によって大きさが変わる"],["相関係数","共分散を標準偏差で割り、−1〜1にそろえたもの"],["偏相関係数","ほかの変数の影響を取り除いた相関"]],"point":"「−1〜1」なら相関係数。疑似相関を見抜くには偏相関係数。","fields":["eval"]},{"id":"p-sigmoid-relu","title":"シグモイド関数／tanh関数／ReLU関数","items":[["シグモイド関数","出力0〜1、微分の最大値0.25。勾配消失が起きやすい"],["tanh関数","出力−1〜1、微分の最大値1"],["ReLU関数","正ならそのまま、負なら0。勾配消失が起きにくい"]],"point":"微分の最大値（0.25と1）と、出力の範囲をセットで覚える。","fields":["nn"]},{"id":"p-l1-l2","title":"L1正則化／L2正則化","items":[["L1正則化","重みの絶対値の和に罰。不要な重みが0になりやすい（ラッソ回帰）"],["L2正則化","重みの2乗の和に罰。重み全体を小さくする（リッジ回帰）"]],"point":"特徴の選択（スパース）になるのはL1。","fields":["train"]},{"id":"p-epoch-iter","title":"エポック／イテレーション／バッチ学習","items":[["エポック","学習データ全体を1回使い切る単位"],["イテレーション","パラメータを1回更新する単位（ミニバッチ1つ分）"],["バッチ学習","データ全体で勾配を計算してまとめて更新する"]],"point":"1000件をミニバッチ100件で学習すると、1エポック＝10イテレーション。","fields":["train"]},{"id":"p-optimizers","title":"モーメンタム／AdaGrad／RMSprop／Adam","items":[["モーメンタム","前回の更新の向きを引き継いで振動を抑える"],["AdaGrad","よく更新されたパラメータの学習率を小さくする（小さくなりすぎる）"],["RMSprop","勾配の2乗の移動平均で、AdaGradの欠点を改善する"],["Adam","モーメンタムとRMSpropを組み合わせる"]],"point":"「何の欠点を何で直したか」の流れで覚える。","fields":["train"]},{"id":"p-norms","title":"バッチ正規化／レイヤー正規化／インスタンス正規化／グループ正規化","items":[["バッチ正規化","ミニバッチの中で、チャネルごとにそろえる"],["レイヤー正規化","1つのデータの中で、層全体をそろえる（RNN・Transformer）"],["インスタンス正規化","1つのデータの1つのチャネルごとにそろえる（スタイル変換）"],["グループ正規化","1つのデータの中で、チャネルのグループごとにそろえる"]],"point":"「どの範囲で平均と分散をとるか」で区別する。ミニバッチが小さいとバッチ正規化は不安定。","fields":["cnn"]},{"id":"p-rnn-lstm-gru","title":"RNN／LSTM／GRU","items":[["RNN","前の時刻の情報を引き継ぐ。長い系列では勾配消失が起きやすい"],["LSTM","入力・忘却・出力の3つのゲートと記憶セルで、長い期間の情報を保つ"],["GRU","リセットと更新の2つのゲートに簡単にしたもの"]],"point":"ゲートの数（LSTMは3つ、GRUは2つ）と、記憶セルの有無。","fields":["seq"]},{"id":"p-attention-types","title":"Self-Attention／Source-Target Attention","items":[["Self-Attention","同じ系列の中の要素どうしの関係を計算する"],["Source-Target Attention","出力側が入力側のどこに注目するかを計算する"]],"point":"クエリとキー・バリューが同じ系列から来るならSelf-Attention。","fields":["seq"]},{"id":"p-mix-cut","title":"Cutout／Random Erasing／Mixup／CutMix","items":[["Cutout","画像の一部を四角く塗りつぶす"],["Random Erasing","ランダムな四角い領域をランダムな値で消す"],["Mixup","2つの画像全体を重ねて、ラベルも混ぜる"],["CutMix","別の画像の一部を貼り付け、ラベルも面積の割合で混ぜる"]],"point":"消すだけ（Cutout・Random Erasing）か、混ぜる（Mixup・CutMix）か。","fields":["repr"]},{"id":"p-segmentation","title":"物体検出／セマンティック／インスタンス／パノプティック","items":[["物体検出","物体を四角い枠で囲み、種類を判定する"],["セマンティックセグメンテーション","画素ごとに種類を付ける。同じ種類の物体は区別しない"],["インスタンスセグメンテーション","物体ごとに区別して形を切り出す"],["パノプティックセグメンテーション","背景も含めて、両方を組み合わせる"]],"point":"「人が3人いる」を3人分に分けられるのがインスタンス。","fields":["vision"]},{"id":"p-cbow-skipgram","title":"CBOW／スキップグラム","items":[["CBOW","周りの単語から、真ん中の単語を予測する"],["スキップグラム","真ん中の単語から、周りの単語を予測する"]],"point":"どちらもword2vecの学習方法。予測の向きが逆。","fields":["nlp"]},{"id":"p-gan-vae-diffusion","title":"GAN／VAE／Diffusion Model","items":[["GAN","生成器と識別器を競わせて学習する"],["VAE","潜在空間の確率分布からサンプリングして生成する"],["Diffusion Model","ノイズを加える過程を逆にたどって、ノイズからデータを復元する"]],"point":"「競わせる」がGAN、「潜在変数の分布」がVAE、「ノイズを取り除いていく」が拡散モデル。","fields":["gen","repr"]},{"id":"p-pix-cycle","title":"Pix2Pix／CycleGAN","items":[["Pix2Pix","対になった画像のデータが必要"],["CycleGAN","対になったデータがなくても変換できる"]],"point":"「対のデータが要るか」で区別する。","fields":["gen"]},{"id":"p-shot","title":"Zero-shot／One-shot／Few-shot","items":[["Zero-shot","例を1つも与えずに対応する"],["One-shot","1つの例だけで対応する"],["Few-shot","少しの例で対応する"]],"point":"与える例の数で区別する。","fields":["nlp","practical"]},{"id":"p-compress","title":"蒸留／プルーニング／量子化","items":[["蒸留","大きなモデルの出力をまねて、小さなモデルを学習させる"],["プルーニング","重要でない重みやニューロンを取り除く"],["量子化","数値をより少ないビット数で表す"]],"point":"「まねる」「削る」「ビットを減らす」。","fields":["practical"]},{"id":"p-cam-gradcam","title":"CAM／Grad-CAM／LIME／SHAP","items":[["CAM","GAPのある構造で、判断の根拠となった画像の領域を示す"],["Grad-CAM","勾配を使い、より幅広いモデルで根拠の領域を示す"],["LIME","1つの予測の周りを簡単なモデルで近似して説明する"],["SHAP","シャプレイ値で各特徴量の貢献を配分する"]],"point":"画像の領域を示すのがCAM系、特徴量の貢献を示すのがLIME・SHAP。","fields":["practical"]},{"id":"p-anon-pseudo","title":"匿名加工情報／仮名加工情報","items":[["匿名加工情報","個人を識別できず、元に戻せない加工。条件を守れば同意なく第三者に提供できる"],["仮名加工情報","ほかの情報と照らし合わせなければ個人を識別できない加工。主に社内での分析用"]],"point":"元に戻せないのが匿名加工情報。仮名加工情報は原則として第三者に提供できない。","fields":["law"]},{"id":"p-contract","title":"請負契約／準委任契約","items":[["請負契約","仕事の完成を約束する。成果物に対して報酬"],["準委任契約","専門家として誠実に仕事をすることを約束する。完成の義務はない"]],"point":"結果が読めないAIの開発やPoCでは、準委任契約が合うとされる。","fields":["law"]},{"id":"p-hard-soft","title":"ハードロー／ソフトロー","items":[["ハードロー","法律のように拘束力があり、守らないと罰則などがある"],["ソフトロー","ガイドラインのように法的な拘束力はないが、守ることが期待される"]],"point":"日本のAIの規律は、ガイドラインなどのソフトローを中心に進められてきた。","fields":["ethics"]},{"id":"p-echo-filter","title":"エコーチェンバー／フィルターバブル","items":[["エコーチェンバー","似た意見の人どうしでやり取りし、意見が強まっていく現象"],["フィルターバブル","アルゴリズムによって、自分好みの情報ばかりに囲まれる状態"]],"point":"人どうしのつながりが原因ならエコーチェンバー、推薦のアルゴリズムが原因ならフィルターバブル。","fields":["society"]}]}}}</script>
+<script>
+/* G検定 試験範囲マップ（素の JavaScript）。データは <script id="map-data"> の JSON。 */
+(function () {
+  "use strict";
+
+  const DATA = JSON.parse(document.getElementById("map-data").textContent);
+  const META = DATA.meta;
+  const L = META.layout;
+  const FIELDS = DATA.fields;
+  const RELS = DATA.relations;
+  const N = FIELDS.length;
+  const C = L.size / 2;
+  const SVGNS = "http://www.w3.org/2000/svg";
+  const PRI = { high: "高", mid: "中", low: "低" };
+  const byId = Object.fromEntries(FIELDS.map((f) => [f.id, f]));
+  const domainById = Object.fromEntries(DATA.domains.map((d) => [d.id, d]));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---------- 小さな道具 ----------
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const zen = (s) => Array.from(s).reduce((n, ch) => n + (/[\x20-\x7e｡-ﾟ]/.test(ch) ? 0.5 : 1), 0);
+  const norm = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/\s+/g, "");
+  function el(tag, attrs = {}, parent) {
+    const e = document.createElementNS(SVGNS, tag);
+    for (const [k, v] of Object.entries(attrs)) if (v !== undefined && v !== null) e.setAttribute(k, v);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  const rad = (deg) => (deg * Math.PI) / 180;
+  const fcolor = (id) => `var(--f-${id})`;
+  const dcolor = (id) => `var(--d-${id})`;
+  const termCount = (f) => f.subs.reduce((n, s) => n + s.terms.length, 0);
+  const store = {
+    get(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* 保存できなくても動く */ } },
+  };
+  function pillHTML(p) { return `<span class="pill ${p}">優先度 ${PRI[p]}</span>`; }
+  function badgeHTML(f) {
+    return (f.badges || []).map((b) => `<span class="badge weight" title="${esc(META.badges[b].desc)}">${esc(META.badges[b].label)}</span>`).join("");
+  }
+  function termBadges(t) {
+    if (t.sup) return ` <span class="badge sup" title="${esc(META.badges.sup.desc)}">補</span>`;
+    return "";
+  }
+  function chipHTML(fid) {
+    const f = byId[fid];
+    return `<a class="chip" href="#detail" data-goto-field="${f.id}"><span class="swatch" style="--c:${fcolor(f.id)}"></span>${esc(f.short)}</a>`;
+  }
+  function noteLink(t) {
+    if (!t.note) return "";
+    const href = META.siteUrl + t.note.replace(/\.md$/, "/");
+    return ` <a class="note-link" href="${esc(href)}" target="_blank" rel="noopener">ノートを読む↗</a>`;
+  }
+  const officialCount = (f) => f.subs.reduce((n, s) => n + s.terms.filter((t) => !t.sup).length, 0);
+  // 項目を学ぶ講義の回（公開済みならリンク）
+  function lectureHTML(lec) {
+    if (!lec) return "";
+    const label = `第${lec.number}回`;
+    if (lec.status === "published" && lec.page) {
+      const href = META.siteUrl + lec.page.replace(/\.md$/, "/");
+      return `<a class="lec" href="${esc(href)}" target="_blank" rel="noopener" title="${esc(lec.title)}">${label}の講義↗</a>`;
+    }
+    return `<span class="lec planned" title="${esc(lec.title)}（準備中）">${label}の講義</span>`;
+  }
+
+  // ---------- 配置の計算（tools/check.py と同じ式） ----------
+  function cardHeight(f) { return L.cardHeader + L.cardPad + L.cardRow * f.subs.length + L.cardFooter; }
+  const POS = FIELDS.map((f, i) => {
+    const ang = L.startAngle + (360 * i) / N;
+    const cx = C + L.radius * Math.cos(rad(ang));
+    const cy = C + L.radius * Math.sin(rad(ang));
+    const w = L.cardWidth, h = cardHeight(f);
+    return { id: f.id, i, ang, cx, cy, w, h, x: cx - w / 2, y: cy - h / 2 };
+  });
+  const posById = Object.fromEntries(POS.map((p) => [p.id, p]));
+
+  // カードの中心から地図の中心へ向かう線と、カードの縁との交点（少し内側へ離す）
+  function anchor(p, gap = 16, tangent = 0) {
+    const dx = C - p.cx, dy = C - p.cy;
+    const tx = dx !== 0 ? (p.w / 2) / Math.abs(dx) : Infinity;
+    const ty = dy !== 0 ? (p.h / 2) / Math.abs(dy) : Infinity;
+    const t = Math.min(tx, ty);
+    const len = Math.hypot(dx, dy);
+    const ux = dx / len, uy = dy / len;
+    return { x: p.cx + dx * t + ux * gap - uy * tangent, y: p.cy + dy * t + uy * gap + ux * tangent };
+  }
+
+  // 関係の曲線：中心寄りに膨らむ二次ベジェ。離れた分野ほど中心に近い所を通る（中心の円は避ける）
+  const MID_R = [0, 700, 660, 600, 530, 450, 385, 330, 300];
+  function relGeometry(r, scale = 1, center = C, getPos = (id) => posById[id], anchorFn = anchor) {
+    const a = getPos(r.from), b = getPos(r.to);
+    let s = (b.i - a.i + N) % N;           // 時計回りのステップ数
+    const cw = s <= N / 2;
+    const steps = cw ? s : N - s;
+    const sign = cw ? 1 : -1;
+    const off = (18 + 7 * steps) * scale;
+    const p0 = anchorFn(a, 16 * scale, sign * off);
+    const p2 = anchorFn(b, 16 * scale, -sign * off);
+    const phi = rad(a.ang + sign * (steps * 360 / N) / 2);
+    const ux = Math.cos(phi), uy = Math.sin(phi);
+    const sx = (p0.x - center) + (p2.x - center), sy = (p0.y - center) + (p2.y - center);
+    const proj = sx * ux + sy * uy;
+    const m = MID_R[Math.min(steps, MID_R.length - 1)] * scale;
+    const rc = 2 * (m - 0.25 * proj);
+    const c = { x: center + rc * ux, y: center + rc * uy };
+    const mid = { x: 0.25 * p0.x + 0.5 * c.x + 0.25 * p2.x, y: 0.25 * p0.y + 0.5 * c.y + 0.25 * p2.y };
+    return { p0, p2, c, mid };
+  }
+  function arrowHead(tip, from, size) {
+    const dx = tip.x - from.x, dy = tip.y - from.y;
+    const len = Math.hypot(dx, dy) || 1;
+    const ux = dx / len, uy = dy / len;
+    const bx = tip.x - ux * size, by = tip.y - uy * size;
+    const w = size * 0.55;
+    return `${tip.x.toFixed(1)},${tip.y.toFixed(1)} ${(bx - uy * w).toFixed(1)},${(by + ux * w).toFixed(1)} ${(bx + uy * w).toFixed(1)},${(by - ux * w).toFixed(1)}`;
+  }
+  function arcPath(r, a0, a1, reverse) {
+    const p = (a) => [C + r * Math.cos(rad(a)), C + r * Math.sin(rad(a))];
+    const [x0, y0] = p(reverse ? a1 : a0), [x1, y1] = p(reverse ? a0 : a1);
+    const large = Math.abs(a1 - a0) > 180 ? 1 : 0;
+    return `M${x0.toFixed(1)},${y0.toFixed(1)} A${r},${r} 0 ${large} ${reverse ? 0 : 1} ${x1.toFixed(1)},${y1.toFixed(1)}`;
+  }
+  function splitShort(f) {
+    if (f.shortLines && f.shortLines.length) return f.shortLines;
+    if (zen(f.short) <= 6) return [f.short];
+    const i = Math.ceil(f.short.length / 2);
+    return [f.short.slice(0, i), f.short.slice(i)];
+  }
+
+  // ---------- 地図を描く ----------
+  const svg = $("#map");
+  const wrap = $("#map-wrap");
+  const vp = el("g", { id: "viewport" }, svg);
+  const gBack = el("g", { class: "layer-back" }, vp);
+  const gTrunk = el("g", { class: "layer-trunk" }, vp);
+  const gRel = el("g", { class: "layer-rel" }, vp);
+  const gCenter = el("g", { class: "layer-center" }, vp);
+  const gCard = el("g", { class: "layer-card" }, vp);
+  const gLabel = el("g", { class: "layer-label" }, vp);
+  const step = 360 / N;
+
+  function drawBackground() {
+    // 領域ごとの扇形
+    const groups = [];
+    FIELDS.forEach((f, i) => {
+      const g = groups[groups.length - 1];
+      if (g && g.domain === f.domain) g.last = i; else groups.push({ domain: f.domain, first: i, last: i });
+    });
+    const R = L.ringLabel - 50;
+    groups.forEach((g) => {
+      const a0 = L.startAngle + g.first * step - step / 2;
+      const a1 = L.startAngle + g.last * step + step / 2;
+      const p = (r, a) => `${(C + r * Math.cos(rad(a))).toFixed(1)},${(C + r * Math.sin(rad(a))).toFixed(1)}`;
+      const r0 = L.centerRadius + 20;
+      const d = `M${p(r0, a0)} L${p(R, a0)} A${R},${R} 0 0 1 ${p(R, a1)} L${p(r0, a1)} A${r0},${r0} 0 0 0 ${p(r0, a0)} Z`;
+      el("path", { d, class: "sector", style: `--c:${dcolor(g.domain)}` }, gBack);
+      el("path", { d: arcPath(R, a0 + 0.6, a1 - 0.6), class: "sector-edge", style: `--c:${dcolor(g.domain)}` }, gBack);
+      // 円弧に沿った領域名（下半分は文字が逆さにならないよう逆向きに）
+      const mid = ((a0 + a1) / 2 + 360) % 360;
+      const lower = mid > 0 && mid < 180;
+      const pid = `arc-${g.domain}`;
+      el("path", { id: pid, d: arcPath(lower ? L.ringLabel + 34 : L.ringLabel, a0, a1, lower), fill: "none" }, gBack);
+      const t = el("text", { class: "domain-label", style: `--c:${dcolor(g.domain)}` }, gBack);
+      const tp = el("textPath", { href: `#${pid}`, startOffset: "50%", "text-anchor": "middle" }, t);
+      tp.textContent = domainById[g.domain].name;
+    });
+    // 測量図風の同心円と目盛り
+    [320, 560, 800, L.ringLabel - 50].forEach((r, i) => el("circle", { cx: C, cy: C, r, class: i % 2 ? "ring" : "ring dash" }, gBack));
+    el("circle", { cx: C, cy: C, r: L.ringTick, class: "ring" }, gBack);
+    for (let a = 0; a < 360; a += 2.5) {
+      const major = a % 22.5 === 0;
+      const r0 = L.ringTick, r1 = L.ringTick + (major ? 34 : 14);
+      el("line", {
+        x1: C + r0 * Math.cos(rad(a)), y1: C + r0 * Math.sin(rad(a)),
+        x2: C + r1 * Math.cos(rad(a)), y2: C + r1 * Math.sin(rad(a)), class: major ? "tick major" : "tick",
+      }, gBack);
+    }
+    for (let a = 0; a < 360; a += 45) {
+      const bearing = (a + 90) % 360;  // 真上を000とする方位
+      const r = L.ringTick - 30;
+      el("text", {
+        x: C + r * Math.cos(rad(a)), y: C + r * Math.sin(rad(a)) + 8, class: "tick-label", "text-anchor": "middle",
+      }, gBack).textContent = String(bearing).padStart(3, "0");
+    }
+  }
+
+  function drawCenter() {
+    el("circle", { cx: C, cy: C, r: L.centerRadius + 26, class: "center-ring2" }, gCenter);
+    el("circle", { cx: C, cy: C, r: L.centerRadius, class: "center-disc" }, gCenter);
+    const lines = META.centerTitle;
+    const fsz = lines.length === 1 ? 96 : 54;
+    lines.forEach((s, i) => {
+      el("text", { x: C, y: C + (lines.length === 1 ? 26 : -40 + i * 62), class: "center-title", "font-size": fsz }, gCenter).textContent = s;
+    });
+    el("text", { x: C, y: C + 96, class: "center-sub" }, gCenter).textContent = META.centerSub;
+  }
+
+  function drawTrunks() {
+    POS.forEach((p) => {
+      const a = anchor(p, 10);
+      const ang = rad(p.ang);
+      const s = { x: C + (L.centerRadius + 8) * Math.cos(ang), y: C + (L.centerRadius + 8) * Math.sin(ang) };
+      const rm = (L.centerRadius + Math.hypot(a.x - C, a.y - C)) / 2;
+      const ca = rad(p.ang + 7);
+      const c = { x: C + rm * Math.cos(ca), y: C + rm * Math.sin(ca) };
+      el("path", {
+        d: `M${s.x.toFixed(1)},${s.y.toFixed(1)} Q${c.x.toFixed(1)},${c.y.toFixed(1)} ${a.x.toFixed(1)},${a.y.toFixed(1)}`,
+        class: "trunk", "data-id": p.id, style: `--c:${fcolor(p.id)}`,
+      }, gTrunk);
+    });
+  }
+
+  function drawRelations() {
+    RELS.forEach((r) => {
+      const g = el("g", {
+        class: `rel${r.core ? " core" : ""}`, "data-id": r.id, "data-from": r.from, "data-to": r.to,
+        tabindex: "0", role: "button",
+        "aria-label": `${byId[r.from].short}${r.dir === "both" ? "と" : "から"}${byId[r.to].short}${r.dir === "both" ? "の相互" : "へ"}の関係：${r.label}。Enterで説明を開く`,
+      }, gRel);
+      const { p0, p2, c, mid } = relGeometry(r);
+      const d = `M${p0.x.toFixed(1)},${p0.y.toFixed(1)} Q${c.x.toFixed(1)},${c.y.toFixed(1)} ${p2.x.toFixed(1)},${p2.y.toFixed(1)}`;
+      el("path", { d, class: "rel-hit" }, g);
+      el("path", { d, class: "rel-line" }, g);
+      const size = r.core ? 34 : 26;
+      el("polygon", { points: arrowHead(p2, c, size), class: "rel-head" }, g);
+      if (r.dir === "both") el("polygon", { points: arrowHead(p0, c, size), class: "rel-head" }, g);
+      const w = Math.max(120, zen(r.label) * 24 + 28);
+      const lg = el("g", { class: "rel-label", "data-x": mid.x, "data-y": mid.y, "data-w": w }, g);
+      el("rect", { x: -w / 2, y: -21, width: w, height: 40, rx: 20 }, lg);
+      el("text", { x: 0, y: 8 }, lg).textContent = r.label;
+    });
+  }
+
+  function drawCards() {
+    FIELDS.forEach((f) => {
+      const p = posById[f.id];
+      const g = el("g", {
+        class: "card", transform: `translate(${p.x.toFixed(1)},${p.y.toFixed(1)})`, "data-id": f.id,
+        tabindex: "0", role: "button", style: `--c:${fcolor(f.id)}`,
+        "aria-label": `${f.name}（${domainById[f.domain].name}、優先度${PRI[f.priority]}）。中分類${f.subs.length}、小分類${termCount(f)}語。Enterで詳細を開く`,
+      }, gCard);
+      const W = p.w, H = p.h;
+      // 縮小時：分野色で塗った簡略表示
+      const cg = el("g", { class: "lod-compact-only" }, g);
+      el("rect", { width: W, height: H, rx: 18, class: "card-compact-bg" }, cg);
+      const lines = splitShort(f);
+      const maxLen = Math.max(...lines.map(zen));
+      const fs = Math.min(58, Math.floor(262 / maxLen), Math.floor((H - 84) / (lines.length * 1.2)));
+      const blockH = lines.length * fs * 1.18;
+      const top = (H - 64) / 2 - blockH / 2 + fs * 0.92;
+      lines.forEach((ln, i) => {
+        el("text", { x: W / 2, y: top + i * fs * 1.18, class: "card-big", "font-size": fs }, cg).textContent = ln;
+      });
+      const pw = 132, ph = 40;
+      el("rect", { x: W / 2 - pw / 2, y: H - 58, width: pw, height: ph, rx: 20, class: `pill-bg ${f.priority}`, stroke: "#FFFFFF", "stroke-width": 3 }, cg);
+      el("text", { x: W / 2, y: H - 31, class: `pill-text ${f.priority}`, "font-size": 21 }, cg).textContent = `優先度 ${PRI[f.priority]}`;
+      // 拡大時：中分類の一覧
+      const dg = el("g", { class: "lod-detail-only" }, g);
+      el("rect", { width: W, height: H, rx: 14, class: "card-bg" }, dg);
+      el("rect", { width: W, height: L.cardHeader, rx: 14, class: "card-band" }, dg);
+      el("rect", { y: L.cardHeader - 16, width: W, height: 16, class: "card-band-sq" }, dg);
+      el("text", { x: W / 2, y: 40, class: "card-short" }, dg).textContent = f.short;
+      f.subs.forEach((s, i) => {
+        const y = L.cardHeader + L.cardPad / 2 + i * L.cardRow;
+        el("rect", { x: 18, y: y + 9, width: 14, height: 14, rx: 2, class: "sub-sq" }, dg);
+        el("text", { x: 42, y: y + 23, class: "sub-name" }, dg).textContent = s.short;
+      });
+      const fy = H - L.cardFooter;
+      el("line", { x1: 14, y1: fy, x2: W - 14, y2: fy, class: "card-foot-sep" }, dg);
+      el("rect", { x: 14, y: fy + 11, width: 96, height: 30, rx: 15, class: `pill-bg ${f.priority}` }, dg);
+      el("text", { x: 62, y: fy + 32, class: `pill-text ${f.priority}` }, dg).textContent = `優先度 ${PRI[f.priority]}`;
+      el("text", { x: W - 16, y: fy + 32, class: "card-open" }, dg).textContent = `小分類 ${termCount(f)}語を開く ›`;
+      if ((f.badges || []).includes("revised")) {
+        el("rect", { x: W - 172, y: -16, width: 164, height: 28, rx: 8, class: "card-weight-bg" }, g);
+        el("text", { x: W - 90, y: 4, class: "card-weight", "text-anchor": "middle" }, g).textContent = META.badges.revised.label;
+      }
+      el("rect", { x: -7, y: -7, width: W + 14, height: H + 14, rx: 20, class: "card-ring" }, g);
+    });
+  }
+
+  // 簡略表示の大きな文字：フォントの実際の幅を測ってカードに収める
+  function fitCompactText() {
+    $$(".card-big", gCard).forEach((t) => {
+      if (!t.dataset.fs0) t.dataset.fs0 = t.getAttribute("font-size");
+      t.setAttribute("font-size", t.dataset.fs0);
+    });
+    $$(".card", gCard).forEach((c) => {
+      const texts = $$(".card-big", c);
+      const w = Math.max(...texts.map((t) => t.getComputedTextLength() || 0));
+      if (w > 266) texts.forEach((t) => t.setAttribute("font-size", (Number(t.dataset.fs0) * 266 / w).toFixed(1)));
+    });
+  }
+
+  drawBackground();
+  drawTrunks();
+  drawRelations();
+  drawCenter();
+  drawCards();
+  // ラベルは最前面に移す（カードの下に隠れないように）
+  $$(".rel", gRel).forEach((g) => {
+    const lg = $(".rel-label", g);
+    const holder = el("g", { class: "rel-label-holder", "data-for": g.dataset.id }, gLabel);
+    holder.appendChild(lg);
+  });
+
+  // ---------- 拡大・移動 ----------
+  const view = { k: 0.3, x: 0, y: 0, auto: true };
+  let fitK = 0.3;
+  function applyView() {
+    vp.setAttribute("transform", `translate(${view.x.toFixed(2)},${view.y.toFixed(2)}) scale(${view.k.toFixed(5)})`);
+    svg.classList.toggle("lod-detail", view.k >= L.lodThreshold);
+    layoutLabels();
+  }
+  // 表示中の関係ラベルを、重ならないように上下へずらして置く
+  // ラベルを置かない場所：カードと中心の円（座標空間での矩形）
+  const OBSTACLES = POS.map((p) => ({ x: p.cx, y: p.cy, w: p.w + 24, h: p.h + 24 }))
+    .concat([{ x: C, y: C, w: (L.centerRadius + 30) * 2, h: (L.centerRadius + 30) * 2 }]);
+  function layoutLabels() {
+    const s = Math.max(1, 0.52 / view.k);
+    const placed = OBSTACLES.slice();
+    const holders = $$(".rel-label-holder", gLabel);
+    const vis = holders.filter((h) => h.style.display !== "none");
+    const isOn = (h) => (gRel.querySelector(`[data-id="${h.dataset.for}"]`) || h).classList.contains("on");
+    // 強調中の関係のラベルを先に置く。同じ組の中は上から順に
+    vis.sort((a, b) => (isOn(b) - isOn(a)) || (Number($(".rel-label", a).dataset.y) - Number($(".rel-label", b).dataset.y)));
+    holders.forEach((h) => {
+      const lg = $(".rel-label", h);
+      lg.setAttribute("transform", `translate(${lg.dataset.x},${lg.dataset.y}) scale(${s.toFixed(3)})`);
+    });
+    vis.forEach((h) => {
+      const lg = $(".rel-label", h);
+      const y0 = Number(lg.dataset.y);
+      const w = (Number(lg.dataset.w) + 8) * s, hh = 44 * s;
+      const x0 = Number(lg.dataset.x);
+      const len = Math.hypot(C - x0, C - y0) || 1;
+      const ix = (C - x0) / len, iy = (C - y0) / len;   // 中心へ向かう向き
+      let x = x0, y = y0, best = null;
+      search:
+      for (let r = 0; r < 16; r++) {
+        for (const v of [0, -1, 1, -2, 2]) {
+          for (const hs of [0, -0.5, 0.5]) {
+            x = x0 + ix * r * hh * 0.6 + hs * w;
+            y = y0 + iy * r * hh * 0.6 + v * hh * 0.9;
+            if (Math.hypot(x - C, y - C) > L.radius + 120) continue;
+            const hit = placed.some((p) => Math.abs(p.x - x) < (p.w + w) / 2 && Math.abs(p.y - y) < (p.h + hh) / 2);
+            if (!hit) { best = { x, y }; break search; }
+          }
+        }
+      }
+      // どこにも置けないとき：強調中なら元の位置に重ねて出し、常時表示のラベルは省略する
+      if (!best) {
+        if (!isOn(h)) { h.style.display = "none"; return; }
+        best = { x: x0, y: y0 };
+      }
+      x = best.x; y = best.y;
+      placed.push({ x, y, w, h: hh });
+      lg.setAttribute("transform", `translate(${x.toFixed(1)},${y.toFixed(1)}) scale(${s.toFixed(3)})`);
+    });
+  }
+  function fit() {
+    const r = wrap.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    const ext = (L.ringTick + 46) * 2;
+    fitK = Math.min((r.width - 16) / ext, (r.height - 16) / ext);
+    view.k = fitK;
+    view.x = r.width / 2 - C * fitK;
+    view.y = r.height / 2 - C * fitK;
+    // 左上の凡例パネルが開いているときは、重ならない範囲で地図を右へ寄せる
+    const lgd = $("#legend");
+    if (r.width > 860 && lgd.open) {
+      const lr = lgd.getBoundingClientRect(), zr = $(".zoom-ctl").getBoundingClientRect();
+      const half = (ext / 2) * fitK;
+      const left = r.width / 2 - half;
+      const want = lr.right - r.left + 10 - left;
+      const room = (zr.left - r.left - 10) - (r.width / 2 + half);
+      let shift = Math.max(0, Math.min(want, room));
+      // 右下の注記に地図の外周がかからないよう、寄せる量を減らす
+      const nr = $("#a1-note").getBoundingClientRect();
+      const cy = r.height / 2;
+      const clear = (sh) => {
+        const cx = r.width / 2 + sh;
+        const nx = Math.min(Math.max(cx, nr.left - r.left), nr.right - r.left);
+        const ny = Math.min(Math.max(cy, nr.top - r.top), nr.bottom - r.top);
+        return Math.hypot(nx - cx, ny - cy) > half - 30;
+      };
+      while (shift > 0 && !clear(shift)) shift -= 2;
+      view.x += Math.max(0, shift);
+    }
+    view.auto = true;
+    applyView();
+  }
+  function zoomAt(px, py, factor) {
+    const k2 = Math.min(Math.max(view.k * factor, fitK * 0.6), 3);
+    const f = k2 / view.k;
+    view.x = px - (px - view.x) * f;
+    view.y = py - (py - view.y) * f;
+    view.k = k2;
+    view.auto = false;
+    applyView();
+  }
+  function zoomCenter(factor) {
+    const r = wrap.getBoundingClientRect();
+    zoomAt(r.width / 2, r.height / 2, factor);
+  }
+  $("#zoom-in").addEventListener("click", () => zoomCenter(1.45));
+  $("#zoom-out").addEventListener("click", () => zoomCenter(1 / 1.45));
+  $("#zoom-fit").addEventListener("click", fit);
+
+  wrap.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const r = wrap.getBoundingClientRect();
+    const factor = Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0016));
+    zoomAt(e.clientX - r.left, e.clientY - r.top, factor);
+  }, { passive: false });
+
+  const pointers = new Map();
+  let drag = null;
+  let suppressClick = false;
+  wrap.addEventListener("pointerdown", (e) => {
+    if (e.button !== undefined && e.button !== 0) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 1) {
+      drag = { sx: e.clientX, sy: e.clientY, vx: view.x, vy: view.y, moved: false, id: e.pointerId };
+    } else if (pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      drag = { pinch: true, dist: Math.hypot(a.x - b.x, a.y - b.y), mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2, moved: true };
+    }
+  });
+  wrap.addEventListener("pointermove", (e) => {
+    if (!pointers.has(e.pointerId) || !drag) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const r = wrap.getBoundingClientRect();
+    if (drag.pinch && pointers.size >= 2) {
+      const [a, b] = [...pointers.values()];
+      const dist = Math.hypot(a.x - b.x, a.y - b.y);
+      const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+      view.x += mx - drag.mx;
+      view.y += my - drag.my;
+      zoomAt(mx - r.left, my - r.top, dist / (drag.dist || dist));
+      drag.dist = dist; drag.mx = mx; drag.my = my;
+      return;
+    }
+    const dx = e.clientX - drag.sx, dy = e.clientY - drag.sy;
+    if (!drag.moved && Math.hypot(dx, dy) > 5) {
+      drag.moved = true;
+      wrap.classList.add("dragging");
+      try { wrap.setPointerCapture(e.pointerId); } catch (err) { /* 無視 */ }
+    }
+    if (drag.moved) {
+      view.x = drag.vx + dx;
+      view.y = drag.vy + dy;
+      view.auto = false;
+      applyView();
+    }
+  });
+  function endPointer(e) {
+    pointers.delete(e.pointerId);
+    if (drag && drag.moved) suppressClick = true;
+    if (pointers.size === 0) { drag = null; wrap.classList.remove("dragging"); }
+    else if (pointers.size === 1) {
+      const [p] = [...pointers.values()];
+      drag = { sx: p.x, sy: p.y, vx: view.x, vy: view.y, moved: true };
+    }
+  }
+  wrap.addEventListener("pointerup", endPointer);
+  wrap.addEventListener("pointercancel", endPointer);
+  wrap.addEventListener("click", (e) => {
+    if (suppressClick) { e.stopPropagation(); e.preventDefault(); suppressClick = false; }
+  }, true);
+
+  // ---------- 強調表示 ----------
+  const state = { selected: null, selectedRel: null, hover: null, hoverRel: null, hits: new Set() };
+  function relatedOf(fid) {
+    const rels = RELS.filter((r) => r.from === fid || r.to === fid);
+    return { rels: new Set(rels.map((r) => r.id)), fields: new Set(rels.flatMap((r) => [r.from, r.to])) };
+  }
+  function refreshFocus() {
+    const fid = state.hover || (state.hoverRel ? null : state.selected);
+    const rid = state.hoverRel || (state.hover ? null : state.selectedRel);
+    let onRels = new Set(), onFields = new Set(), focusId = null;
+    if (fid) {
+      const r = relatedOf(fid);
+      onRels = r.rels; onFields = r.fields; onFields.add(fid); focusId = fid;
+    } else if (rid) {
+      const r = RELS.find((x) => x.id === rid);
+      onRels = new Set([rid]); onFields = new Set([r.from, r.to]);
+    }
+    const active = !!(fid || rid);
+    svg.classList.toggle("focusing", active);
+    $$(".card", gCard).forEach((c) => {
+      const id = c.dataset.id;
+      c.classList.toggle("is-focus", id === focusId);
+      c.classList.toggle("is-dim", active && !onFields.has(id));
+      c.classList.toggle("hit", state.hits.has(id));
+    });
+    $$(".trunk", gTrunk).forEach((t) => {
+      t.classList.toggle("is-dim", active && !onFields.has(t.dataset.id));
+      t.classList.toggle("is-on", active && onFields.has(t.dataset.id));
+    });
+    $$(".rel", gRel).forEach((g) => {
+      const on = onRels.has(g.dataset.id);
+      g.classList.toggle("on", on);
+      g.classList.toggle("is-dim", active && !on);
+    });
+    $$(".rel-label-holder", gLabel).forEach((h) => {
+      const g = gRel.querySelector(`[data-id="${h.dataset.for}"]`);
+      const visible = svg.classList.contains("labels-on") || onRels.has(h.dataset.for);
+      const hidden = g && getComputedStyle(g).display === "none";
+      h.style.display = visible && !hidden ? "" : "none";
+      $(".rel-label", h).style.display = "inline";
+    });
+    layoutLabels();
+  }
+  $$(".card", gCard).forEach((c) => {
+    c.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { state.hover = c.dataset.id; refreshFocus(); } });
+    c.addEventListener("pointerleave", () => { state.hover = null; refreshFocus(); });
+    c.addEventListener("focus", () => { state.hover = c.dataset.id; refreshFocus(); });
+    c.addEventListener("blur", () => { state.hover = null; refreshFocus(); });
+    c.addEventListener("click", () => openField(c.dataset.id, c));
+    c.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openField(c.dataset.id, c); }
+    });
+  });
+  $$(".rel", gRel).forEach((g) => {
+    g.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { state.hoverRel = g.dataset.id; refreshFocus(); } });
+    g.addEventListener("pointerleave", () => { state.hoverRel = null; refreshFocus(); });
+    g.addEventListener("focus", () => { state.hoverRel = g.dataset.id; refreshFocus(); });
+    g.addEventListener("blur", () => { state.hoverRel = null; refreshFocus(); });
+    g.addEventListener("click", () => openRelation(g.dataset.id, g));
+    g.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openRelation(g.dataset.id, g); }
+    });
+  });
+
+  // ---------- 右側パネル ----------
+  const panel = $("#panel");
+  const panelBody = $("#panel-body");
+  let lastFocus = null;
+  function openPanel(html, opener) {
+    panelBody.innerHTML = html;
+    panelBody.scrollTop = 0;
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden", "false");
+    lastFocus = opener || document.activeElement;
+    const title = $("#panel-title", panel);
+    if (title) { title.setAttribute("tabindex", "-1"); title.focus({ preventScroll: true }); }
+  }
+  function closePanel() {
+    if (!panel.classList.contains("open")) return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden", "true");
+    state.selected = null; state.selectedRel = null;
+    refreshFocus();
+    if (savedView) { Object.assign(view, savedView); savedView = null; applyView(); }
+    if (lastFocus && document.body.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+  }
+  $("#panel-close").addEventListener("click", closePanel);
+
+  function treeHTML(f, withIds) {
+    const subs = f.subs.map((s) => {
+      const terms = s.terms.map((t) => `<li><div class="t-term"${withIds ? ` id="t-${t.id}"` : ""}><span class="t-name">${esc(t.name)}</span>${termBadges(t)}<span class="t-desc">：${esc(t.desc)}</span>${noteLink(t)}</div></li>`).join("");
+      return `<li><span class="t-sub"><span class="swatch" style="--c:${fcolor(f.id)}"></span><span class="sid">${esc(s.id)}</span>${esc(s.name)}${lectureHTML(s.lecture)}</span><ul>${terms}</ul></li>`;
+    }).join("");
+    return `<ul class="tree"><li><span class="t-root"><span class="swatch" style="--c:${fcolor(f.id)}"></span>${esc(f.name)}</span><ul>${subs}</ul></li></ul>`;
+  }
+  function examInfoHTML(f) {
+    const official = f.subs.map((s) => `<li>${esc(s.category)} › <b>${esc(s.id)}</b> ${esc(s.name)}（${s.terms.filter((t) => !t.sup).length}語）</li>`).join("");
+    const lectures = [];
+    f.subs.forEach((s) => { if (s.lecture && !lectures.some((l) => l.number === s.lecture.number)) lectures.push(s.lecture); });
+    lectures.sort((a, b) => a.number - b.number);
+    return `<dl class="info">
+      <dt>主なテーマ</dt><dd><ul>${f.themes.map((t) => `<li>${esc(t)}</li>`).join("")}</ul></dd>
+      <dt>重要キーワード</dt><dd>${f.keywords.map((k) => `<span class="kw">${esc(k)}</span>`).join("")}</dd>
+      <dt>試験での問われ方</dt><dd>${esc(f.examPoint)}</dd>
+      <dt>ひっかけ注意</dt><dd>${esc(f.examTrap)}</dd>
+      <dt>シラバスでの対応箇所（第1.4版）</dt><dd><ul>${official}</ul></dd>
+      <dt>優先度の根拠 ${pillHTML(f.priority)}</dt><dd>${esc(f.priorityReason)}</dd>
+      ${lectures.length ? `<dt>このサイトの講義</dt><dd><ul>${lectures.map((l) => `<li>${lectureHTML(l)}：${esc(l.title)}</li>`).join("")}</ul></dd>` : ""}
+    </dl>`;
+  }
+  function linkListHTML(f) {
+    const rels = RELS.filter((r) => r.from === f.id || r.to === f.id);
+    if (!rels.length) return "<p>つながりのデータはありません。</p>";
+    return `<ul class="link-list">${rels.map((r) => {
+      const other = r.from === f.id ? r.to : r.from;
+      const arrow = r.dir === "both" ? "⇄" : (r.from === f.id ? "→" : "←");
+      return `<li><button type="button" data-open-rel="${r.id}"><span class="lk-to">${arrow} ${esc(byId[other].short)}</span><span class="kind${r.core ? " core" : ""}">${r.core ? "重要な7関係" : "関係"}</span><span class="lk-label">${esc(r.label)}</span></button></li>`;
+    }).join("")}</ul>`;
+  }
+  let savedView = null;
+  function keepVisible(fid) {
+    if ($("#view-map").hidden || window.innerWidth <= 860) return;
+    const c = gCard.querySelector(`[data-id="${fid}"]`);
+    if (!c) return;
+    const cr = c.getBoundingClientRect();
+    const limit = window.innerWidth - Math.min(460, window.innerWidth) - 24;
+    if (cr.right > limit) {
+      if (!savedView) savedView = { ...view };
+      view.x -= cr.right - limit;
+      applyView();
+    }
+  }
+  function openField(fid, opener) {
+    const f = byId[fid];
+    state.selected = fid; state.selectedRel = null;
+    refreshFocus();
+    keepVisible(fid);
+    const dom = domainById[f.domain];
+    openPanel(`
+      <p class="crumb">G検定 › <b>${esc(dom.name)}</b> › <b>${esc(f.short)}</b></p>
+      <h2 class="panel-title" id="panel-title"><span class="swatch" style="--c:${fcolor(f.id)}"></span><span>${esc(f.name)}</span></h2>
+      <div class="pills">${pillHTML(f.priority)}${badgeHTML(f)}<small>シラバス ${f.subs.length}項目・${officialCount(f)}語</small></div>
+      <p>${esc(f.summary)}</p>
+      <p><button type="button" class="btn" data-goto-field="${f.id}">分野別詳細で見る</button></p>
+      <h3>樹形図（大分類 › 中分類 › 用語）</h3>
+      ${treeHTML(f, false)}
+      <h3>他分野とのつながり</h3>
+      ${linkListHTML(f)}
+      <h3>試験対策</h3>
+      ${examInfoHTML(f)}
+    `, opener);
+  }
+  function relationHTML(r, withTitleId) {
+    const a = byId[r.from], b = byId[r.to];
+    const arrow = r.dir === "both" ? "⇄" : "→";
+    return `
+      <p class="crumb">G検定 › 分野間の関係 › <b>${r.core ? "重要な7関係" : "そのほかの関係"}</b></p>
+      <h2 class="panel-title"${withTitleId ? ' id="panel-title"' : ""}><span>${esc(a.short)} ${arrow} ${esc(b.short)}</span></h2>
+      <div class="pills"><span class="kind${r.core ? " core" : ""}">${r.core ? "重要な7関係（太い実線）" : "そのほかの関係（破線）"}</span><span class="kind">${r.dir === "both" ? "双方向" : "片方向"}</span></div>
+      <p style="font-size:17px;font-weight:700;color:var(--link-on)">${esc(r.label)}</p>
+      <dl class="info">
+        <dt>なぜつながるか</dt><dd>${esc(r.why)}</dd>
+        <dt>具体例</dt><dd>${esc(r.example)}</dd>
+        <dt>試験での現れ方</dt><dd>${esc(r.exam)}</dd>
+      </dl>`;
+  }
+  function openRelation(rid, opener) {
+    const r = RELS.find((x) => x.id === rid);
+    state.selectedRel = rid; state.selected = null;
+    refreshFocus();
+    openPanel(`${relationHTML(r, true)}
+      <h3>両端の分野</h3>
+      <p class="pills"><button type="button" class="btn ghost" data-open-field="${r.from}">${esc(byId[r.from].short)}を開く</button>
+      <button type="button" class="btn ghost" data-open-field="${r.to}">${esc(byId[r.to].short)}を開く</button></p>`, opener);
+  }
+
+  // ---------- 左上のパネルと右下の注記 ----------
+  function buildLegend() {
+    const doms = DATA.domains.map((d) => `<li><span class="swatch" style="--c:${dcolor(d.id)}"></span>${esc(d.name)}</li>`).join("");
+    $("#legend-body").innerHTML = `
+      <h3>使い方</h3>
+      <ol>
+        <li>ドラッグで移動、ホイールやピンチで拡大・縮小</li>
+        <li>拡大すると、カードにシラバスの項目（中分類）が出る</li>
+        <li>カードを選ぶ（Tab → Enter）と、右に樹形図と試験対策</li>
+        <li>矢印を選ぶと、分野どうしの関係の説明</li>
+        <li>右上の検索で用語を探せる</li>
+      </ol>
+      <h3>表示設定</h3>
+      <label><input type="checkbox" id="opt-links" checked> 関係の矢印を表示</label>
+      <label><input type="checkbox" id="opt-core"> 重要な7つの関係だけ</label>
+      <label><input type="checkbox" id="opt-labels"> 矢印のラベルを常に表示</label>
+      <p class="legend-note" style="margin-top:2px;padding-top:0;border:0">重なって置けないラベルは省略する。拡大すると増える。</p>
+      <h3>凡例</h3>
+      <ul class="legend-list cols">${doms}</ul>
+      <ul class="legend-list" style="margin-top:6px">
+        <li><span class="pill high">優先度 高</span><span class="pill mid">中</span><span class="pill low">低</span></li>
+        <li><span class="badge weight">${esc(META.badges.revised.label)}</span>改訂で項目・語が加わった分野</li>
+        <li><span class="badge sup">補</span>シラバスのキーワードにない補足の語</li>
+        <li><span class="line-sample"></span>重要な7つの関係（太い実線）</li>
+        <li><span class="line-sample dash"></span>そのほかの関係（破線）</li>
+        <li><span aria-hidden="true">▶</span>矢じりの向き＝影響の向き（両端は双方向）</li>
+      </ul>
+      <p class="legend-note">作成日（調査日）：${esc(META.created)}<br>${esc(META.notice)}</p>`;
+    const sync = () => {
+      svg.classList.toggle("no-links", !$("#opt-links").checked);
+      svg.classList.toggle("core-only", $("#opt-core").checked);
+      svg.classList.toggle("labels-on", $("#opt-labels").checked);
+      refreshFocus();
+    };
+    ["#opt-links", "#opt-core", "#opt-labels"].forEach((s) => $(s).addEventListener("change", sync));
+    if (window.matchMedia("(max-width: 860px)").matches) $("#legend").open = false;
+    $("#legend").addEventListener("toggle", () => { if (view.auto) fit(); });
+  }
+  function buildA1Note() {
+    $("#a1-note").innerHTML = `<strong>${esc(META.footNote.title)}</strong><p>${esc(META.footNote.text)}</p><p class="a1-new">${esc(META.footNote.newText)}</p>`;
+  }
+
+  // ---------- 分野別詳細 ----------
+  let detailFilter = "all";
+  function buildDetail() {
+    const groups = DATA.domains.map((d) => {
+      const items = FIELDS.filter((f) => f.domain === d.id).map((f) =>
+        `<li data-pri="${f.priority}"><a href="#detail" data-goto-field="${f.id}"><span class="swatch" style="--c:${fcolor(f.id)}"></span>${esc(f.short)}<span class="pill ${f.priority}">${PRI[f.priority]}</span></a></li>`).join("");
+      return `<div><div class="nav-domain"><span class="swatch" style="--c:${dcolor(d.id)}"></span>${esc(d.name)}</div><ul class="nav-list">${items}</ul></div>`;
+    }).join("");
+    const sections = FIELDS.map((f) => `
+      <section class="fsec" id="f-${f.id}" data-pri="${f.priority}" style="--c:${fcolor(f.id)}" aria-labelledby="fh-${f.id}">
+        <div class="fsec-head">
+          <div><div class="dom">${esc(domainById[f.domain].name)} › ${esc(f.short)}</div><h2 id="fh-${f.id}">${esc(f.name)}</h2></div>
+          <div class="pills">${pillHTML(f.priority)}${badgeHTML(f)}</div>
+        </div>
+        <div class="fsec-body">
+          <p class="fsec-summary">${esc(f.summary)}</p>
+          <div><h3>樹形図</h3>${treeHTML(f, true)}</div>
+          <div><h3>試験対策</h3>${examInfoHTML(f)}</div>
+          <div class="fsec-links"><h3>つながり</h3>${linkListHTML(f)}</div>
+        </div>
+      </section>`).join("");
+    $("#view-detail").innerHTML = `
+      <div class="detail-layout">
+        <nav class="detail-nav" aria-label="分野の一覧">
+          <h2>分野の一覧</h2>
+          <div class="filter" role="group" aria-label="優先度で絞り込む">
+            <button type="button" data-filter="all" aria-pressed="true">すべて</button>
+            <button type="button" data-filter="high" aria-pressed="false">高</button>
+            <button type="button" data-filter="mid" aria-pressed="false">中</button>
+            <button type="button" data-filter="low" aria-pressed="false">低</button>
+          </div>
+          <div class="nav-groups">${groups}</div>
+        </nav>
+        <div class="detail-body">
+          <div class="page-head">
+            <h1>分野別詳細</h1>
+            <p>${FIELDS.length}分野それぞれの、シラバスの項目（中分類）と全キーワード（1文の説明つき）・試験対策・ほかの分野とのつながり。<span class="badge sup">補</span>はシラバスのキーワードにない補足の語。項目には学ぶ講義の回を付けた。</p>
+            <p class="notice">作成日（調査日）：${esc(META.created)}。${esc(META.notice)}</p>
+          </div>
+          ${sections}
+        </div>
+      </div>`;
+    $$("[data-filter]", $("#view-detail")).forEach((b) => b.addEventListener("click", () => setFilter(b.dataset.filter)));
+  }
+  function setFilter(v) {
+    detailFilter = v;
+    $$("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === v)));
+    $$(".fsec, .nav-list li").forEach((x) => { x.hidden = v !== "all" && x.dataset.pri !== v; });
+  }
+
+  // ---------- 分野間の関係 ----------
+  const MINI = { size: 640, r: 236 };
+  function miniPos(id) {
+    const p = posById[id];
+    const c = MINI.size / 2;
+    return { i: p.i, ang: p.ang, cx: c + MINI.r * Math.cos(rad(p.ang)), cy: c + MINI.r * Math.sin(rad(p.ang)) };
+  }
+  function miniAnchor(p, gap, tangent) {
+    const c = MINI.size / 2;
+    const dx = c - p.cx, dy = c - p.cy, len = Math.hypot(dx, dy);
+    const ux = dx / len, uy = dy / len;
+    const rr = 20 + gap;
+    return { x: p.cx + ux * rr - uy * tangent, y: p.cy + uy * rr + ux * tangent };
+  }
+  function buildLinks() {
+    const s = MINI.size, c = s / 2, scale = MINI.r / L.radius;
+    let mini = `<svg class="mini" id="mini" viewBox="-160 -10 ${s + 320} ${s + 20}" role="img" aria-label="16分野を円に並べ、関係を矢印で示した縮小図">`;
+    mini += `<circle cx="${c}" cy="${c}" r="${MINI.r}" fill="none" stroke="var(--grid)" stroke-dasharray="4 6"/>`;
+    mini += `<circle cx="${c}" cy="${c}" r="44" fill="var(--center)"/><text x="${c}" y="${c + 6}" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">G検定</text>`;
+    RELS.forEach((r) => {
+      const g = relGeometry(r, scale * 0.95, c, miniPos, (p, gap, tan) => miniAnchor(p, gap * 0.4, tan * 0.5));
+      const size = r.core ? 13 : 10;
+      mini += `<g class="mini-rel${r.core ? " core" : ""}" data-id="${r.id}"><path d="M${g.p0.x.toFixed(1)},${g.p0.y.toFixed(1)} Q${g.c.x.toFixed(1)},${g.c.y.toFixed(1)} ${g.p2.x.toFixed(1)},${g.p2.y.toFixed(1)}"/>`;
+      mini += `<polygon points="${arrowHead(g.p2, g.c, size)}"/>`;
+      if (r.dir === "both") mini += `<polygon points="${arrowHead(g.p0, g.c, size)}"/>`;
+      mini += `</g>`;
+    });
+    FIELDS.forEach((f) => {
+      const p = miniPos(f.id);
+      const lx = c + (MINI.r + 30) * Math.cos(rad(p.ang)), ly = c + (MINI.r + 30) * Math.sin(rad(p.ang));
+      const cosv = Math.cos(rad(p.ang));
+      const anchorTxt = Math.abs(cosv) < 0.08 ? "middle" : (cosv > 0 ? "start" : "end");
+      mini += `<g class="mini-node" data-id="${f.id}" style="--c:${fcolor(f.id)}"><circle cx="${p.cx.toFixed(1)}" cy="${p.cy.toFixed(1)}" r="18"/>`;
+      mini += `<text x="${lx.toFixed(1)}" y="${(ly + 7).toFixed(1)}" text-anchor="${anchorTxt}">${esc(f.short)}</text></g>`;
+    });
+    mini += `</svg>`;
+
+    const card = (r) => `
+      <button type="button" class="rel-card" data-rel-card="${r.id}" aria-pressed="false">
+        <span class="rc-head"><span class="chip"><span class="swatch" style="--c:${fcolor(r.from)}"></span>${esc(byId[r.from].short)}</span>
+        <span class="rc-arrow">${r.dir === "both" ? "⇄" : "→"}</span>
+        <span class="chip"><span class="swatch" style="--c:${fcolor(r.to)}"></span>${esc(byId[r.to].short)}</span>
+        <span class="kind${r.core ? " core" : ""}">${r.core ? "重要な7関係" : "関係"}</span></span>
+        <span class="rc-label">${esc(r.label)}</span>
+        <dl><dt>なぜつながるか</dt><dd>${esc(r.why)}</dd><dt>具体例</dt><dd>${esc(r.example)}</dd><dt>試験での現れ方</dt><dd>${esc(r.exam)}</dd></dl>
+      </button>`;
+    const themed = DATA.themes.map((t, i) => {
+      const rels = [RELS.find((r) => r.id === t.core), ...RELS.filter((r) => r.theme === t.id && r.id !== t.core)];
+      return `<div class="rel-group"><h2><span class="num">${i + 1}</span>${esc(t.title)}</h2><div class="rel-cards">${rels.map(card).join("")}</div></div>`;
+    }).join("");
+    const others = RELS.filter((r) => r.theme === "other");
+    const otherHTML = others.length ? `<div class="rel-group"><h2><span class="num">＋</span>そのほかの関係</h2><div class="rel-cards">${others.map(card).join("")}</div></div>` : "";
+
+    const T = DATA.tables;
+    const cloud = `<div><h2>${esc(T.compare.title)}</h2><div class="tbl-wrap"><table>
+      <thead><tr>${T.compare.columns.map((c2) => `<th scope="col">${esc(c2)}</th>`).join("")}</tr></thead>
+      <tbody>${T.compare.rows.map((r) => `<tr><th scope="row">${esc(r[0])}</th>${r.slice(1).map((x) => `<td>${esc(x)}</td>`).join("")}</tr>`).join("")}</tbody>
+    </table></div></div>`;
+    const pairs = `<div><h2>${esc(T.pairs.title)}（${T.pairs.items.length}組）</h2><div class="pairs">${T.pairs.items.map((p) => `
+      <div class="pair"><h3>${esc(p.title)}</h3><dl>${p.items.map(([n, d]) => `<dt>${esc(n)}</dt><dd>${esc(d)}</dd>`).join("")}</dl>
+      <p class="point">${esc(p.point)}</p><div class="chips" style="margin-top:6px">${(p.fields || []).map(chipHTML).join("")}</div></div>`).join("")}</div></div>`;
+
+    $("#view-links").innerHTML = `
+      <div class="links-layout">
+        <div class="page-head">
+          <h1>分野間の関係</h1>
+          <p>${FIELDS.length}分野をつなぐ${RELS.length}本の関係。はじめに重要な7つのテーマごとに並べ、そのあとに比較表を載せた。カードを選ぶと、縮小図の該当する矢印と両端の分野が強調される。</p>
+        </div>
+        <div class="mini-wrap">${mini}<p>太い実線＝重要な7関係、破線＝そのほかの関係。矢じりは影響の向き。</p></div>
+        <div class="rel-groups">${themed}${otherHTML}</div>
+        <div class="tables">${cloud}${pairs}</div>
+      </div>`;
+    $$("[data-rel-card]").forEach((b) => b.addEventListener("click", () => selectMini(b.dataset.relCard)));
+  }
+  function selectMini(rid) {
+    const mini = $("#mini");
+    const cur = $(".rel-card.sel");
+    const same = cur && cur.dataset.relCard === rid;
+    $$(".rel-card").forEach((b) => { b.classList.toggle("sel", !same && b.dataset.relCard === rid); b.setAttribute("aria-pressed", String(!same && b.dataset.relCard === rid)); });
+    if (same) { mini.classList.remove("sel"); $$(".on", mini).forEach((x) => x.classList.remove("on")); return; }
+    const r = RELS.find((x) => x.id === rid);
+    mini.classList.add("sel");
+    $$(".mini-rel", mini).forEach((g) => g.classList.toggle("on", g.dataset.id === rid));
+    $$(".mini-node", mini).forEach((g) => g.classList.toggle("on", g.dataset.id === r.from || g.dataset.id === r.to));
+    if (window.matchMedia("(max-width: 860px)").matches) {
+      $(".mini-wrap").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    }
+  }
+
+  // ---------- 試験制度と根拠 ----------
+  function buildExam() {
+    const statusLabel = { done: "実施済み", next: "次回", plan: "予定" };
+    const tl = META.timeline.map((t) => `
+      <li class="${t.status}"><div class="tl-when">${esc(t.when)}</div>
+      <div class="tl-name">${esc(t.name)} <span class="status ${t.status}">${statusLabel[t.status]}</span></div>
+      <p class="tl-text">${esc(t.text)}</p></li>`).join("");
+    const fmt = META.format.map((r) => `<tr><th scope="row">${esc(r.aspect)}</th><td>${esc(r.online)}</td><td>${esc(r.onsite)}</td></tr>`).join("");
+    const S = META.syllabus;
+    const hist = S.history.map((h) => `<tr><th scope="row">${esc(h.ver)}</th><td style="white-space:nowrap">${esc(h.date)}</td><td>${esc(h.text)}</td></tr>`).join("");
+    // シラバスの大項目 → 項目 → この地図の分野（データから自動で作る）
+    const subOwner = {};
+    FIELDS.forEach((f) => f.subs.forEach((s2) => { subOwner[s2.id] = { f, s: s2 }; }));
+    const cats = META.categories.map((c) => {
+      const subs = Object.values(subOwner).filter((o) => o.s.category === c.name).sort((a, b) => a.s.id.localeCompare(b.s.id, "en", { numeric: true }));
+      const kw = subs.reduce((n, o) => n + o.s.terms.filter((t) => !t.sup).length, 0);
+      const items = subs.map((o) => `<li><b>${esc(o.s.id)}</b> ${esc(o.s.name)} <a class="chip" href="#detail" data-goto-field="${o.f.id}"><span class="swatch" style="--c:${fcolor(o.f.id)}"></span>${esc(o.f.short)}</a></li>`).join("");
+      return `<tr><th scope="row">${esc(c.name)}<div style="font-weight:400;font-size:12px;color:var(--ink-3)">${esc(c.area)}・${subs.length}項目・${kw}語</div></th><td><ul class="cat-items">${items}</ul></td></tr>`;
+    }).join("");
+    const exs = META.examples.map((q) => `<tr><th scope="row">${esc(q.id)}</th><td>${esc(q.cat)}</td><td>${esc(q.theme)}</td><td style="white-space:nowrap">${esc(q.from)}</td><td><div class="chips">${q.fields.map(chipHTML).join("")}</div></td></tr>`).join("");
+    const pri = FIELDS.map((f) => `<tr><th scope="row"><a class="chip" href="#detail" data-goto-field="${f.id}"><span class="swatch" style="--c:${fcolor(f.id)}"></span>${esc(f.short)}</a></th><td>${pillHTML(f.priority)} ${badgeHTML(f)}<div style="font-size:12px;color:var(--ink-3);margin-top:2px">${officialCount(f)}語</div></td><td>${esc(f.priorityReason)}</td></tr>`).join("");
+    const guide = META.readingGuide.map((g) => `<div><span class="lv">${esc(g.level)}</span><b>${esc(g.name)}</b>${esc(g.text)}</div>`).join("");
+    const src = META.sources.map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a> <span class="src-note">— ${esc(x.note)}</span></li>`).join("");
+    $("#view-exam").innerHTML = `
+      <div class="exam-wrap">
+        <div class="page-head">
+          <h1>試験制度と根拠</h1>
+          <p>この地図の前提にした試験の形式・日程・出題範囲（シラバス）と、優先度の根拠。</p>
+          <p class="notice">作成日（調査日）：${esc(META.created)}。${esc(META.notice)}</p>
+        </div>
+        <section aria-labelledby="ex-tl"><h2 id="ex-tl">受験時期のタイムライン</h2><ol class="timeline timeline-many">${tl}</ol></section>
+        <section aria-labelledby="ex-fmt"><h2 id="ex-fmt">試験の形式（オンライン試験と会場試験）</h2>
+          <div class="tbl-wrap"><table><thead><tr><th scope="col">観点</th><th scope="col">オンライン試験（自宅）</th><th scope="col">会場試験</th></tr></thead><tbody>${fmt}</tbody></table></div></section>
+        <section aria-labelledby="ex-syl"><h2 id="ex-syl">シラバスの版と改訂</h2>
+          <p><strong>シラバス2024 ${esc(S.version)}（${esc(S.date)}）</strong>。${esc(S.appliesFrom)}。改訂のポイントは次の3つ。</p>
+          <ul>${S.points.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+          <div class="tbl-wrap"><table><thead><tr><th scope="col">版</th><th scope="col">改訂日</th><th scope="col">主な変更</th></tr></thead><tbody>${hist}</tbody></table></div></section>
+        <section aria-labelledby="ex-cat"><h2 id="ex-cat">シラバスの大項目と、この地図の分野</h2>
+          <p>シラバスの55項目を、内容の近さで17分野に束ねた。どの項目がどの分野に入っているかの対応表。</p>
+          <div class="tbl-wrap"><table><thead><tr><th scope="col">大項目</th><th scope="col">項目と、この地図の分野</th></tr></thead><tbody>${cats}</tbody></table></div></section>
+        <section aria-labelledby="ex-q"><h2 id="ex-q">JDLA公式の例題（20問）の題材</h2>
+          <p>JDLAが公開している例題・過去問の題材と出題回。問題文は転載せず、題材だけをまとめた。本番の問題は公開されていない。</p>
+          <div class="tbl-wrap"><table><thead><tr><th scope="col">例題</th><th scope="col">大項目</th><th scope="col">題材</th><th scope="col">出題回</th><th scope="col">この地図の分野</th></tr></thead><tbody>${exs}</tbody></table></div></section>
+        <section aria-labelledby="ex-pri"><h2 id="ex-pri">優先度の決め方</h2>
+          <ul class="method">${META.priorityMethod.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
+          <div class="tbl-wrap" style="margin-top:10px"><table><thead><tr><th scope="col">分野</th><th scope="col">優先度・語数</th><th scope="col">根拠</th></tr></thead><tbody>${pri}</tbody></table></div></section>
+        <section aria-labelledby="ex-guide"><h2 id="ex-guide">地図の読み方</h2><div class="guide">${guide}</div></section>
+        <section aria-labelledby="ex-src"><h2 id="ex-src">出典（いずれも ${esc(META.created)} に確認）</h2><ol class="src-list">${src}</ol></section>
+        <p class="footer-note">JDLAの文書は要点を自分の言葉でまとめ、出典をリンクで示している。用語の説明もオリジナル。最新情報は必ずJDLAの公式サイトで確認すること。</p>
+      </div>`;
+  }
+
+  // ---------- 用語検索 ----------
+  const INDEX = [];
+  FIELDS.forEach((f) => {
+    INDEX.push({ kind: "field", label: f.name, keys: [f.name, f.short], field: f });
+    f.subs.forEach((s) => {
+      INDEX.push({ kind: "sub", label: `${s.id} ${s.name}`, keys: [s.name, s.short, s.id], field: f, sub: s });
+      s.terms.forEach((t) => INDEX.push({ kind: "term", label: t.name, keys: [t.name, ...t.aka], desc: t.desc, field: f, sub: s, term: t }));
+    });
+  });
+  INDEX.forEach((x) => { x.nk = x.keys.map(norm); x.nd = norm(x.desc || ""); });
+  const qInput = $("#q"), qList = $("#q-list");
+  let qResults = [], qActive = -1;
+  function searchItems(q) {
+    const n = norm(q);
+    if (!n) return [];
+    const scored = [];
+    INDEX.forEach((x) => {
+      let s = 0;
+      if (x.nk.some((k) => k === n)) s = 100;
+      else if (x.nk.some((k) => k.startsWith(n))) s = 80;
+      else if (x.nk.some((k) => k.includes(n))) s = 60;
+      else if (n.length >= 2 && x.nd.includes(n)) s = 20;
+      if (s) scored.push({ x, s: s + (x.kind === "term" ? 2 : x.kind === "sub" ? 1 : 0) });
+    });
+    scored.sort((a, b) => b.s - a.s || a.x.label.length - b.x.label.length);
+    return scored.map((o) => o.x);
+  }
+  function renderSearch() {
+    const q = qInput.value.trim();
+    const all = searchItems(q);
+    state.hits = new Set(all.filter((x) => x.kind !== "term" || x.nd !== undefined).filter((x) => x.nk.some((k) => k.includes(norm(q)))).map((x) => x.field.id));
+    refreshFocus();
+    qResults = all.slice(0, 12);
+    qActive = -1;
+    if (!q) { qList.hidden = true; qInput.setAttribute("aria-expanded", "false"); return; }
+    const info = `<li class="q-info" role="presentation">${all.length ? `${all.length}件${all.length > 12 ? "（上位12件）" : ""}。地図上で該当する分野をオレンジの破線で囲んでいる` : "見つかりませんでした"}</li>`;
+    qList.innerHTML = info + qResults.map((x, i) => {
+      const path = x.kind === "term" ? `${x.field.short} › ${x.sub.id} ${x.sub.name}` : x.kind === "sub" ? `${x.field.short}（シラバスの項目）` : "大分類";
+      return `<li role="option" id="qo-${i}" data-i="${i}" aria-selected="false"><span class="q-name">${esc(x.label)}</span>${x.term ? termBadges(x.term) : ""}<span class="q-path">${esc(path)}</span></li>`;
+    }).join("");
+    qList.hidden = false;
+    qInput.setAttribute("aria-expanded", "true");
+  }
+  function setActive(i) {
+    const opts = $$("[role=option]", qList);
+    if (!opts.length) return;
+    qActive = (i + opts.length) % opts.length;
+    opts.forEach((o, j) => o.setAttribute("aria-selected", String(j === qActive)));
+    qInput.setAttribute("aria-activedescendant", `qo-${qActive}`);
+    opts[qActive].scrollIntoView({ block: "nearest" });
+  }
+  function chooseResult(i) {
+    const x = qResults[i];
+    if (!x) return;
+    qList.hidden = true;
+    qInput.setAttribute("aria-expanded", "false");
+    if (x.kind === "term") gotoTerm(x.term.id, x.field.id);
+    else gotoField(x.field.id);
+  }
+  qInput.addEventListener("input", renderSearch);
+  qInput.addEventListener("focus", () => { if (qInput.value.trim()) renderSearch(); });
+  qInput.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") { e.preventDefault(); setActive(qActive + 1); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); setActive(qActive - 1); }
+    else if (e.key === "Enter") { e.preventDefault(); chooseResult(qActive >= 0 ? qActive : 0); }
+    else if (e.key === "Escape") { if (!qList.hidden) { e.stopPropagation(); qList.hidden = true; qInput.setAttribute("aria-expanded", "false"); } }
+  });
+  qList.addEventListener("pointerdown", (e) => e.preventDefault());
+  qList.addEventListener("click", (e) => {
+    const li = e.target.closest("[role=option]");
+    if (li) chooseResult(Number(li.dataset.i));
+  });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".search")) { qList.hidden = true; qInput.setAttribute("aria-expanded", "false"); }
+  });
+
+  // ---------- 画面の切り替え（#map #detail #links #exam） ----------
+  const TABS = ["map", "detail", "links", "exam"];
+  const built = {};
+  let pendingScroll = null;
+  function showTab(name) {
+    if (!TABS.includes(name)) name = "map";
+    if (name !== "map" && !built[name]) {
+      ({ detail: buildDetail, links: buildLinks, exam: buildExam })[name]();
+      built[name] = true;
+    }
+    TABS.forEach((t) => {
+      $(`#view-${t}`).hidden = t !== name;
+      const tab = $(`#tab-${t}`);
+      tab.setAttribute("aria-selected", String(t === name));
+      tab.setAttribute("tabindex", t === name ? "0" : "-1");
+    });
+    if (name !== "map") closePanel();
+    if (name === "map" && view.auto) requestAnimationFrame(fit);
+    if (pendingScroll) { const fn = pendingScroll; pendingScroll = null; requestAnimationFrame(fn); }
+  }
+  function currentTab() { return (location.hash || "#map").slice(1).split("/")[0]; }
+  function goTab(name, after) {
+    pendingScroll = after || null;
+    if (currentTab() === name) showTab(name);
+    else location.hash = name;
+  }
+  function gotoField(fid) {
+    goTab("detail", () => {
+      if (detailFilter !== "all") setFilter("all");
+      const sec = $(`#f-${fid}`);
+      if (sec) { sec.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); $("h2", sec).setAttribute("tabindex", "-1"); $("h2", sec).focus({ preventScroll: true }); }
+    });
+  }
+  function gotoTerm(tid) {
+    goTab("detail", () => {
+      if (detailFilter !== "all") setFilter("all");
+      const t = $(`#t-${tid}`);
+      if (!t) return;
+      t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      t.classList.add("flash");
+      setTimeout(() => t.classList.remove("flash"), 2600);
+    });
+  }
+  window.addEventListener("hashchange", () => showTab(currentTab()));
+  $(".tabs").addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const i = TABS.indexOf(currentTab());
+    const next = TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length];
+    location.hash = next;
+    $(`#tab-${next}`).focus();
+  });
+
+  // パネル・各画面の中のボタン（委譲）
+  document.addEventListener("click", (e) => {
+    const gf = e.target.closest("[data-goto-field]");
+    if (gf) { e.preventDefault(); gotoField(gf.dataset.gotoField); return; }
+    const of = e.target.closest("[data-open-field]");
+    if (of) { e.preventDefault(); openField(of.dataset.openField); return; }
+    const orl = e.target.closest("[data-open-rel]");
+    if (orl) { e.preventDefault(); openRelation(orl.dataset.openRel); }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePanel();
+  });
+
+  // ---------- 表示色の切り替え ----------
+  const root = document.documentElement;
+  const saved = store.get("riss-map-theme");
+  if (saved === "light" || saved === "dark") root.dataset.theme = saved;
+  $("#theme-toggle").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    store.set("riss-map-theme", root.dataset.theme);
+  });
+
+  // ---------- 開始 ----------
+  function syncTopbar() {
+    const h = $("#topbar").getBoundingClientRect().height;
+    root.style.setProperty("--topbar-actual", `${h}px`);
+  }
+  buildLegend();
+  buildA1Note();
+  syncTopbar();
+  window.addEventListener("resize", () => { syncTopbar(); if (view.auto) fit(); });
+  showTab(currentTab());
+  fit();
+  fitCompactText();
+  refreshFocus();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { fitCompactText(); if (view.auto) fit(); });
+  // 検証用：外から状態を読めるようにする（画面の動作には影響しない）
+  window.__map = { view, fit, openField, openRelation, gotoTerm, POS, closePanel };
+})();
+
+</script>
+</body>
+</html>
